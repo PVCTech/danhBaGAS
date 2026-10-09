@@ -1,0 +1,285 @@
+  
+    a {text-decoration:none;}
+    a:active{opacity:0.45;}
+    
+    .Alert_Div_NoiDung
+    {
+        width:300px;
+        text-align:center;    
+        padding:8px;
+        border-radius:5px;
+        border:1px solid rgba(0,0,0,0.5);
+        background:white;
+        color:rgba(0,0,0,0.75);
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.35);
+        
+        
+    }
+    
+    
+    .Avatar
+    {
+        width:95%;
+        border-radius:5px;
+        border:0.5px solid rgba(0,0,0,0.23);
+    }
+    
+    .Avatar_Div
+    {
+        width:60px;
+        height:60px;
+        overflow:hidden;
+        border-radius:5px;
+    }
+    
+    .Avatar_Inactive
+    {
+        width:95%;
+        border-radius:50%;
+        border:2px solid rgba(0,0,0,0.23);
+    }
+    
+    .Button
+    {
+        text-align:center;    
+        padding:8px;
+        border-radius:5px 0px 5px 0px;
+        width:100px;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+    
+    .Button:active 
+    {
+        background:white;
+        color:rgba(0,0,0,0.8);
+        postition:relative;
+        top:1px;
+        left:1px;
+        opacity:0.45;
+    }
+    
+    .Button_Click{}
+    .Button_Click:active 
+    {
+        postition:relative;
+        top:1px;
+        left:1px;
+        opacity:0.45;
+    }
+    
+    .Containner
+    {
+        box-shadow: 5px -5px 8px rgba(0,0,0,0.3);
+    }
+    
+    @media only screen and (max-width:450px)
+    {
+        .Containner
+        {
+            width:100%;
+        }
+    }
+    
+    
+    @media only screen and (min-width:451px)
+    {
+        .Containner
+        {
+            width:450px;
+        }
+    }
+    
+    @font-face {
+      font-family: HOVATEN;
+      src: url(index_files/fonts/SairaStencilOne-Regular.ttf);
+    }
+    
+    .HoVaTen {
+      /*font-family: HOVATEN;*/
+      text-transform: uppercase;
+      font-size:18px;
+      font-weight:bold;
+    }
+    
+    html
+    {
+        background: -webkit-linear-gradient(top left, #25A55E, #9ABE5B);
+    }
+    
+    .InputBox 
+    {
+        width:90%;
+        border-radius:5px;
+        border:0.3px rgba(0,0,0,0.3) solid;
+        padding:6px;
+        color:rgba(0,0,0,0.75);
+        
+    }
+    
+    .Input_Div 
+    {
+        width:96%;
+        border-radius:5px;
+        border:0.3px rgba(0,0,0,0.3) solid;
+        padding:6px;
+        color:rgba(0,0,0,0.75);
+        background:rgba(0,0,0,0.03);
+        height:16px;
+    }
+    
+    .Input_Div_Dropt
+    {
+        position:absolute;
+        right:10px;
+        top:10px;
+    }
+    
+    .Input_GoiY_Div
+    {
+        
+    }
+    
+    
+    .Input_GoiY_Div_Data
+    {
+        background:white;
+        overflow:scroll;
+        font-size:15px;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }  
+    .Input_GoiY_Div_Data::-webkit-scrollbar 
+    {
+      display: none;
+    }
+    
+    @media only screen and (max-width:400px){.Input_GoiY_Div_Data{width:95%;}}
+    @media only screen and (min-width:401px){.Input_GoiY_Div_Data{width:400px;}}
+    
+    .LocTheoNhom
+    {
+        /*
+        background: -webkit-linear-gradient(top left, #25A55E, #9ABE5B); */
+        background: -webkit-linear-gradient(top left, #ff9900, #00e600);
+        color:white;
+    }
+    
+    .LocTheoNhom_Inactive
+    {
+        background: -webkit-linear-gradient(top left, #cccccc, #fff);
+        border:0.5px solid rgba(0,0,0,0.3);
+    }
+    .Login_InputBox {background:#f2f2f2;padding:8px;border-radius:8px;border:0.2px solid rgba(0,0,0,0.3);color:#6fb55c;width:95%;}
+    .Login_Table{color:rgba(255,255,255,0.8);}
+    @media only screen and (max-width:400px)
+    { 
+        .Login_Table{width:85%;}
+    }
+    
+    @media only screen and (min-width:401px){
+        .Login_Table{width:400px;}
+    }
+    
+    .Main_Div
+    {
+        min-height:100vh;
+        background:rgba(255,255,255,0.9);
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    .So
+    {
+        border-radius:5px;
+        padding:10px;
+        border:0.3px solid rgba(0,0,0,0.2);
+        background:white;
+        font-size:24px;
+        font-weight:bold;
+        text-align:center;
+        color:rgba(0,0,0,0.8);
+    }
+    
+    .So:active
+    {
+        padding:9px;
+        border:0.3px solid black;
+        background:#f2f2f2;
+        color:orange;
+    }
+    
+    .TdData 
+    {
+        padding-top:12px;
+        padding-bottom:12px;
+        border-bottom:rgba(0,0,0,0.3) 0.3px solid;
+    }
+    
+    .TdMenu
+    {
+        background: -webkit-linear-gradient(top left, #25A55E, #9ABE5B);
+        color: white;
+    }
+    .TdMenu:hover 
+    {
+        background: #9ABE5B;
+    }
+    
+    
+    .ThemMoi_GoiY_Data_Div
+    {
+        padding:8px;
+        border-radius:5px;
+        border:1px solid rgba(0,0,0,0.3);
+        margin-top:10px;
+        width:250px;
+    }
+    .ThemMoi_GoiY_Data_Div:hover 
+    {
+        background:rgba(0,0,0,0.05);
+        color:rgba(0,0,0,0.75);
+    }
+    
+    .ThemMoi_GoiY_Data_Div_NotSelected
+    {
+        color:rgba(0,0,0,0.45);
+        background:white;
+    }
+    
+    .ThemMoi_GoiY_Data_Div_Selected
+    {
+        color:rgba(255,255,255,0.75);
+        background:rgba(0,0,0,0.35);
+    }
+    
+    .TimKiem_ChonNhom_GoiY_Data_Div
+    {
+        padding:10px 0px 10px 0px;
+        border-radius:5px;
+        border:1px solid rgba(0,0,0,0.3);
+        margin-top:10px;
+        width:300px;
+    }
+    
+    .TimKiem_Input_GoiY_Div
+    {
+        position:fixed;
+        bottom:70px;
+        left:0px;
+        width:100%;
+        height:80vh;
+        z-index:101;
+        display:none;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    .TimKiem_Input_GoiY_Div::-webkit-scrollbar 
+    {
+      display: none;
+    }
+    
+    .ThemMoi_Star_Active{opacity:1;}
+    .ThemMoi_Star_InActive{opacity:0.3;}
+    
