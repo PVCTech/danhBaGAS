@@ -1,0 +1,39 @@
+.header__uiCaption 
+{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+@media only screen and (max-width:981px) 
+{
+    .header__uiCaption 
+    {
+        display: none;
+    }
+}
+
+.header__nguoi-dung 
+{
+    color: var(--color-on-background-secondary);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 981px) 
+{
+    .header__ten-ung-dung 
+    {
+        font-size: 17px;
+    }
+
+    .header__nguoi-dung 
+    {
+        max-width: 42%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.7rem;
+    }
+}
+
+
+

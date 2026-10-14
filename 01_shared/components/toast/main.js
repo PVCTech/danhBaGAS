@@ -1,0 +1,44 @@
+function toast_init()
+{
+    let container = document.createElement('div');
+    container.id = 'toast';
+    container.className = 'toast__container';
+        let el = '<div style="position: relative;">';
+        if (APP.config.showIcon)
+        {
+            el += '<image src="' + APP.config.publicUrl + '/img/avatar.svg" style="position:absolute; top:-36px; left:-24px; height:36px;">';
+        }
+        el += `
+                <div class="toast__noiDung" id="toast__noiDung">
+                </div>
+            </div>
+        `;
+    container.innerHTML = el;
+    document.body.appendChild(container);
+    container.addEventListener('click', function(){hideToast()});
+}
+
+var hideToastTimeout = setTimeout(function(){}, 0);
+function toast(noiDung = "", thoiGian = 3000, status = 'infor')
+{
+    let t = $('#toast');
+    t.className = 'toast__container';
+    t.classList.add('toast-' + status);
+
+    $('#toast__noiDung').innerHTML = noiDung;
+    $('#toast').style.display = "block";
+    clearTimeout(hideToastTimeout);
+    hideToastTimeout = setTimeout
+    (
+        function()
+        {
+            t.style.display = "none";
+        }, thoiGian
+    );
+}
+
+function hideToast()
+{
+    clearTimeout(hideToastTimeout);
+    $('#toast').style.display = "none";
+}

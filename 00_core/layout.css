@@ -1,0 +1,178 @@
+/*
+    body 
+    {
+        header: 
+        {
+            caption: {},
+            menu__actionBar: {},
+            menu: {}
+        },
+        main: {
+            sidebar: {},
+            view: 
+            {
+                view__actionbar: {},
+                view__content:{                    
+                }
+            }
+        },
+        footer: {}
+    }
+*/
+
+
+
+html,
+body 
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+
+    font-family: Arial, sans-serif;
+    background: var(--color-background-gradient);
+    color: var(--color-on-background-gradient);
+
+    scroll-behavior: smooth;
+}
+
+body 
+{
+    /*
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; */
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-rows: 60px minmax(0, 1fr) 60px;
+}
+
+
+.header,
+.footer
+{
+    flex-shrink: 0;
+    background: var(--color-primary-gradient);
+    color: var(--color-on-primary-gradient);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header
+{
+    font-size: 20px;
+    font-weight: bold;
+    flex: 0 0 60px;
+    height: var(--header-height);
+}
+
+
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+}
+
+@media (max-width: 981px) 
+{
+    .main 
+    {
+        flex-direction: column;
+    }
+}
+
+.sidebar {
+    width: 220px;
+    background: white;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+}
+
+@media (max-width: 981px) 
+{
+    .sidebar 
+    {
+        display: none;
+    }
+}
+
+.view {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+    padding: 20px;    
+}
+
+@media (max-width: 981px) 
+{
+    .view 
+    {
+        padding: 10px;
+    }
+}
+
+.view__header
+{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 20px;
+}
+
+.view__header__caption
+{
+    font-weight: 700;
+}
+
+@media (max-width: 981px) 
+{
+    .view__header__caption
+    {
+        display: none;
+    }
+}
+
+.view__tab
+{
+    animation: view-slide-in 250ms ease-out;
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+@keyframes view-slide-in
+{
+    from
+    {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    to
+    {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.footer 
+{
+    justify-content: center;
+    font-size: 13px;
+    flex: 0 0 60px;
+    height: var(--header-height);
+}
