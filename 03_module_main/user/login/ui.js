@@ -43,9 +43,9 @@ APP.user.login.ui =
                     <tr>
                         <td style="position:relative;">
                             <div style="width:100%;text-align:center;">
-                                <img src="https://pvcapp.github.io/00148/img/ourhome.svg" style="height:25px;opacity:0.75;">
+                                <img src="assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
                             </div>
-                            <img src="https://pvcapp.github.io/00148/img/favicon_white.png" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
+                            <img src="assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
                         </td>
                     </tr>
                 </table>
@@ -69,13 +69,13 @@ APP.user.login.ui =
                     <tr>
                         <td style="position:relative;">
                             <input type="text" id="login_userName" placeholder="Tên đăng nhập" class="inputBox inputBox-001" value="">
-                            <img src="https://pvcapp.github.io/00148/img/user_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="assets/img/user_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
                     <tr>
                         <td style="position:relative;">
                             <input type="password" id="login_password" placeholder="Mật khẩu" class="inputBox inputBox-001">
-                            <img src="https://pvcapp.github.io/00148/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
                     <tr>
@@ -122,7 +122,7 @@ APP.user.login.ui =
 
         APP.user.login.ui.reset();
         $('#loginContainer').style.display = 'flex';
-        localStorage.setItem('a00148user', JSON.stringify(emptyLoginStatus));
+        localStorage.setItem('a00001_user', JSON.stringify(emptyLoginStatus));
     },
     hide: function()
     {

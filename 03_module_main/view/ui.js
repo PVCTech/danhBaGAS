@@ -8,15 +8,20 @@ APP.view.ui =
             className: 'view',
             parentId: 'main'
         });
+
+        //các module cũng init luôn:
+
+
+        
         //APP.view.ui.showLoading();
     },
     showLoading: function()
     {
         APP.view.ui.showTab('home', 'startupScreen', 'loading');
     },
-    addTab: function(vaiTro, module, type, el, override = 0)
+    addTab: function(module, el, override = 0)
     {
-        let id  = vaiTro + '_' + module + '_' + type + '_tab';
+        let id  = module + '_tab';
         if ($('#' + id))
         {
             console.log('APP.view.ui.addTab: tab id: ' + id + ' đã tồn tại. Chế dộ ghi đè: ' + override);            
@@ -34,9 +39,9 @@ APP.view.ui =
         tab.appendChild(el);
         $('#view').appendChild(tab);
     },
-    addElementToTab: function(vaiTro, module, type, el)
+    addElementToTab: function(module, el)
     {
-        let id  = vaiTro + '_' + module + '_' + type + '_tab';
+        let id  = module + '_tab';
         if ($('#' + id))
         {
             $('#' + id).appendChild(el);
@@ -46,22 +51,17 @@ APP.view.ui =
             APP.view.ui.addTab(vaiTro, module, type, el);
         }
     },
-    hasTab: function(vaiTro, module, type)
+    hasTab: function(module)
     {
-        const id = vaiTro + '_' + module + '_' + type + '_tab';
+        const id = module + '_tab';
         return document.getElementById(id) !== null;
     },
-    showTab: function(vaiTro, module, type)
+    showTab: function(module)
     {
-        const tabId = vaiTro + '_' + module + '_' + type + '_tab';
-        APP.state.manHinhHienTai = 
-        {
-            vaiTro: vaiTro,
-            module: module,
-            type: type
-        }
-        const tabs = document.querySelectorAll('#view > .view__tab');
+        const tabId = module + '_tab';
+        APP.state.manHinhHienTai = module;
 
+        const tabs = document.querySelectorAll('#view > .view__tab');
         tabs.forEach(function(tab)
         {
             tab.style.display = 'none';
@@ -77,9 +77,9 @@ APP.view.ui =
         tab.style.display = '';
         tab.classList.remove('hide');
     },
-    removeTab: function(vaiTro, module, type)
+    removeTab: function(module)
     {
-        const tabId = vaiTro + '_' + module + '_' + type + '_tab';
+        const tabId = module + '_tab';
         const tab = $('#' + tabId);
         if (!tab) 
         {

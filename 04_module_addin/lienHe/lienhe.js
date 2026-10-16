@@ -189,9 +189,9 @@
 				///Điện thoại:
 				if (this.SDT1 !== '')
                 {
-                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT1 + '"><img src="template/img/call.png" style="height:20px;" alt="call"></a></td>';
+                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT1 + '"><img src="assets/img/call.png" style="height:20px;" alt="call"></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT1 + '"><font color="white">' + this.SDT1 + '</font></a></td>';
-                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT1 +');"><img src="template/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
+                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT1 +');"><img src="assets/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
                     $('#ChiTiet_DienThoai1_Input').html(HtmlDt);
                     $('#ChiTiet_DienThoai1_Input').show();
@@ -200,9 +200,9 @@
                 
                 if (this.SDT2 !== '')
                 {
-                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT2 + '"><img src="template/img/call.png" style="height:20px;" alt="call"></a></td>';
+                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT2 + '"><img src="assets/img/call.png" style="height:20px;" alt="call"></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT2 + '"><font color="white">' + this.SDT2 + '</font></a></td>';
-                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT2 +');"><img src="template/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
+                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT2 +');"><img src="assets/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
                     $('#ChiTiet_DienThoai2_Input').html(HtmlDt);
                     $('#ChiTiet_DienThoai2_Input').show();
@@ -215,9 +215,9 @@
                 
                 if (this.SDT3 !== '' && !isNaN(this.SDT3))
                 {
-                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT3 + '"><img src="template/img/call.png" style="height:20px;" alt="call"></a></td>';
+                    var HtmlDt = '<center><table><tr><td><a href="tel:' + this.SDT3 + '"><img src="assets/img/call.png" style="height:20px;" alt="call"></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT3 + '"><font color="white">' + this.SDT3 + '</font></a></td>';
-                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT3 +');"><img src="template/img/copy.svg" alt="copy" style="height:18px;margin-left:10px;"></a></td>';
+                    HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT3 +');"><img src="assets/img/copy.svg" alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
                     $('#ChiTiet_DienThoai3_Input').html(HtmlDt);
                     $('#ChiTiet_DienThoai3_Input').show();

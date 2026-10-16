@@ -52,7 +52,7 @@ APP.user.changePassword.control =
                 {
                     $('#user_changePassword_submitButton').innerText = 'Đổi mật khẩu';
                     activeButton('user_changePassword_submitButton');
-                    localStorage.setItem('a00148user', JSON.stringify(user));
+                    localStorage.setItem('a00001_user', JSON.stringify(user));
                     APP.user.token = user.token;
                     APP.user.changePassword.hide();
                 }

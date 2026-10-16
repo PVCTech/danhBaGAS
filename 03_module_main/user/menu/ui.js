@@ -14,7 +14,7 @@ APP.user.menu.ui =
 
         div({
             id: 'userMenu_hamburger',
-            html: `<img src="https://pvcapp.github.io/00148/img/user.svg" style="height: 25px;cursor: pointer;">`,
+            html: `<img src="assets/img/user.svg" style="height: 25px;cursor: pointer;">`,
             parentId: parentId
         });
 

@@ -4,7 +4,7 @@
                 document.write('<div style="height:80px;color:white;">.</div>');
                 document.write('<div class="Containner" style="border-radius:10px 10px 0px 0px;background:white;height:260px;position:relative;">');
                     document.write('<div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;">');
-                        document.write('<img id="ChiTiet_Star_Image" src="template/img/star.svg?version=1" style="width:100%;">');
+                        document.write('<img id="ChiTiet_Star_Image" src="assets/img/star.svg?version=1" style="width:100%;">');
                     document.write('</div>');
                     document.write('<div style="width:100%;position:absolute;left:0px;top:40px;">');
                         document.write('<center>');
@@ -12,8 +12,8 @@
                         document.write('</center>');
                     document.write('</div>');
                     document.write('<div style="position:absolute;right:15px;bottom:-12px;padding:3px;" id="ChiTiet_Copy_Input">');
-                        document.write('<img id="ChiTiet_Star_Image" src="template/img/copy_green.svg" style="height:20px;">');
-                        document.write('<img id="ChiTiet_Star_Image" src="template/img/copy_green.svg" style="height:25px;margin-left:8px;">');
+                        document.write('<img id="ChiTiet_Star_Image" src="assets/img/copy_green.svg" style="height:20px;">');
+                        document.write('<img id="ChiTiet_Star_Image" src="assets/img/copy_green.svg" style="height:25px;margin-left:8px;">');
                     document.write('</div>');
                 document.write('</div>');
                 document.write('<div class="Containner" style="background:#e5e5e5;height:10px;">');
@@ -46,7 +46,7 @@
                                     document.write('<table style="width:100%;color:white;">');
                                         document.write('<tr>');
                                             document.write('<td>');
-                                                document.write('<img src="template/img/date.png" style="width:20px;">');
+                                                document.write('<img src="assets/img/date.png" style="width:20px;">');
                                             document.write('</td>');
                                             document.write('<td>');
                                                 document.write('<div id="ChiTiet_NgaySinh_Input" style="margin-left:10px;opacity:0.75;"></div>');
@@ -54,7 +54,7 @@
                                         document.write('</tr>');
                                         document.write('<tr>');
                                             document.write('<td>');
-                                                document.write('<img src="template/img/location.png" style="width:20px;">');
+                                                document.write('<img src="assets/img/location.png" style="width:20px;">');
                                             document.write('</td>');
                                             document.write('<td>');
                                                 document.write('<div id="ChiTiet_DiaChi_Input" style="margin-left:10px;opacity:0.75;"></div>');
@@ -62,7 +62,7 @@
                                         document.write('</tr>');
                                         document.write('<tr>');
                                             document.write('<td>');
-                                                document.write('<img src="template/img/donvi.png" style="width:20px;">');
+                                                document.write('<img src="assets/img/donvi.png" style="width:20px;">');
                                             document.write('</td>');
                                             document.write('<td>');
                                                 document.write('<div id="ChiTiet_DonVi_Input" style="margin-left:10px;opacity:0.75;"></div>');
@@ -70,7 +70,7 @@
                                         document.write('</tr>');
                                         document.write('<tr>');
                                             document.write('<td >');
-                                                document.write('<img src="template/img/email.png" style="width:20px;">');
+                                                document.write('<img src="assets/img/email.png" style="width:20px;">');
                                             document.write('</td>');
                                             document.write('<td>');
                                                 document.write('<div id="ChiTiet_Email_Input" style="margin-left:10px;opacity:0.75;"></div>');

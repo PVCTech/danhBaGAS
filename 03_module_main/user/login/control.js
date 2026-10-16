@@ -45,13 +45,18 @@ APP.user.login.control =
         }
         else
         {
-            let loginInfor = {userName: userName, password: pass};
-            google.script.run.withSuccessHandler(function(user)
+            try
             {
-                user = JSON.parse(user);
+                const loginInfor = {userName: userName, password: pass};
+                let user = await APP.user.api.doLogin(loginInfor);
+                if (typeof user === 'string')
+                {
+                    user = JSON.parse(user);
+                }
+                
                 if (user.status == 'ok')
                 {
-                    localStorage.setItem('a00148user', JSON.stringify(user));
+                    localStorage.setItem('a00001_user', JSON.stringify(user));
                     APP.user.token = user.token;
                     APP.user.data = user;
                     
@@ -64,10 +69,16 @@ APP.user.login.control =
                 }
                 else
                 {
-                    canhBao(user.message, 'Đăng nhập ứng dụng');
+                    canhBao(user.message || 'Tên đăng nhập hoặc mật khẩu không đúng', 'Đăng nhập ứng dụng');
                     APP.user.login.ui.reset();
                 }
-            }).sv_user_doLogin(JSON.stringify(loginInfor));
+            }
+            catch (error)
+            {
+                console.error('Đăng nhập không thành công:', error);
+                canhBao(error.message || 'Không thể đăng nhập. Vui lòng thử lại.', 'Đăng nhập ứng dụng');
+                APP.user.login.ui.reset();
+            }
         }
     }
 };

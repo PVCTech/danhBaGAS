@@ -1,1 +1,73 @@
-APP.cache = {};
+const { version } = require("react");
+
+APP.cache = 
+{
+    data: {
+        version: 0,
+        danhSachDonVi: [],
+        danhSachPhongBan: [],
+        danhSachTinh: [],
+        danhSachPhuongXa: [],
+        danhSachXungHo: []
+    },
+    init: async function()
+    {
+        let appCache = localStorage.getItem('a00001_cache');
+        let getNewCache = false;
+        if (appCache)
+        {
+            //render
+            this.danhSachDonVi = appCache.danhSachDonVi;
+            this.danhSachPhongBan = appCache.danhSachPhongBan;
+            this.danhSachTinh = appCache.danhSachTinh;
+            this.danhSachPhuongXa = appCache.danhSachPhuongXa;
+            APP.ui.render();
+            //background: check cache version:
+            let cacheVersion = await APP.api.getCacheData();
+            if (APP.cache.version == cacheVersion){}
+            else 
+            {
+
+            }
+        }
+        else
+        {
+
+        }
+        this.setDanhSachXungho();
+    },
+    setLocal: function()
+    {
+        localStorage.setItem('a00001_cache', APP.cache.data);
+    },
+    getLocal: function()
+    {
+        return localStorage.getItem('a00001_cache');
+    },
+    setDanhSachXungho: function()
+    {
+        this.danhSachXungHo = [
+            new XungHo(0,"","") ,
+            new XungHo(1,"ông","5ong") ,
+            new XungHo(2,"bà","6ba") ,
+            new XungHo(3,"bác","bac") ,
+            new XungHo(4,"bố","bo") ,
+            new XungHo(5,"mẹ","me") ,
+            new XungHo(6,"cô","3co") ,
+            new XungHo(7,"gì","gi") ,
+            new XungHo(8,"chú","4chu") ,
+            new XungHo(9,"cậu","cau") ,
+            new XungHo(10,"anh","1anh") ,
+            new XungHo(11,"chị","2chi") ,
+            new XungHo(12,"em","em") ,
+            new XungHo(13,"bạn","ban") ,
+            new XungHo(14,"con","con") ,
+            new XungHo(15,"cháu","chau") ,
+            new XungHo(17,"cậu (em)","cau (em)") ,
+            new XungHo(18,"thầy","thay") ,
+            new XungHo(19,"mợ","mo") ,
+        ];
+    }
+};
+
+

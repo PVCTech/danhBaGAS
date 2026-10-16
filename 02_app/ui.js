@@ -20,13 +20,13 @@ APP.ui =
     },
     render: function()
     {
-        const state = APP.state.manHinhHienTai;
-        if (!state) return;
+        const manHinhHienTai = APP.state.manHinhHienTai;
+        if (!manHinhHienTai) return;
         
         APP.sidebar.ui.hideIfMobile();
-        APP.sidebar.control.setSelectedButton('sidebar_' + state.module);
+        APP.sidebar.control.setSelectedButton('sidebar_' + manHinhHienTai);
 
-        APP.view.ui.showTab(state.module);
+        APP.view.ui.showTab(manHinhHienTai);
         APP.ui.scrollTop();
     },
     setManHinh: function(manHinh)

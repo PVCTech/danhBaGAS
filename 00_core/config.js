@@ -2,11 +2,13 @@ const APP = {};
 APP.config = APP.config || {};
 APP.config = 
 {
-    id: '00148',
-    publicUrl: 'https://pvcapp.github.io/00148',
+    id: '00001',
+    publicUrl: 'https://pvcapp.github.io/00001',
     showIcon: true,
     mobileMode: window.innerWidth <= 981
 };
+
+APP.mode = 'demo';
 
 
 /*

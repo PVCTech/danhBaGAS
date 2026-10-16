@@ -10,7 +10,7 @@ APP.header.ui =
             `<table>
                 <tr>
                     <td>
-                        <img src="template/img/home.png" style="Height:25px;margin-right:10px;">
+                        <img src="assets/img/home.png" style="Height:25px;margin-right:10px;">
                     </td>
                     <td>
                         <span style="position:relative;background:yellow;">`

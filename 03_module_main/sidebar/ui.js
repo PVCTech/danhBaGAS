@@ -43,7 +43,7 @@ APP.sidebar.ui =
 
         const sidebar =
         [
-            { module: 'Home', ten: 'Home' },
+            { module: 'home', ten: 'Home' },
             { module: 'quanLyKhuNha', ten: 'Khu nhà' },
             { module: 'quanLyPhong', ten: 'Phòng' }  
         ];
@@ -51,22 +51,22 @@ APP.sidebar.ui =
         APP.state.manHinhHienTai = 'home';
         $('#sidebarGrid').innerHTML = sidebar.map(function(item)
         {
-            const active = item.module === moduleDangChon ? ' sidebar__button__selected' : '';
-            return `
+            const active = item.module === moduleDangChon ? ' sidebar__button__selected' : '';            
+            let bt = `
                 <div
                     id="sidebar_${item.module}"
                     class="sidebar__button${active}"
-                    onclick="APP.ui.setManHinh('chuNha','${item.module}', 'list');">
+                    onclick="APP.ui.setManHinh('${item.module}');">
                     ${item.ten}
                 </div>
             `;
+            return bt;
         }).join('');
     },
     render: function()
     {
-        const moduleDangChon = APP.state.manHinhHienTai || 'chuNha_dashboard';
-        const button = $(`#sidebar_${moduleDangChon}`);
-        APP.sidebar.control.setSelectedButton(button);
+        const moduleDangChon = APP.state.manHinhHienTai || 'home';
+        APP.sidebar.control.setSelectedButton(`sidebar_${moduleDangChon}`);
     },
     showing: !APP.config.mobileMode,
     show: function()
