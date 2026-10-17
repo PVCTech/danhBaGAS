@@ -2,6 +2,7 @@ APP.cache =
 {
     data: {
         version: '',
+        danhSachLienHe: [],
         danhSachDonVi: [],
         danhSachPhongBan: [],
         danhSachTinh: [],
@@ -11,71 +12,79 @@ APP.cache =
     },
     init: async function()
     {
-        let localCacheData = localStorage.getItem('a00001_cache');
+        console.log('Cache init');
+        let localCacheData = this.getLocal(); //obj
+        if (localCacheData && typeof localCacheData !== 'object')
+        {
+            localStorage.removeItem(APP.config.id + '_cache');
+            localCacheData = null;
+        }
+
         if (localCacheData)
         {
-            //render
-            this.data.version = localCacheData.version;
-
-            this.danhSachDonVi = localCacheData.danhSachDonVi;
-            this.danhSachPhongBan = localCacheData.danhSachPhongBan;
-            this.danhSachTinh = localCacheData.danhSachTinh;
-            this.danhSachPhuongXa = localCacheData.danhSachPhuongXa;
-
-            //background: check cache version, and update cache and local
-            this.update();
+            console.log('Cache init: có cache local');
+            this.data = localCacheData;
+            this.convertCache();
         }
-        else
-        {
-            console.log('Cache.init: Không có local cache');
-            await this.update();
-        }
+
+        await this.update(localCacheData && localCacheData.version || '');
     },
     update: async function(localVersion)
     {
-        let newCacheData = await APP.api.getNewCacheData('');
+        console.log('Cache upadting..');
+        let newCacheData = await APP.api.getNewCacheData(localVersion);
+
         if (newCacheData.newCache == false)
-        {                
+        {
+            console.log('Not need update');
         }
         else
         {
+            console.log('update to new version');
             APP.cache.data = newCacheData.data;
-        }
-        this.setDanhSachXungho();
+            this.convertCache();
+        }        
         this.setLocal();
+    },
+    convertCache: function()
+    {
+        APP.cache.data.danhSachLienHe   = APP.cache.data.danhSachLienHe.map(options => new LienHe(options));
+        APP.cache.data.danhSachDonVi    = APP.cache.data.danhSachDonVi.map(options => new DonVi(options));
+        APP.cache.data.danhSachPhongBan = APP.cache.data.danhSachPhongBan.map(options => new PhongBan(options));
+        APP.cache.data.danhSachTinh    = APP.cache.data.danhSachTinh.map(options => new Tinh(options));
+        APP.cache.data.danhSachPhuongXa    = APP.cache.data.danhSachPhuongXa.map(options => new PhuongXa(options));
+        this.setDanhSachXungho();
     },
     setLocal: function()
     {
-        localStorage.setItem('a00001_cache', APP.cache.data);
+        localStorage.setItem(APP.config.id + '_cache', APP.cache.data);
     },
     getLocal: function()
     {
-        return localStorage.getItem('a00001_cache');
+        return localStorage.getItem(APP.config.id + '_cache');
     },
     setDanhSachXungho: function()
     {
-        this.danhSachXungHo = [
-            new XungHo(0,"","") ,
-            new XungHo(1,"ông","5ong") ,
-            new XungHo(2,"bà","6ba") ,
-            new XungHo(3,"bác","bac") ,
-            new XungHo(4,"bố","bo") ,
-            new XungHo(5,"mẹ","me") ,
-            new XungHo(6,"cô","3co") ,
-            new XungHo(7,"gì","gi") ,
-            new XungHo(8,"chú","4chu") ,
-            new XungHo(9,"cậu","cau") ,
-            new XungHo(10,"anh","1anh") ,
-            new XungHo(11,"chị","2chi") ,
-            new XungHo(12,"em","em") ,
-            new XungHo(13,"bạn","ban") ,
-            new XungHo(14,"con","con") ,
-            new XungHo(15,"cháu","chau") ,
-            new XungHo(17,"cậu (em)","cau (em)") ,
-            new XungHo(18,"thầy","thay") ,
-            new XungHo(19,"mợ","mo") ,
+        this.data.danhSachXungHo = [
+            new XungHo({Id: 0,   Ten: "",   TimKiem: ""}) ,
+            new XungHo({Id: 1,   Ten: "ông",   TimKiem: "5ong"}) ,
+            new XungHo({Id: 2,   Ten: "bà",   TimKiem: "6ba"}) ,
+            new XungHo({Id: 3,   Ten: "bác",   TimKiem: "bac"}) ,
+            new XungHo({Id: 4,   Ten: "bố",   TimKiem: "bo"}) ,
+            new XungHo({Id: 5,   Ten: "mẹ",   TimKiem: "me"}) ,
+            new XungHo({Id: 6,   Ten: "cô",   TimKiem: "3co"}) ,
+            new XungHo({Id: 7,   Ten: "gì",   TimKiem: "gi"}) ,
+            new XungHo({Id: 8,   Ten: "chú",   TimKiem: "4chu"}) ,
+            new XungHo({Id: 9,   Ten: "cậu",   TimKiem: "cau"}) ,
+            new XungHo({Id: 10,   Ten: "anh",   TimKiem: "1anh"}) ,
+            new XungHo({Id: 11,   Ten: "chị",   TimKiem: "2chi"}) ,
+            new XungHo({Id: 12,   Ten: "em",   TimKiem: "em"}) ,
+            new XungHo({Id: 13,   Ten: "bạn",   TimKiem: "ban"}) ,
+            new XungHo({Id: 14,   Ten: "con",   TimKiem: "con"}) ,
+            new XungHo({Id: 15,   Ten: "cháu",   TimKiem: "chau"}) ,
+            new XungHo({Id: 17,   Ten: "cậu (em)",   TimKiem: "cau (em)"}) ,
+            new XungHo({Id: 18,   Ten: "thầy",   TimKiem: "thay"}) ,
+            new XungHo({Id: 19,   Ten: "mợ",   TimKiem: "mo"})
         ];
     }
 };
-
-

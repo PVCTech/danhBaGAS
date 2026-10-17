@@ -89,7 +89,7 @@ function TimKiemDanhBa()
 					SoKq ++;
 					if (SoKq <= SoKetQuaHienThi)
 					{
-						DSLienHe[i].toTR("green");
+						DSLienHe[i].toTr("green");
 					}
 					else
 					{break;}
@@ -107,7 +107,7 @@ function TimKiemDanhBa()
 						SoKq ++;
 						if (SoKq <= SoKetQuaHienThi)
 						{
-							DSLienHe[i].toTR("green");
+							DSLienHe[i].toTr("green");
 						}
 						else
 						{break;}
@@ -128,7 +128,7 @@ function TimKiemDanhBa()
 					SoKq ++;
 					if (SoKq <= SoKetQuaHienThi)
 					{
-						DSLienHe[i].toTR("green");
+						DSLienHe[i].toTr("green");
 					}
 					else
 					{break;}
@@ -455,7 +455,7 @@ function TimTatCa(NoiDungTim)
 	///In kết quả
 	for (var i=0;i<KetQuaId_Array.length;i++)
 	{
-		DSLienHe[KetQuaId_Array[i]].toTR("green");
+		DSLienHe[KetQuaId_Array[i]].toTr("green");
 		//if (i<3) {alert(DSLienHe[KetQuaId_Array[i]].GetXungHo());}
 	}
 	

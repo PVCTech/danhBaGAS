@@ -16,6 +16,7 @@ APP.control =
         console.log('APP. get startup data:');
         APP.loadingScreen.show();
         await APP.cache.init(); //Nếu có cache trong local và token thì load cache và kiểm tra user dưới background
+        APP.list.ui.render();
         APP.loadingScreen.hide();
     },
     onGas()

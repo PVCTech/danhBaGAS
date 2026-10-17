@@ -6,6 +6,7 @@ APP.ui =
         toast_init();
         canhBao_init();
         datePicker_init();
+        divChe_init();
         
         //Render layout: header, sidebar, view, footer
         APP.loadingScreen.init();
@@ -17,6 +18,10 @@ APP.ui =
 
         APP.view.control.init();
         APP.footer.control.init();
+
+
+        APP.list.ui.init();
+        APP.detail.control.init();
     },
     render: function()
     {
@@ -26,7 +31,6 @@ APP.ui =
         
         APP.sidebar.ui.hideIfMobile();
         APP.sidebar.control.setSelectedButton('sidebar_' + manHinhHienTai);
-
         APP.view.ui.showTab(manHinhHienTai);
         APP.ui.scrollTop();
     },

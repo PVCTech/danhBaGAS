@@ -1,113 +1,3 @@
-const formatMoney = (so) =>
-{
-    if (so)
-    {
-        so = so.toString().replace(/[^0-9]/g, '');
-        const giaTri = Number(so || 0);
-        return giaTri.toLocaleString('vi-VN') + ' đ';
-    }
-    else
-    {
-        return '-';
-    }        
-}
-
-function escapeHtml(giaTri) 
-{
-    return String(giaTri ?? '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
-}
-
-
-function xuLyLoi(loi) {
-    toast(loi && loi.message ? loi.message : 'Có lỗi xảy ra');
-    console.log(loi && loi.message ? loi.message : 'Có lỗi xảy ra');
-}    
-
-const chuanHoaNgayThang = (number) =>
-{
-    if (number == '')
-    {
-        return '';
-    }
-
-    if (parseInt(number) < 10) {return '0' + parseInt(number);} else {return parseInt(number);}
-}
-
-
-
-class PVCImage
-{
-    constructor(src, width = "auto", height = "auto", style ='', opacity = 1)
-    {
-        this.src = src;
-        this.width = width;
-        this.height = height;
-        this.style = style;
-        this.opacity = opacity;
-    }
-
-    render()
-    {
-        return `
-            <img src="${this.src}" style="width:${this.width}; height:${this.height}; opacity:${this.opacity}; ${this.style}">
-        `;
-    }
-}
-
-
-const formatNumber = (gia) =>
-{        
-    var kq="";
-    if (gia.length<4){kq = gia;}
-    else
-    {
-        
-        var giatext = gia.toString();
-        var Am ='';
-        
-        if (giatext.substring(0,1) == "-"){Am ='-';}
-        gia = giatext.replace(/[^a-zA-Z0-9]/g, '');
-        gia = parseInt(gia);
-        giatext = gia.toString();
-        
-        if (giatext.length<4){kq = Am + giatext;}
-        else if(giatext.length<7){kq = Am + giatext.substring(0,giatext.length-3) + "." + giatext.substring(giatext.length-3,giatext.length);}
-        else if(giatext.length<10){kq = Am + giatext.substring(0,giatext.length-6) + "." + giatext.substring(giatext.length-6,giatext.length-6+3) + "." + giatext.substring(giatext.length-3,giatext.length);}
-        else if(giatext.length<13){kq = Am + giatext.substring(0,giatext.length-9) + "." + giatext.substring(giatext.length-9,giatext.length-6) + "." + giatext.substring(giatext.length-6,giatext.length-6+3) + "." + giatext.substring(giatext.length-3,giatext.length);}
-        else {kq = Am + giatext;}
-    }
-    return kq;
-}
-        
-                        
-const formatNumberInput = (IdInput) =>
-{
-    
-    if ($('#' + IdInput).val() == '' || $('#' + IdInput).val() == '0' || $('#' + IdInput).val() == '00' || $('#' + IdInput).val() == '000')
-    {
-        
-    }
-    else
-    {
-        $('#' + IdInput).val(formatNumber(parseInt($('#' + IdInput).val())));
-    }
-}
-
-
-const boDau = (str) =>
-{
-    return str
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/đ/g, "d")
-        .replace(/Đ/g, "D");
-}
-
 const activeButton = (buttonId) =>
 {
     $('#' + buttonId).classList.remove('button__inactive');
@@ -117,6 +7,7 @@ const inactiveButton = (buttonId) =>
 {
     $('#' + buttonId).classList.add('button__inactive');
 }    
+
 
 //Tìm kiếm chuỗi A trong chuỗi B theo cách: tách từ, thứ tự xuất hiện đúng
 const ATrongB = (A, B) => 
@@ -200,6 +91,130 @@ const ATruocB = (ngayA, thangA, namA, ngayB, thangB, namB) =>
     }
 }
 
+const boDau = (str) =>
+{
+    return str
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D");
+}
+
+
+const copyToClipboard = (NoiDung)  =>
+{
+    var $temp = $("<input type='text'>");
+    $("body").append($temp);
+    $temp.val("0" + NoiDung).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
+
+const copyToClipboardNot0 = (NoiDung) =>
+{
+    var $temp = $("<textarea>");
+    var brRegex = /<br\s*[\/]?>/gi;
+    $("body").append($temp);
+    $temp.val(NoiDung.replace(brRegex, "\r\n")).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
+
+
+const chuanHoaNgayThang = (number) =>
+{
+    if (number == '')
+    {
+        return '';
+    }
+
+    if (parseInt(number) < 10) {return '0' + parseInt(number);} else {return parseInt(number);}
+}
+
+
+function escapeHtml(giaTri) 
+{
+    return String(giaTri ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+const formatMoney = (so) =>
+{
+    if (so)
+    {
+        so = so.toString().replace(/[^0-9]/g, '');
+        const giaTri = Number(so || 0);
+        return giaTri.toLocaleString('vi-VN') + ' đ';
+    }
+    else
+    {
+        return '-';
+    }        
+}
+
+
+class PVCImage
+{
+    constructor(src, width = "auto", height = "auto", style ='', opacity = 1)
+    {
+        this.src = src;
+        this.width = width;
+        this.height = height;
+        this.style = style;
+        this.opacity = opacity;
+    }
+
+    render()
+    {
+        return `
+            <img src="${this.src}" style="width:${this.width}; height:${this.height}; opacity:${this.opacity}; ${this.style}">
+        `;
+    }
+}
+
+
+const formatNumber = (gia) =>
+{        
+    var kq="";
+    if (gia.length<4){kq = gia;}
+    else
+    {
+        
+        var giatext = gia.toString();
+        var Am ='';
+        
+        if (giatext.substring(0,1) == "-"){Am ='-';}
+        gia = giatext.replace(/[^a-zA-Z0-9]/g, '');
+        gia = parseInt(gia);
+        giatext = gia.toString();
+        
+        if (giatext.length<4){kq = Am + giatext;}
+        else if(giatext.length<7){kq = Am + giatext.substring(0,giatext.length-3) + "." + giatext.substring(giatext.length-3,giatext.length);}
+        else if(giatext.length<10){kq = Am + giatext.substring(0,giatext.length-6) + "." + giatext.substring(giatext.length-6,giatext.length-6+3) + "." + giatext.substring(giatext.length-3,giatext.length);}
+        else if(giatext.length<13){kq = Am + giatext.substring(0,giatext.length-9) + "." + giatext.substring(giatext.length-9,giatext.length-6) + "." + giatext.substring(giatext.length-6,giatext.length-6+3) + "." + giatext.substring(giatext.length-3,giatext.length);}
+        else {kq = Am + giatext;}
+    }
+    return kq;
+}
+        
+                        
+const formatNumberInput = (IdInput) =>
+{
+    
+    if ($('#' + IdInput).val() == '' || $('#' + IdInput).val() == '0' || $('#' + IdInput).val() == '00' || $('#' + IdInput).val() == '000')
+    {
+        
+    }
+    else
+    {
+        $('#' + IdInput).val(formatNumber(parseInt($('#' + IdInput).val())));
+    }
+}
+
 
 const hopDongActive = (hopDong) =>
 {
@@ -259,3 +274,10 @@ const hopDongActive = (hopDong) =>
         return false;
     }   
 }
+
+
+
+function xuLyLoi(loi) {
+    toast(loi && loi.message ? loi.message : 'Có lỗi xảy ra');
+    console.log(loi && loi.message ? loi.message : 'Có lỗi xảy ra');
+}  

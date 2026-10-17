@@ -1,6 +1,6 @@
 		class LienHe
 		{
-           constructor(Id,Star,
+           constructor({Id,Star,
 		   TenHienThi,XungHoId,Ten,
 		   NgaySinh,ThangSinh,NamSinh,
 		   DonVi1Id,PhongBan1Id,
@@ -11,7 +11,7 @@
 		   AvatarId,Avatar,AvatarVersion,
 		   Email,
 		   DiaChi,
-		   GhiChu)
+		   GhiChu})
            {
 			   this.Id = Id;
 			   this.Star = Star;
@@ -51,9 +51,9 @@
 			
 			GetArrayId()
 			{
-				for (var i=0;i<DSLienHe.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachLienHe.length;i++)
 				{
-				   if (this.Id == DSLienHe[i].Id)
+				   if (this.Id == APP.cache.data.danhSachLienHe[i].Id)
 				   {
 					   return i;
 					   break;
@@ -64,11 +64,11 @@
 		   
 			GetXungHo()
 			{
-				for (var i=0;i<DSXungHo.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachXungHo.length;i++)
 				{
-				   if (this.XungHoId == DSXungHo[i].Id)
+				   if (this.XungHoId == APP.cache.data.danhSachXungHo[i].Id)
 				   {
-					   return DSXungHo[i].Ten;
+					   return APP.cache.data.danhSachXungHo[i].Ten;
 					   break;
 				   }
 				}
@@ -81,11 +81,11 @@
 			
 			GetDonVi1()
 			{
-				for (var i=0;i<DSDonVi.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachDonVi.length;i++)
 				{
-					if (parseInt(this.DonVi1Id) == parseInt(DSDonVi[i].Id))
+					if (parseInt(this.DonVi1Id) == parseInt(APP.cache.data.danhSachDonVi[i].Id))
 					{
-                       return DSDonVi[i].Ten;
+                       return APP.cache.data.danhSachDonVi[i].Ten;
 					   break;
 					}
 				}
@@ -94,11 +94,11 @@
 			
 			GetPhongBan1()
 			{
-				for (var i=0;i<DSPhongBan.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachPhongBan.length;i++)
 				{
-					if (this.PhongBan1Id == DSPhongBan[i].Id)
+					if (this.PhongBan1Id == APP.cache.data.danhSachPhongBan[i].Id)
 					{
-                       return DSPhongBan[i].Ten;
+                       return APP.cache.data.danhSachPhongBan[i].Ten;
 					   break;
 					}
 				}
@@ -107,11 +107,11 @@
 		   
 			GetDonVi2()
 			{
-				for (var i=0;i<DSDonVi.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachDonVi.length;i++)
 				{
-					if (this.DonVi2Id == DSDonVi[i].Id)
+					if (this.DonVi2Id == APP.cache.data.danhSachDonVi[i].Id)
 					{
-                       return DSDonVi[i].Ten;
+                       return APP.cache.data.danhSachDonVi[i].Ten;
 					   break;
 					}
 				}
@@ -120,11 +120,11 @@
 			
 			GetPhongBan2()
 			{
-				for (var i=0;i<DSPhongBan.length;i++)
+				for (var i=0;i<APP.cache.data.danhSachPhongBan.length;i++)
 				{
-					if (this.PhongBan2Id == DSPhongBan[i].Id)
+					if (this.PhongBan2Id == APP.cache.data.danhSachPhongBan[i].Id)
 					{
-                       return DSPhongBan[i].Ten;
+                       return APP.cache.data.danhSachPhongBan[i].Ten;
 					   break;
 					}
 				}
@@ -133,10 +133,10 @@
            
 		   
            
-           toTR(Color)
+           toTr(Color)
            {
 			   var Tr = '';
-				Tr = Tr + '<tr onclick="DSLienHe[' + this.GetArrayId() + '].ShowChiTiet();">';
+				Tr = Tr + '<tr onclick="APP.cache.data.danhSachLienHe[' + this.GetArrayId() + '].ShowChiTiet();">';
 					Tr = Tr + '<td style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">';
 						if (this.Avatar =='' || this.Avatar === undefined) 
 						{
@@ -153,15 +153,15 @@
 						Tr = Tr + '<br><span style="color:rgba(0,0,0,0.5);font-size:12px;">' + this.SDT1 + ' - ' + this.SDT2 + '</span>';
 					Tr = Tr + '</td>';
 				Tr = Tr + '</tr>';
-				$('#TableData').append(Tr);
+                return Tr;
            }
 		   
 		   
 			ShowChiTiet()
 			{
 				//Họ và tên:
-				$('#ChiTiet_HoVaTen_Input').html('');
-                $('#ChiTiet_HoVaTen_Input').text(this.TenHienThi);
+				$('#ChiTiet_HoVaTen_Input').innerHTML = '';
+                $('#ChiTiet_HoVaTen_Input').innerText = this.TenHienThi;
 				
 				//Phòng Ban, Đơn vị:
 				var PbDvi = this.GetPhongBan1();
@@ -172,19 +172,19 @@
 				PbDvi = PbDvi + this.GetPhongBan2();
 				if (this.GetPhongBan2() !=='') {PbDvi = PbDvi + ' ';}
 				PbDvi = PbDvi + this.GetDonVi2();
-                $('#ChiTiet_DonVi_Input').text(PbDvi );
+                $('#ChiTiet_DonVi_Input').innerText = PbDvi ;
 				
 				///Địa chỉ:
 				var DiaChi_Full = '';
 				if (this.DiaChi !== ''){DiaChi_Full = this.DiaChi;}
                                 
-                $('#ChiTiet_DiaChi_Input').text(DiaChi_Full);
+                $('#ChiTiet_DiaChi_Input').innerText = DiaChi_Full;
 				
 				
 				
 				
 				///Email:
-				$('#ChiTiet_Email_Input').text(this.Email);
+				$('#ChiTiet_Email_Input').innerText = this.Email;
 				
 				///Điện thoại:
 				if (this.SDT1 !== '')
@@ -193,9 +193,9 @@
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT1 + '"><font color="white">' + this.SDT1 + '</font></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT1 +');"><img src="assets/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
-                    $('#ChiTiet_DienThoai1_Input').html(HtmlDt);
-                    $('#ChiTiet_DienThoai1_Input').show();
-                }else {$('#ChiTiet_DienThoai1_Input').hide();}
+                    $('#ChiTiet_DienThoai1_Input').innerHTML = HtmlDt;
+                    $('#ChiTiet_DienThoai1_Input').style.display = 'block';
+                }else {$('#ChiTiet_DienThoai1_Input').style.display = 'none';}
                 
                 
                 if (this.SDT2 !== '')
@@ -204,12 +204,12 @@
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT2 + '"><font color="white">' + this.SDT2 + '</font></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT2 +');"><img src="assets/img/copy.svg"  alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
-                    $('#ChiTiet_DienThoai2_Input').html(HtmlDt);
-                    $('#ChiTiet_DienThoai2_Input').show();
+                    $('#ChiTiet_DienThoai2_Input').innerHTML = HtmlDt;
+                    $('#ChiTiet_DienThoai2_Input').style.display = 'block';
                 }
                 else
                 {
-                    $('#ChiTiet_DienThoai2_Input').hide();
+                    $('#ChiTiet_DienThoai2_Input').style.display = 'none';
                 }
                 
                 
@@ -219,11 +219,11 @@
                     HtmlDt = HtmlDt + '<td><a href="tel:' + this.SDT3 + '"><font color="white">' + this.SDT3 + '</font></a></td>';
                     HtmlDt = HtmlDt + '<td><a href="javascript:void(0);" onclick="copyToClipboard('+ this.SDT3 +');"><img src="assets/img/copy.svg" alt="copy" style="height:18px;margin-left:10px;"></a></td>';
                     HtmlDt = HtmlDt + '</tr></table></center>';
-                    $('#ChiTiet_DienThoai3_Input').html(HtmlDt);
-                    $('#ChiTiet_DienThoai3_Input').show();
+                    $('#ChiTiet_DienThoai3_Input').innerHTML = HtmlDt;
+                    $('#ChiTiet_DienThoai3_Input').style.display = 'block';
                 }
                 else
-                {$('#ChiTiet_DienThoai3_Input').hide();}
+                {$('#ChiTiet_DienThoai3_Input').style.display = 'none';}
 			
 			
 			
@@ -236,7 +236,7 @@
 				{
 					var HTML = '<image src="' + this.Avatar + '" style="height:95%;">';
 				}
-                $('#ChiTiet_Anh_Show').html(HTML);
+                $('#ChiTiet_Anh_Show').innerHTML = HTML;
 				
 				////Ngày tháng năm sinh:
 				var NTNSinh ='';
@@ -260,8 +260,8 @@
                         NTNSinh = NTNSinh + this.NamSinh;
                     }
                     
-                    if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').text('Ngày sinh: ' + NTNSinh);}
-                    else {$('#ChiTiet_NgaySinh_Input').text('');}
+                    if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Ngày sinh: ' + NTNSinh;}
+                    else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
                     
                 }
                 else 
@@ -275,12 +275,12 @@
                         NTNSinh = NTNSinh + this.NamSinh;
                     }
                     
-                    if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').text('Năm sinh: ' + NTNSinh);}
-                    else {$('#ChiTiet_NgaySinh_Input').text('');}
+                    if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Năm sinh: ' + NTNSinh;}
+                    else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
                 }
 				
-				$('#DivChe').show();
-				$('#ChiTiet_Div').show();
+				$('#detail_divChe').style.display = 'block';
+				$('#ChiTiet_Div').style.display = 'block';
 		   }
 		   
 		   
