@@ -79,6 +79,17 @@ APP.user.changePassword.ui =
             </div>
         `;
     },
+    render: function()
+    {
+        if (APP.user.id == '')
+        {
+            activeButton('user_changePassword_submitButton');
+        }
+        else
+        {
+            inactiveButton('user_changePassword_submitButton');
+        }        
+    },
     show: function()
     {
         show('user_changePassword_divChe');

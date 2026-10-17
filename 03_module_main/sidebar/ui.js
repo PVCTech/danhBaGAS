@@ -44,8 +44,8 @@ APP.sidebar.ui =
         const sidebar =
         [
             { module: 'home', ten: 'Home' },
-            { module: 'quanLyKhuNha', ten: 'Khu nhà' },
-            { module: 'quanLyPhong', ten: 'Phòng' }  
+            { module: 'sinhNhat', ten: 'Khu nhà' },
+            { module: 'search', ten: 'Phòng' }  
         ];
         let moduleDangChon = 'home';
         APP.state.manHinhHienTai = 'home';

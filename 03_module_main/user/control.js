@@ -9,57 +9,53 @@ APP.user.control =
     },
     checkUser: async function()
     {
-        inactiveButton('user_changePassword_submitButton');
+        console.log('checkUser..');
         let loginStatus = localStorage.getItem('a00001_user');
         if (loginStatus)
         {    
-            let user = await APP.user.api.getLoginStatus(loginStatus.token);            
-            user = JSON.parse(user);
-            localStorage.setItem('a00001_user', JSON.stringify(user));
+            let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.token);
+            console.log(JSON.stringify(newLoginStatus));     
+            newLoginStatus = JSON.parse(newLoginStatus);
+            localStorage.setItem('a00001_user', JSON.stringify(newLoginStatus));
 
-            if (user.status !== 'ok')
+            if (newLoginStatus.status !== 'ok')
             {
                 localStorage.removeItem('a00001_user');
                 localStorage.removeItem('a00001_cache');
-                $('#userMenu_hoVaTen').value = '';
                 APP.user.login.ui.show();
             }
             else
             {
-                APP.cache.version = user.cacheVersion;
-                APP.user.data = user;
-                APP.user.token = user.token;
-                $('#user_hoVaTen').innerText = user.hoVaTen;
-                activeButton('user_changePassword_submitButton');
-                APP.getStartupData();
+                console.log('Check user: oke');
+                APP.state.user = newLoginStatus.user;
+                await APP.control.getStartupData();
+                APP.ui.render();
             }
         }
         else
         {
             console.log('Client checkUser: localstorage not found!');
-            localStorage.setItem('a00001_user', 'notOk');
             APP.user.login.ui.show();
         }
     },
     logout: function()
     {
-        let token = APP.user.token;
+        let token = APP.state.user.token;
         APP.user.menu.ui.hide();
         APP.sidebar.ui.clear();
         APP.view.ui.clear();
 
         APP.ui.hideAllTabs();
         APP.ui.hideAllForms();
-        APP.user.data = {};
+        APP.state.user = {};
         APP.user.login.ui.show();
 
         localStorage.setItem('a00001_user', '');
-        localStorage.removeItem('a00001_cache');
-        $('#user_hoVaTen').innerText = '--';   
+        localStorage.removeItem('a00001_cache'); 
         
         google.script.run.withSuccessHandler(function(userStatus)
         {
-                    
+            
         }).sv_doLogout(token);
     }
 };
@@ -72,17 +68,18 @@ APP.user.api =
         if (APP.mode == 'demo')
         {
             return Promise.resolve(
-            {
-                success: true,
-                loggedIn: true,
+            JSON.stringify({
+                status: 'ok',      
                 user:
                 {
                     id: 'U001',
+                    token: 'demo-token',
+                    userName: 'admin',
                     hoVaTen: 'Nguyễn Văn A',
                     vaiTro: 'chuNha'
                 },
                 cacheVersion: '1'
-            });
+            }));
         }
         else
         {
@@ -99,15 +96,20 @@ APP.user.api =
     {
         if (APP.mode == 'demo')
         {
-            if (loginInfor.userName == 'myName' && loginInfor.password == '123456')
+            if (loginInfor.userName == 'admin' && loginInfor.password == '123456')
             {
                 return Promise.resolve(
                 {
                     status: 'ok',
-                    token: 'demo-token',
-                    userName: 'myName',
-                    hoVaTen: 'Nguyễn Văn A',
-                    loaiTaiKhoan: 'chuNha'
+                    user:
+                    {
+                        id: 'U001',
+                        token: 'demo-token',
+                        userName: 'admin',
+                        hoVaTen: 'Nguyễn Văn A',
+                        vaiTro: 'admin'
+                    },
+                    cacheVersion: '1'
                 });
             }
             else
@@ -117,7 +119,7 @@ APP.user.api =
                     status: 'error',
                     message: 'Tên đăng nhập hoặc mật khẩu không đúng'
                 });
-            }            
+            }
         }
         else
         {

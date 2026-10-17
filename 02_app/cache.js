@@ -1,40 +1,48 @@
-const { version } = require("react");
-
 APP.cache = 
 {
     data: {
-        version: 0,
+        version: '',
         danhSachDonVi: [],
         danhSachPhongBan: [],
         danhSachTinh: [],
         danhSachPhuongXa: [],
-        danhSachXungHo: []
+        danhSachXungHo: [],
+        newCache: false
     },
     init: async function()
     {
-        let appCache = localStorage.getItem('a00001_cache');
-        let getNewCache = false;
-        if (appCache)
+        let localCacheData = localStorage.getItem('a00001_cache');
+        if (localCacheData)
         {
             //render
-            this.danhSachDonVi = appCache.danhSachDonVi;
-            this.danhSachPhongBan = appCache.danhSachPhongBan;
-            this.danhSachTinh = appCache.danhSachTinh;
-            this.danhSachPhuongXa = appCache.danhSachPhuongXa;
-            APP.ui.render();
-            //background: check cache version:
-            let cacheVersion = await APP.api.getCacheData();
-            if (APP.cache.version == cacheVersion){}
-            else 
-            {
+            this.data.version = localCacheData.version;
 
-            }
+            this.danhSachDonVi = localCacheData.danhSachDonVi;
+            this.danhSachPhongBan = localCacheData.danhSachPhongBan;
+            this.danhSachTinh = localCacheData.danhSachTinh;
+            this.danhSachPhuongXa = localCacheData.danhSachPhuongXa;
+
+            //background: check cache version, and update cache and local
+            this.update();
         }
         else
         {
-
+            console.log('Cache.init: Không có local cache');
+            await this.update();
+        }
+    },
+    update: async function(localVersion)
+    {
+        let newCacheData = await APP.api.getNewCacheData('');
+        if (newCacheData.newCache == false)
+        {                
+        }
+        else
+        {
+            APP.cache.data = newCacheData.data;
         }
         this.setDanhSachXungho();
+        this.setLocal();
     },
     setLocal: function()
     {

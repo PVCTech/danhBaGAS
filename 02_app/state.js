@@ -1,3 +1,4 @@
 APP.state = {
-    manHinhHienTai: ''
+    manHinhHienTai: '',
+    user: {}
 };

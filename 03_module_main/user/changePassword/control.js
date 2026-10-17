@@ -53,14 +53,14 @@ APP.user.changePassword.control =
                     $('#user_changePassword_submitButton').innerText = 'Đổi mật khẩu';
                     activeButton('user_changePassword_submitButton');
                     localStorage.setItem('a00001_user', JSON.stringify(user));
-                    APP.user.token = user.token;
+                    APP.state.user.token = user.token;
                     APP.user.changePassword.hide();
                 }
                 else
                 {
                     canhBao(user.message);
                 }
-            }).sv_user_changePassword(APP.user.data.userName, pass1, APP.user.token);
+            }).sv_user_changePassword(APP.state.user.userName, pass1, APP.state.user.token);
         }
     }        
 }

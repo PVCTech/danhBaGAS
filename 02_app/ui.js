@@ -20,7 +20,8 @@ APP.ui =
     },
     render: function()
     {
-        const manHinhHienTai = APP.state.manHinhHienTai;
+        APP.user.ui.render();
+        const manHinhHienTai = APP.state.manHinhHienTai || 'home';
         if (!manHinhHienTai) return;
         
         APP.sidebar.ui.hideIfMobile();

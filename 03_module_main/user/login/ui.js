@@ -96,28 +96,19 @@ APP.user.login.ui =
     render: function()
     {
         $('#loginError').innerHTML = APP.user.login.state.message;
-        $('#login_submitButton').innerText = APP.user.login.state.doingLogin ? 'Đang đăng nhập..' : 'Đăng nhập';
         
-        if (APP.user.login.state.doingLogin)
-        {
-            inactiveButton('login_submitButton');
-        }
-        else
-        {
-            activeButton('login_submitButton');
-        }
     },
     show: function()
     {
         APP.loadingScreen.hide();
         var emptyLoginStatus =
         {
-            loginStatus: 'notOk',
+            status: 'notOk',
             message: '',
             token: '',
             userName: '',
             userHoVaTen: '',
-            loaiTaiKhoan: ''
+            vaiTro: ''
         };
 
         APP.user.login.ui.reset();

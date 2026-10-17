@@ -36,6 +36,11 @@ APP.user.menu.ui =
             parentId: 'userMenu'
         });
     },
+    render: function()
+    {
+        let hoVaTen = APP.user.hoVaTen || '';
+        $('#user_hoVaTen').innerText = hoVaTen;        
+    },
     showing: false,
     show: function () {
         show('userMenu', 'flex');
