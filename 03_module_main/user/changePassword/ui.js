@@ -88,7 +88,16 @@ APP.user.changePassword.ui =
         else
         {
             inactiveButton('user_changePassword_submitButton');
-        }        
+        }
+
+        if (APP.state.manHinhHienTai == 'changePassword')
+        {
+            this.show();
+        }
+        else
+        {
+            this.hide();
+        }
     },
     show: function()
     {

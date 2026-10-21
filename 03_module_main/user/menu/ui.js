@@ -38,7 +38,7 @@ APP.user.menu.ui =
     },
     render: function()
     {
-        let hoVaTen = APP.user.hoVaTen || '';
+        let hoVaTen = APP.state.user.hoVaTen || '';
         $('#user_hoVaTen').innerText = hoVaTen;        
     },
     showing: false,

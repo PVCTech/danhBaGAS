@@ -16,7 +16,8 @@ APP.user.menu.control =
 
         $('#userMenu_changePassword').addEventListener('click', function (e) 
         {
-            APP.user.changePassword.ui.show();
+            APP.state.manHinhHienTai == 'changePassword';
+            APP.ui.render();
         });
 
         $('#userMenu_dangXuat').addEventListener('click', function (e) 

@@ -12,16 +12,31 @@ APP.user.control =
         console.log('checkUser..');
         let loginStatus = localStorage.getItem('a00001_user');
         if (loginStatus)
-        {    
-            let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.token);
-            console.log(JSON.stringify(newLoginStatus));     
+        {   
+            console.log('loginStatus: ' + loginStatus);
+            loginStatus = JSON.parse(loginStatus);
+            if (!loginStatus.user)
+            {
+                APP.user.login.ui.show();
+                return;
+            }
+            else
+            {
+                if (!loginStatus.user.token)
+                {
+                    APP.user.login.ui.show();
+                    return;
+                }
+            }
+
+            let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.user.token);
+            console.log(JSON.stringify(newLoginStatus));
             newLoginStatus = JSON.parse(newLoginStatus);
             localStorage.setItem('a00001_user', JSON.stringify(newLoginStatus));
 
             if (newLoginStatus.status !== 'ok')
             {
-                localStorage.removeItem('a00001_user');
-                localStorage.removeItem('a00001_cache');
+                APP.control.clearData();
                 APP.user.login.ui.show();
             }
             else
@@ -35,6 +50,7 @@ APP.user.control =
         else
         {
             console.log('Client checkUser: localstorage not found!');
+            APP.control.clearData();
             APP.user.login.ui.show();
         }
     },
@@ -42,21 +58,22 @@ APP.user.control =
     {
         let token = APP.state.user.token;
         APP.user.menu.ui.hide();
-        APP.sidebar.ui.clear();
-        APP.view.ui.clear();
+        //APP.sidebar.ui.clear();
+        APP.view.ui.clearAllTab();
 
         APP.ui.hideAllTabs();
         APP.ui.hideAllForms();
         APP.state.user = {};
-        APP.user.login.ui.show();
+        APP.state.manHinhHienTai = 'login';
+        APP.ui.render();
 
-        localStorage.setItem('a00001_user', '');
-        localStorage.removeItem('a00001_cache'); 
+        APP.control.clearData();
         
+        /*
         google.script.run.withSuccessHandler(function(userStatus)
         {
             
-        }).sv_doLogout(token);
+        }).sv_doLogout(token); */
     }
 };
 

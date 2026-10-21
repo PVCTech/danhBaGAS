@@ -48,21 +48,20 @@ APP.user.login.control =
             try
             {
                 const loginInfor = {userName: userName, password: pass};
-                let user = await APP.user.api.doLogin(loginInfor);
+                let loginStatus = await APP.user.api.doLogin(loginInfor);
 
-                user  = typeof user === 'string' ? JSON.parse(user) : user;                
-                if (user.status == 'ok')
+                loginStatus  = typeof loginStatus === 'string' ? JSON.parse(loginStatus) : loginStatus;                
+                if (loginStatus.status == 'ok')
                 {
-                    console.log('do login: user.status == ok');
-                    localStorage.setItem('a00001_user', JSON.stringify(user));
+                    console.log('do login: loginStatus.status == ok');
+                    localStorage.setItem('a00001_user', JSON.stringify(loginStatus));
                     
-                    APP.state.user.token = user.token;
-                    APP.state.user = user;
+                    APP.state.user = loginStatus.user;
                     
                     await APP.control.getStartupData();
                     APP.ui.render();
 
-                    $('#user_hoVaTen').innerText = user.hoVaTen;
+                    $('#user_hoVaTen').innerText = loginStatus.user.hoVaTen;
                     
                     $('#login_submitButton').innerText = 'Đăng nhập';
                     activeButton('login_submitButton');

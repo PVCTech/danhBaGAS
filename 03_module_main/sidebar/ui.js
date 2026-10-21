@@ -1,6 +1,10 @@
 APP.sidebar = APP.sidebar || {};
 APP.sidebar.ui = 
-{
+{   
+    moduleList: [
+        { module: 'home', ten: 'Home' },
+        { module: 'list', ten: 'Full danh sách' }
+    ],
     init: function()
     {
         div({
@@ -41,15 +45,9 @@ APP.sidebar.ui =
             parentId: 'sidebar'
         });
 
-        const sidebar =
-        [
-            { module: 'home', ten: 'Home' },
-            { module: 'sinhNhat', ten: 'Khu nhà' },
-            { module: 'search', ten: 'Phòng' }  
-        ];
         let moduleDangChon = 'home';
         APP.state.manHinhHienTai = 'home';
-        $('#sidebarGrid').innerHTML = sidebar.map(function(item)
+        $('#sidebarGrid').innerHTML = this.moduleList.map(function(item)
         {
             const active = item.module === moduleDangChon ? ' sidebar__button__selected' : '';            
             let bt = `
@@ -66,7 +64,8 @@ APP.sidebar.ui =
     render: function()
     {
         const moduleDangChon = APP.state.manHinhHienTai || 'home';
-        APP.sidebar.control.setSelectedButton(`sidebar_${moduleDangChon}`);
+        let timKiem = this.moduleList.find(md => md.module == moduleDangChon);
+        if (timKiem) APP.sidebar.control.setSelectedButton(`sidebar_${moduleDangChon}`);
     },
     showing: !APP.config.mobileMode,
     show: function()

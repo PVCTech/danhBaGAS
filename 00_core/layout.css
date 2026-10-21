@@ -30,7 +30,7 @@ body
     width: 100%;
     min-height: 100%;
 
-    font-family: Arial, sans-serif;
+    font-family: "MainFont", sans-serif;
     background: var(--color-background-gradient);
     color: var(--color-on-background-gradient);
 

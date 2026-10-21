@@ -32,7 +32,6 @@ APP.user.login.ui =
         APP.user.login.state.message = 'Vui lòng đăng nhập để vào trang này';
         APP.user.login.state.doingLogin = false;
         $('#login_password').value = '';
-        APP.user.login.ui.render();
     },
     init: function()
     {
@@ -96,28 +95,24 @@ APP.user.login.ui =
     render: function()
     {
         $('#loginError').innerHTML = APP.user.login.state.message;
-        
+        if (APP.state.manHinhHienTai == 'login')
+        {
+            this.show();
+        }
+        else
+        {
+            this.hide();
+        }
     },
     show: function()
     {
-        APP.loadingScreen.hide();
-        var emptyLoginStatus =
-        {
-            status: 'notOk',
-            message: '',
-            token: '',
-            userName: '',
-            userHoVaTen: '',
-            vaiTro: ''
-        };
-
-        APP.user.login.ui.reset();
+        //APP.loadingScreen.hide();
+        this.reset();
         $('#loginContainer').style.display = 'flex';
-        localStorage.setItem('a00001_user', JSON.stringify(emptyLoginStatus));
     },
     hide: function()
     {
         hide('loginContainer');
-        APP.user.login.ui.reset();
+        this.reset();
     }    
 };

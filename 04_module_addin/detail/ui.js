@@ -1,4 +1,5 @@
 APP.detail = APP.detail || {};
+APP.detail.lienHeId = '';
 APP.detail.ui =
 {
     init: function()
@@ -11,7 +12,7 @@ APP.detail.ui =
                 left:0px;
                 width:100%;
                 min-height:100vh;
-                background: var(--color-primary);
+                background: var(--color-primary-dark);
                 z-index:105;
                 display:none;
                 vertical-align:bottom;
@@ -19,7 +20,6 @@ APP.detail.ui =
         `;
         document.head.appendChild(style);
         divChe({id: 'detail_divChe'});
-        //div({id: 'ChiTiet_Div', className: 'detail__div'});
         let divct = document.createElement('div');
         divct.id = 'ChiTiet_Div';
         divct.className = 'detail__div';        
@@ -36,14 +36,23 @@ APP.detail.ui =
                             <div id="ChiTiet_Anh_Show" style="height:180px;">Ảnh</div>
                         </center>
                     </div>
-                    <div style="position:absolute;right:15px;bottom:-12px;padding:3px;" id="ChiTiet_Copy_Input">
-                        <img id="ChiTiet_Star_Image" src="assets/img/copy_green.svg" style="height:20px;">
-                        <img id="ChiTiet_Star_Image" src="assets/img/copy_green.svg" style="height:25px;margin-left:8px;">
+                    <div style="position:absolute;left:15px;bottom:-12px;padding:3px;" id="ChiTiet_Save_Input">
+
+                    </div>
+                    <div style="position:absolute;right:15px;bottom:-12px;padding:3px;display:flex;gap:8px; align-items: flex-end;" id="ChiTiet_Copy_Input">
+                        <div class="imageButton" style="height:20px; width:18px;" 
+                            onclick="APP.detail.control.copyChiTiet2();">
+                            ${APP.detail.ui.assets.img.copy(18,20)}
+                        </div>
+                        <div class="imageButton" style="height:25px; width:22px;"
+                            onclick="APP.detail.control.copyChiTiet3();">
+                            ${APP.detail.ui.assets.img.copy(22,25)}
+                        </div>
                     </div>
                 </div>
                 <div class="Containner" style="background:#e5e5e5;height:10px;">
                 </div>
-                <div class="Containner" style="border-radius:0px 0px 10px 10px;background:green;min-height:300px;position:relative;"><br>
+                <div class="Containner" style="border-radius:0px 0px 10px 10px; background:var(--color-primary-dark); min-height:300px;position:relative;"><br>
                     <table style="width:100%;color:white;font-size:14px;padding:10px;">
                         <tr>
                             <td colspan="3">
@@ -115,7 +124,7 @@ APP.detail.ui =
                                 <center>
                                     <div style="position:fixed;bottom:10px;left:0px;width:100%;z-index:101;" onclick="APP.detail.ui.hide();">
                                         <center>
-                                            <div class="Button" style="background:green;color:rgba(255,255,255,0.5);border:0.3px solid rgba(255,255,255,0.5);padding:8px;margin-top:15px;">Ok</div>
+                                            <div class="Button" style="background:var(--color-primary-dark);color:rgba(255,255,255,0.5);border:0.3px solid rgba(255,255,255,0.5);padding:8px;margin-top:15px;">Ok</div>
                                         </center>
                                     </div>
                                 </center>
@@ -124,12 +133,211 @@ APP.detail.ui =
                     </table>
                 </div>
             </center>`;
-            document.body.appendChild(divct);
+        document.body.appendChild(divct);
+    },
+    render: function(lienHe)
+    {
+        APP.detail.lienHeId = lienHe.Id;
+        //Favorite:
+        if (parseInt(lienHe.Star) == 1) 
+        {
+            $('#ChiTiet_Star_Image').classList.remove('ThemMoi_Star_InActive');
+        }
+        else
+        {
+            $('#ChiTiet_Star_Image').classList.add('ThemMoi_Star_InActive');
+        }
+
+        //Avatar:
+        if (lienHe.Avatar =='' || lienHe.Avatar === undefined) 
+        {
+            var HTML = '<image src="assets/img/avatar_star.svg" style="height:95%;">';
+        }
+        else
+        {
+            var HTML = '<image src="' + lienHe.Avatar + '" style="height:95%;">';
+        }
+        $('#ChiTiet_Anh_Show').innerHTML = HTML;
+
+        //Download vcard:
+        var card = APP.detail.control.getVCardLink(lienHe.TenHienThi, lienHe.SDT1, lienHe.SDT2, lienHe.Email, lienHe.TimKiem);
+        $('#ChiTiet_Save_Input').innerHTML = `<a href="${card}" download="${APP.detail.control.creatDateStringForFileName(Date.now()) + lienHe.SDT1}danhba.vcf">
+                <div class="imageButton" style="height:25px;">
+                    ${APP.detail.ui.assets.img.save}
+                </div>
+            </a>`;
+         
+
+        //Họ và tên:
+        $('#ChiTiet_HoVaTen_Input').innerHTML = '';
+        $('#ChiTiet_HoVaTen_Input').innerText = lienHe.TenHienThi;
+        
+        //Phòng Ban, Đơn vị:
+        var PbDvi = lienHe.GetPhongBan1();
+        if (PbDvi.length !=='') {PbDvi = PbDvi + ' ';}
+        PbDvi = PbDvi + lienHe.GetDonVi1();
+        
+        if (lienHe.GetDonVi2() !=='') {PbDvi = PbDvi + ', ';}
+        PbDvi = PbDvi + lienHe.GetPhongBan2();
+        if (lienHe.GetPhongBan2() !=='') {PbDvi = PbDvi + ' ';}
+        PbDvi = PbDvi + lienHe.GetDonVi2();
+        $('#ChiTiet_DonVi_Input').innerText = PbDvi ;
+        
+        ///Địa chỉ:
+        var DiaChi_Full = '';
+        if (lienHe.DiaChi !== ''){DiaChi_Full = lienHe.DiaChi;}
+
+        $('#ChiTiet_DiaChi_Input').innerText = DiaChi_Full;
+        
+        ///Email:
+        $('#ChiTiet_Email_Input').innerText = lienHe.Email;
+        
+        ///Điện thoại:
+        this.renderSoDienThoai(lienHe.SDT1, 1);
+        this.renderSoDienThoai(lienHe.SDT2, 2);
+        this.renderSoDienThoai(lienHe.SDT3, 3);   
+            
+        ////Ngày tháng năm sinh:
+        this.renderNgayThangNamSinh(lienHe.NgaySinh, lienHe.ThangSinh, lienHe.NamSinh);
+        
+        $('#detail_divChe').style.display = 'block';
+        $('#ChiTiet_Div').style.display = 'block';
+    
+    },
+    renderSoDienThoai: function(sdt, stt)
+    {
+        let divContainer = $('#ChiTiet_DienThoai' + stt + '_Input');
+        if (sdt !== '')
+        {
+            var HtmlDt = `<center>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="tel:${sdt}">
+                                <img src="assets/img/call.png" style="height:20px;" alt="call">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="tel:${sdt}"><font color="white">${sdt}</font></a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);" onclick="copySoDienThoai('${sdt}');">                                
+                                <div class="imageButton" alt="copy" style="height:18px;margin-left:10px;">
+                                    ${APP.detail.ui.assets.img.copy_white}
+                                </div>
+                            </a>
+                        </td>
+                </tr></table></center>`;
+            divContainer.innerHTML = HtmlDt;
+            divContainer.style.display = 'block';
+        }
+        else 
+        {
+            divContainer.style.display = 'none';
+        }
+    },
+    renderNgayThangNamSinh: function(ngay, thang, nam)
+    {
+        var NTNSinh ='';
+        if (ngay ==0){} else {NTNSinh = NTNSinh + ngay + '/';}
+        
+        if (NTNSinh == '')
+        {
+            if (thang ==0){} else {NTNSinh = NTNSinh + thang + '/';}
+        } 
+        else 
+        {NTNSinh = NTNSinh + thang + '/';}
+        
+        if (NTNSinh.length > 0) 
+        {
+            if (NTNSinh == '')
+            {
+                if (nam ==0){} else {NTNSinh = NTNSinh + nam;}
+            }
+            else
+            {
+                NTNSinh = NTNSinh + nam;
+            }
+            
+            if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Ngày sinh: ' + NTNSinh;}
+            else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
+            
+        }
+        else 
+        {
+            if (NTNSinh == '')
+            {
+                if (nam ==0){} else {NTNSinh = NTNSinh + nam;}
+            }
+            else
+            {
+                NTNSinh = NTNSinh + nam;
+            }
+            
+            if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Năm sinh: ' + NTNSinh;}
+            else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
+        }
     },
     hide: function()
     {
         $('#ChiTiet_Div').style.display = 'none';
         $('#detail_divChe').style.display = 'none';
+    },
+    assets:
+    {
+        img:
+        {
+            save: `<svg style="width: 50px;max-height: 100%;">
+                        <path
+                        fill="none"
+                        d="M5.25589 16C3.8899 15.0291 3 13.4422 3 11.6493C3 9.20008 4.8 6.9375 7.5 6.5C8.34694 4.48637 10.3514 3 12.6893 3C15.684 3 18.1317 5.32251 18.3 8.25C19.8893 8.94488 21 10.6503 21 12.4969C21 14.0582 20.206 15.4339 19 16.2417M12 21V11M12 21L9 18M12 21L15 18"
+                        stroke="green"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        id="path1890"
+                        style="stroke:var(--color-primary);" />
+                    </svg>`,
+            copy_white: `<svg width="513" height="625" viewBox="0 0 513 625" style="height:18px; width: 16px;">
+                        <path fill="#ffffff"
+                            d="m 254.48797,223.29618 c 0,6.627 -5.373,12 -12,12 h -109 c -6.627,0 -12,-5.373 -12,-12 v -2 c 0,-6.627 5.373,-12 12,-12 h 109 c 6.627,0 12,5.373 12,12 z"/>
+                        <path fill="#ffffff"
+                            d="m 386.48797,301.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                        <path fill="#ffffff"
+                            d="m 386.48797,379.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                        <path fill="#ffffff"
+                            d="m 386.48797,458.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                        <path
+                            style="fill:none;fill-opacity:0.245718;stroke:#ffffff;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 46.736409,67.190067 c 0,0 -5.678345,-21.456018 23.603844,-22.5391 28.722178,0.170927 293.287957,-0.565916 293.287957,-0.565916 0,0 11.09669,-3.749628 22.57941,6.332907 11.48271,10.082534 81.7297,80.727352 81.7297,80.727352 0,0 3.7988,4.36922 3.31379,19.461 0.18334,16.468 0.89054,411.02837 0.89054,411.02837 0,0 -0.78956,18.84417 -16.75068,19.38359 -38.31714,-0.25916 -387.249265,0 -387.249265,0 0,0 -21.825863,1.3153 -21.825863,-15.91776 0,-17.23305 0.420567,-497.910443 0.420567,-497.910443 z"
+                            id="path969" />
+                        <path
+                            style="fill:none;fill-opacity:0.245718;stroke:#ffffff;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                            d="m 374.94339,50.95725 v 75.61225 c 0,0 -1.78788,13.78389 13.60301,13.78389 15.39089,0 82.32377,0 82.32377,0"
+                            />
+                    </svg>`,
+            copy: function (w,h)
+            { 
+                return `<svg width="513" height="625" viewBox="0 0 513 625" style="height:${h}px; width: ${w}px;">
+                    <path style="fill:var(--color-primary)"
+                        d="m 254.48797,223.29618 c 0,6.627 -5.373,12 -12,12 h -109 c -6.627,0 -12,-5.373 -12,-12 v -2 c 0,-6.627 5.373,-12 12,-12 h 109 c 6.627,0 12,5.373 12,12 z"/>
+                    <path style="fill:var(--color-primary)"
+                        d="m 386.48797,301.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                    <path style="fill:var(--color-primary)"
+                        d="m 386.48797,379.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                    <path style="fill:var(--color-primary)"
+                        d="m 386.48797,458.29618 c 0,6.627 -5.373,12 -12,12 h -241 c -6.627,0 -12,-5.373 -12,-12 v -1.5 c 0,-6.627 5.373,-12 12,-12 h 241 c 6.627,0 12,5.373 12,12 z"/>
+                    <path
+                        style="fill:none;fill-opacity:0.245718;stroke:var(--color-primary);stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 46.736409,67.190067 c 0,0 -5.678345,-21.456018 23.603844,-22.5391 28.722178,0.170927 293.287957,-0.565916 293.287957,-0.565916 0,0 11.09669,-3.749628 22.57941,6.332907 11.48271,10.082534 81.7297,80.727352 81.7297,80.727352 0,0 3.7988,4.36922 3.31379,19.461 0.18334,16.468 0.89054,411.02837 0.89054,411.02837 0,0 -0.78956,18.84417 -16.75068,19.38359 -38.31714,-0.25916 -387.249265,0 -387.249265,0 0,0 -21.825863,1.3153 -21.825863,-15.91776 0,-17.23305 0.420567,-497.910443 0.420567,-497.910443 z"
+                        id="path969" />
+                    <path
+                        style="fill:none;fill-opacity:0.245718;stroke:var(--color-primary);stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 374.94339,50.95725 v 75.61225 c 0,0 -1.78788,13.78389 13.60301,13.78389 15.39089,0 82.32377,0 82.32377,0"
+                        />
+                </svg>`;
+            }
+        }
     }
 }
 

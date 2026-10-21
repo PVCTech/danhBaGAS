@@ -3,6 +3,7 @@ APP.cache =
     data: {
         version: '',
         danhSachLienHe: [],
+        danhSachLichSu: [],
         danhSachDonVi: [],
         danhSachPhongBan: [],
         danhSachTinh: [],
@@ -48,12 +49,13 @@ APP.cache =
     },
     convertCache: function()
     {
-        APP.cache.data.danhSachLienHe   = APP.cache.data.danhSachLienHe.map(options => new LienHe(options));
+        APP.cache.data.danhSachLienHe   = APP.cache.data.danhSachLienHe.map(options => new LienHe(options));        
         APP.cache.data.danhSachDonVi    = APP.cache.data.danhSachDonVi.map(options => new DonVi(options));
         APP.cache.data.danhSachPhongBan = APP.cache.data.danhSachPhongBan.map(options => new PhongBan(options));
         APP.cache.data.danhSachTinh    = APP.cache.data.danhSachTinh.map(options => new Tinh(options));
         APP.cache.data.danhSachPhuongXa    = APP.cache.data.danhSachPhuongXa.map(options => new PhuongXa(options));
         this.setDanhSachXungho();
+        this.updateHistoryInfor();
     },
     setLocal: function()
     {
@@ -86,5 +88,27 @@ APP.cache =
             new XungHo({Id: 18,   Ten: "thầy",   TimKiem: "thay"}) ,
             new XungHo({Id: 19,   Ten: "mợ",   TimKiem: "mo"})
         ];
+    },
+    updateHistoryInfor: function()
+    {        
+        APP.cache.data.danhSachLichSu.forEach(lichSu => {
+            let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.Id) === String(lichSu.lienHeId));
+            lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam, 
+                gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
+        });
+    },
+    clear: function()
+    {
+        APP.cache.data = {
+            version: '',
+            danhSachLienHe: [],
+            danhSachLichSu: [],
+            danhSachDonVi: [],
+            danhSachPhongBan: [],
+            danhSachTinh: [],
+            danhSachPhuongXa: [],
+            danhSachXungHo: [],
+            newCache: false
+        };
     }
 };

@@ -17,7 +17,7 @@
     gap: 4px;
     position: fixed;
     z-index: 10;
-    top: 40px;
+    top: 48px;
     right: 6px;
     min-width: 200px;
     background-color: var(--color-primary);

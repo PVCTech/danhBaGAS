@@ -101,29 +101,34 @@ const boDau = (str) =>
 }
 
 
-const copyToClipboard = (NoiDung)  =>
+function copyToClipboard_element(noiDungId)  //thêm hiệu ứng nhấp nháy khi copy
 {
-    var $temp = $("<input type='text'>");
-    $("body").append($temp);
-    $temp.val("0" + NoiDung).select();
-    document.execCommand("copy");
-    $temp.remove();
+    const input = document.getElementById(noiDungId);
+    let noiDung = input.value;
+    const brRegex = /<br\s*[\/]?>/gi;
+    const text = noiDung.replace(brRegex, "\r\n");
+    navigator.clipboard.writeText(text);
+    input.classList.add("Note_Input_Active");
+
+    setTimeout(() => {
+        input.classList.remove("Note_Input_Active");
+    }, 100);
+    document.getElementById('content_text_copyButton').innerText='Copied';
 }
 
-const copyToClipboardNot0 = (NoiDung) =>
+const copyToClipboard = (NoiDung)  =>
 {
-    var $temp = $("<textarea>");
     var brRegex = /<br\s*[\/]?>/gi;
-    $("body").append($temp);
-    $temp.val(NoiDung.replace(brRegex, "\r\n")).select();
-    document.execCommand("copy");
-    $temp.remove();
+    NoiDung = NoiDung.replace(brRegex, "\r\n");
+    navigator.clipboard.writeText(NoiDung);
 }
+
+
 
 
 const chuanHoaNgayThang = (number) =>
 {
-    if (number == '')
+    if (String(number) == '')
     {
         return '';
     }
@@ -214,67 +219,6 @@ const formatNumberInput = (IdInput) =>
         $('#' + IdInput).val(formatNumber(parseInt($('#' + IdInput).val())));
     }
 }
-
-
-const hopDongActive = (hopDong) =>
-{
-    ngayBatDau = hopDong.ngayBatDau;
-    thangBatDau = hopDong.thangBatDau;
-    namBatDau = hopDong.namBatDau;
-
-    ngayKetThuc = hopDong.ngayKetThuc;
-    thangKetThuc = hopDong.thangKetThuc;
-    namKetThuc = hopDong.namKetThuc;
-    
-    if (ngayBatDau == '' || thangBatDau == '' || namBatDau == '') {return false;}
-    ngayBatDau = parseInt(ngayBatDau);
-    thangBatDau = parseInt(thangBatDau);
-    namBatDau = parseInt(namBatDau);
-
-    if (ngayKetThuc !== '')
-    {
-        ngayKetThuc = parseInt(ngayKetThuc);
-    }
-    else
-    {
-        ngayKetThuc = 31;
-    }
-
-    if (thangKetThuc !== '') 
-    {
-        thangKetThuc = parseInt(thangKetThuc);
-    }
-    else
-    {
-        thangKetThuc = 12;
-    }
-
-    if (namKetThuc !== '') 
-    {
-        namKetThuc = parseInt(namKetThuc);
-    }
-    else
-    {
-        namKetThuc = 3000;
-    }
-
-    let d = new Date();
-    let ngayHienTai = d.getDate();
-    let thangHienTai = d.getMonth() + 1;
-    let namHienTai = d.getFullYear();
-    // bat dau <= han <= ket thuc:
-    if (ATruocB(ngayBatDau, thangBatDau, namBatDau, ngayHienTai, thangHienTai, namHienTai)
-        && ATruocB(ngayHienTai, thangHienTai, namHienTai, ngayKetThuc, thangKetThuc, namKetThuc)
-    )
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }   
-}
-
 
 
 function xuLyLoi(loi) {

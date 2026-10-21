@@ -4,7 +4,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="199.975px" height="199.975px" viewBox="0 0 199.975 199.975" enable-background="new 0 0 199.975 199.975"
 	 xml:space="preserve">
-<polygon fill="#008000" stroke="#35265D" stroke-width="7.0866" stroke-miterlimit="10" points="131.5,170 87.008,159.375 
+<polygon fill="red" stroke="#35265D" stroke-width="7.0866" stroke-miterlimit="10" points="131.5,170 87.008,159.375 
 	53.031,190.003 49.388,144.404 9.76,121.556 52,104 61.485,59.25 91.234,93.999 136.725,89.191 112.87,128.222 "/>
 <polygon fill="#F9DB03" stroke="#35265D" stroke-width="7.0866" stroke-miterlimit="10" points="149.5,68.5 133.886,58.619 
 	116.894,65.879 121.466,47.976 109.31,34.059 127.75,32.875 137.229,17.013 144.054,34.186 162.068,38.299 147.846,50.096 "/>

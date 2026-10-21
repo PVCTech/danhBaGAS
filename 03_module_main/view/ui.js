@@ -15,6 +15,11 @@ APP.view.ui =
         
         //APP.view.ui.showLoading();
     },
+    render: function()
+    {
+        let timKiem = APP.sidebar.ui.moduleList.find(md => md.module == APP.state.manHinhHienTai);
+        if (timKiem) this.showTab(APP.state.manHinhHienTai);
+    },
     showLoading: function()
     {
         APP.view.ui.showTab('home', 'startupScreen', 'loading');
@@ -77,6 +82,10 @@ APP.view.ui =
         tab.style.display = '';
         tab.classList.remove('hide');
     },
+    clearTab: function(module)
+    {
+        $(`#${module}_tab`).innerHTML = `Chưa có dữ liệu`;
+    },
     removeTab: function(module)
     {
         const tabId = module + '_tab';
@@ -89,6 +98,12 @@ APP.view.ui =
         {
             tab.remove();
         }
+    },
+    clearAllTab: function()
+    {
+        APP.sidebar.ui.moduleList.forEach(md => {
+            this.clearTab(md.module);
+        });
     },
     clear: function()
     {

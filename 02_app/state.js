@@ -1,4 +1,4 @@
 APP.state = {
-    manHinhHienTai: '',
+    manHinhHienTai: 'home',
     user: {}
 };

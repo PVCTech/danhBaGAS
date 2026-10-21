@@ -20,18 +20,19 @@ APP.ui =
         APP.footer.control.init();
 
 
+        APP.history.ui.init();
         APP.list.ui.init();
         APP.detail.control.init();
     },
     render: function()
     {
-        APP.user.ui.render();
-        const manHinhHienTai = APP.state.manHinhHienTai || 'home';
-        if (!manHinhHienTai) return;
-        
+        APP.user.ui.render();        
+        APP.sidebar.ui.render();
         APP.sidebar.ui.hideIfMobile();
-        APP.sidebar.control.setSelectedButton('sidebar_' + manHinhHienTai);
-        APP.view.ui.showTab(manHinhHienTai);
+
+        APP.history.ui.render();
+        APP.list.ui.render();
+        APP.view.ui.render();
         APP.ui.scrollTop();
     },
     setManHinh: function(manHinh)
