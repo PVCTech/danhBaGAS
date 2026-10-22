@@ -2,8 +2,8 @@ class HuyenThanhPho
 {
    constructor(Id,Ten,TimKiem)
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = Id;
+	   this.ten = Ten;
+	   this.timKiem = TimKiem;
    }
 }

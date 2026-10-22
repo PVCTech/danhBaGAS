@@ -19,10 +19,10 @@ APP.user.changePassword.ui =
                     <tr>
                         <td style="position:relative;">
                         <div style="width:100%;text-align:center;">
-                            <img src="assets/img/ourhome.svg" style="height:25px;opacity:0.75;">
+                            <img src="assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
                         </div>
                         
-                        <img src="assets/img/favicon_white.png" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
+                        <img src="assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
                         </td>
                     </tr>
                 </table>

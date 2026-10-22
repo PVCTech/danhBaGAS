@@ -210,13 +210,13 @@ const formatNumber = (gia) =>
 const formatNumberInput = (IdInput) =>
 {
     
-    if ($('#' + IdInput).val() == '' || $('#' + IdInput).val() == '0' || $('#' + IdInput).val() == '00' || $('#' + IdInput).val() == '000')
+    if ($('#' + IdInput).value == '' || $('#' + IdInput).value == '0' || $('#' + IdInput).value == '00' || $('#' + IdInput).value == '000')
     {
         
     }
     else
     {
-        $('#' + IdInput).val(formatNumber(parseInt($('#' + IdInput).val())));
+        $('#' + IdInput).value = formatNumber(parseInt($('#' + IdInput).value));
     }
 }
 

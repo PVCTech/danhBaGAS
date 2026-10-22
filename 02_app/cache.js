@@ -68,31 +68,35 @@ APP.cache =
     setDanhSachXungho: function()
     {
         this.data.danhSachXungHo = [
-            new XungHo({Id: 0,   Ten: "",   TimKiem: ""}) ,
-            new XungHo({Id: 1,   Ten: "ông",   TimKiem: "5ong"}) ,
-            new XungHo({Id: 2,   Ten: "bà",   TimKiem: "6ba"}) ,
-            new XungHo({Id: 3,   Ten: "bác",   TimKiem: "bac"}) ,
-            new XungHo({Id: 4,   Ten: "bố",   TimKiem: "bo"}) ,
-            new XungHo({Id: 5,   Ten: "mẹ",   TimKiem: "me"}) ,
-            new XungHo({Id: 6,   Ten: "cô",   TimKiem: "3co"}) ,
-            new XungHo({Id: 7,   Ten: "gì",   TimKiem: "gi"}) ,
-            new XungHo({Id: 8,   Ten: "chú",   TimKiem: "4chu"}) ,
-            new XungHo({Id: 9,   Ten: "cậu",   TimKiem: "cau"}) ,
-            new XungHo({Id: 10,   Ten: "anh",   TimKiem: "1anh"}) ,
-            new XungHo({Id: 11,   Ten: "chị",   TimKiem: "2chi"}) ,
-            new XungHo({Id: 12,   Ten: "em",   TimKiem: "em"}) ,
-            new XungHo({Id: 13,   Ten: "bạn",   TimKiem: "ban"}) ,
-            new XungHo({Id: 14,   Ten: "con",   TimKiem: "con"}) ,
-            new XungHo({Id: 15,   Ten: "cháu",   TimKiem: "chau"}) ,
-            new XungHo({Id: 17,   Ten: "cậu (em)",   TimKiem: "cau (em)"}) ,
-            new XungHo({Id: 18,   Ten: "thầy",   TimKiem: "thay"}) ,
-            new XungHo({Id: 19,   Ten: "mợ",   TimKiem: "mo"})
+            new XungHo({id: 0,   ten: "",   timKiem: ""}) ,
+            new XungHo({id: 1,   ten: "ông",   timKiem: "5ong"}) ,
+            new XungHo({id: 2,   ten: "bà",   timKiem: "6ba"}) ,
+            new XungHo({id: 3,   ten: "bác",   timKiem: "bac"}) ,
+            new XungHo({id: 4,   ten: "bố",   timKiem: "bo"}) ,
+            new XungHo({id: 5,   ten: "mẹ",   timKiem: "me"}) ,
+            new XungHo({id: 6,   ten: "cô",   timKiem: "3co"}) ,
+            new XungHo({id: 7,   ten: "gì",   timKiem: "gi"}) ,
+            new XungHo({id: 8,   ten: "chú",   timKiem: "4chu"}) ,
+            new XungHo({id: 9,   ten: "cậu",   timKiem: "cau"}) ,
+            new XungHo({id: 10,   ten: "anh",   timKiem: "1anh"}) ,
+            new XungHo({id: 11,   ten: "chị",   timKiem: "2chi"}) ,
+            new XungHo({id: 12,   ten: "em",   timKiem: "em"}) ,
+            new XungHo({id: 13,   ten: "bạn",   timKiem: "ban"}) ,
+            new XungHo({id: 14,   ten: "con",   timKiem: "con"}) ,
+            new XungHo({id: 15,   ten: "cháu",   timKiem: "chau"}) ,
+            new XungHo({id: 17,   ten: "cậu (em)",   timKiem: "cau (em)"}) ,
+            new XungHo({id: 18,   ten: "thầy",   timKiem: "thay"}) ,
+            new XungHo({id: 19,   ten: "mợ",   timKiem: "mo"})
         ];
+        
+        this.data.danhSachXungHo.sort((a, b) => 
+            a.timKiem.localeCompare(b.timKiem)
+        );
     },
     updateHistoryInfor: function()
     {        
         APP.cache.data.danhSachLichSu.forEach(lichSu => {
-            let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.Id) === String(lichSu.lienHeId));
+            let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lichSu.lienHeId));
             lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam, 
                 gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
         });

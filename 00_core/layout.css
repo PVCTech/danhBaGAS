@@ -79,7 +79,7 @@ body
     min-height: 0;
 }
 
-@media (max-width: 981px) 
+@media (max-width: 576px) 
 {
     .main 
     {
@@ -94,7 +94,7 @@ body
     padding: 15px;
 }
 
-@media (max-width: 981px) 
+@media (max-width: 576px) 
 {
     .sidebar 
     {
@@ -110,7 +110,7 @@ body
     padding: 20px;    
 }
 
-@media (max-width: 981px) 
+@media (max-width: 576px) 
 {
     .view 
     {
@@ -132,7 +132,7 @@ body
     font-weight: 700;
 }
 
-@media (max-width: 981px) 
+@media (max-width: 576px) 
 {
     .view__header__caption
     {

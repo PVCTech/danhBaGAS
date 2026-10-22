@@ -23,6 +23,7 @@ APP.ui =
         APP.history.ui.init();
         APP.list.ui.init();
         APP.detail.control.init();
+        APP.form.control.init();
     },
     render: function()
     {

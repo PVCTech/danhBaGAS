@@ -2,14 +2,14 @@
     a {text-decoration:none;}
     a:active{opacity:0.45;}
     
-    .Avatar
+    .avatar
     {
         width:95%;
         border-radius:5px;
         border:0.5px solid rgba(0,0,0,0.23);
     }
     
-    .Avatar_Div
+    .avatar_Div
     {
         width:60px;
         height:60px;
@@ -17,41 +17,20 @@
         border-radius:5px;
     }
     
-    .Avatar_Inactive
+    .avatar_Inactive
     {
         width:95%;
         border-radius:50%;
         border:2px solid rgba(0,0,0,0.23);
     }
     
-    .Avatar
+    .avatar
     {
         width:95%;
         border-radius:5px;
         border:0.5px solid rgba(0,0,0,0.23);
     }
 
-
-
-    .Button
-    {
-        text-align:center;    
-        padding:8px;
-        border-radius:5px 0px 5px 0px;
-        width:100px;
-        margin-top:10px;
-        margin-bottom:10px;
-    }
-    
-    .Button:active 
-    {
-        background:white;
-        color:rgba(0,0,0,0.8);
-        position:relative;
-        top:1px;
-        left:1px;
-        opacity:0.45;
-    }
     
     .Containner
     {
@@ -80,39 +59,6 @@
       text-transform: uppercase;
       font-size:18px;
       font-weight:bold;
-    }
-    
-    .InputBox 
-    {
-        width:90%;
-        border-radius:5px;
-        border:0.3px rgba(0,0,0,0.3) solid;
-        padding:6px;
-        color:rgba(0,0,0,0.75);
-        
-    }
-    
-    .Input_Div 
-    {
-        width:96%;
-        border-radius:5px;
-        border:0.3px rgba(0,0,0,0.3) solid;
-        padding:6px;
-        color:rgba(0,0,0,0.75);
-        background:rgba(0,0,0,0.03);
-        height:16px;
-    }
-    
-    .Input_Div_Dropt
-    {
-        position:absolute;
-        right:10px;
-        top:10px;
-    }
-    
-    .Input_GoiY_Div
-    {
-        
     }
     
     
@@ -163,7 +109,7 @@
     }
     
     
-    .ThemMoi_GoiY_Data_Div
+    .form_GoiY_Data_Div
     {
         padding:8px;
         border-radius:5px;
@@ -171,25 +117,25 @@
         margin-top:10px;
         width:250px;
     }
-    .ThemMoi_GoiY_Data_Div:hover 
+    .form_GoiY_Data_Div:hover 
     {
         background:rgba(0,0,0,0.05);
         color:rgba(0,0,0,0.75);
     }
     
-    .ThemMoi_GoiY_Data_Div_NotSelected
+    .form_GoiY_Data_Div_NotSelected
     {
         color:rgba(0,0,0,0.45);
         background:white;
     }
     
-    .ThemMoi_GoiY_Data_Div_Selected
+    .form_GoiY_Data_Div_Selected
     {
         color:rgba(255,255,255,0.75);
         background:rgba(0,0,0,0.35);
     }
     
-    .TimKiem_ChonNhom_GoiY_Data_Div
+    .timKiem_ChonNhom_GoiY_Data_Div
     {
         padding:10px 0px 10px 0px;
         border-radius:5px;
@@ -198,7 +144,7 @@
         width:300px;
     }
     
-    .TimKiem_Input_GoiY_Div
+    .timKiem_Input_GoiY_Div
     {
         position:fixed;
         bottom:70px;
@@ -211,11 +157,11 @@
         scrollbar-width: none;  /* Firefox */
     }
     
-    .TimKiem_Input_GoiY_Div::-webkit-scrollbar 
+    .timKiem_Input_GoiY_Div::-webkit-scrollbar 
     {
       display: none;
     }
     
-    .ThemMoi_Star_Active{opacity:1;}
-    .ThemMoi_Star_InActive{opacity:0.3;}
+    .form_Star_Active{opacity:1;}
+    .form_Star_InActive{opacity:0.3;}
     

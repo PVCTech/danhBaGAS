@@ -1,0 +1,37 @@
+.form__input__goiY__container
+{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100vh;
+    z-index:102;
+    background:white;
+}
+
+
+.form__input__goiY__header__container
+{
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:104;
+    width:100%;
+}
+
+
+.form__input__goiY__header__table
+{
+    width: var(--mobile-width-on-pc);
+    box-shadow: 5px 3px 8px rgba(0,0,0,0.2);
+    background:white;
+}
+
+@media (max-width: 576px)
+{
+    .form__input__goiY__header__table
+    {
+        width:100%;
+    }
+}

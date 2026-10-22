@@ -40,11 +40,11 @@ APP.detail.ui =
 
                     </div>
                     <div style="position:absolute;right:15px;bottom:-12px;padding:3px;display:flex;gap:8px; align-items: flex-end;" id="ChiTiet_Copy_Input">
-                        <div class="imageButton" style="height:20px; width:18px;" 
+                        <div class="image-button" style="height:20px; width:18px;" 
                             onclick="APP.detail.control.copyChiTiet2();">
                             ${APP.detail.ui.assets.img.copy(18,20)}
                         </div>
-                        <div class="imageButton" style="height:25px; width:22px;"
+                        <div class="image-button" style="height:25px; width:22px;"
                             onclick="APP.detail.control.copyChiTiet3();">
                             ${APP.detail.ui.assets.img.copy(22,25)}
                         </div>
@@ -74,7 +74,7 @@ APP.detail.ui =
                                                 <img src="assets/img/date.png" style="width:20px;">
                                             </td>
                                             <td>
-                                                <div id="ChiTiet_NgaySinh_Input" style="margin-left:10px;opacity:0.75;"></div>
+                                                <div id="ChiTiet_ngaySinh_Input" style="margin-left:10px;opacity:0.75;"></div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -82,7 +82,7 @@ APP.detail.ui =
                                                 <img src="assets/img/location.png" style="width:20px;">
                                             </td>
                                             <td>
-                                                <div id="ChiTiet_DiaChi_Input" style="margin-left:10px;opacity:0.75;"></div>
+                                                <div id="ChiTiet_diaChi_Input" style="margin-left:10px;opacity:0.75;"></div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -98,7 +98,7 @@ APP.detail.ui =
                                                 <img src="assets/img/email.png" style="width:20px;">
                                             </td>
                                             <td>
-                                                <div id="ChiTiet_Email_Input" style="margin-left:10px;opacity:0.75;"></div>
+                                                <div id="ChiTiet_email_Input" style="margin-left:10px;opacity:0.75;"></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -113,9 +113,9 @@ APP.detail.ui =
                         </tr>   
                         <tr>
                             <td colspan="3">
-                                <div class="InputBox" id="ChiTiet_DienThoai1_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
-                                <div class="InputBox" id="ChiTiet_DienThoai2_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;margin-left:5px;"></div>
-                                <div class="InputBox" id="ChiTiet_DienThoai3_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
+                                <div class="inputBox" id="ChiTiet_DienThoai1_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
+                                <div class="inputBox" id="ChiTiet_DienThoai2_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;margin-left:5px;"></div>
+                                <div class="inputBox" id="ChiTiet_DienThoai3_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
                                 <input type="text" id="Copy" style="display:none;">
                             </td>
                         </tr>
@@ -124,7 +124,7 @@ APP.detail.ui =
                                 <center>
                                     <div style="position:fixed;bottom:10px;left:0px;width:100%;z-index:101;" onclick="APP.detail.ui.hide();">
                                         <center>
-                                            <div class="Button" style="background:var(--color-primary-dark);color:rgba(255,255,255,0.5);border:0.3px solid rgba(255,255,255,0.5);padding:8px;margin-top:15px;">Ok</div>
+                                            <div class="button" style="width: 90px;">Ok</div>
                                         </center>
                                     </div>
                                 </center>
@@ -137,32 +137,32 @@ APP.detail.ui =
     },
     render: function(lienHe)
     {
-        APP.detail.lienHeId = lienHe.Id;
+        APP.detail.lienHeId = lienHe.id;
         //Favorite:
-        if (parseInt(lienHe.Star) == 1) 
+        if (parseInt(lienHe.star) == 1) 
         {
-            $('#ChiTiet_Star_Image').classList.remove('ThemMoi_Star_InActive');
+            $('#ChiTiet_Star_Image').classList.remove('form_Star_InActive');
         }
         else
         {
-            $('#ChiTiet_Star_Image').classList.add('ThemMoi_Star_InActive');
+            $('#ChiTiet_Star_Image').classList.add('form_Star_InActive');
         }
 
-        //Avatar:
-        if (lienHe.Avatar =='' || lienHe.Avatar === undefined) 
+        //avatar:
+        if (lienHe.avatar =='' || lienHe.avatar === undefined) 
         {
             var HTML = '<image src="assets/img/avatar_star.svg" style="height:95%;">';
         }
         else
         {
-            var HTML = '<image src="' + lienHe.Avatar + '" style="height:95%;">';
+            var HTML = '<image src="' + lienHe.avatar + '" style="height:95%;">';
         }
         $('#ChiTiet_Anh_Show').innerHTML = HTML;
 
         //Download vcard:
-        var card = APP.detail.control.getVCardLink(lienHe.TenHienThi, lienHe.SDT1, lienHe.SDT2, lienHe.Email, lienHe.TimKiem);
+        var card = APP.detail.control.getVCardLink(lienHe.tenHienThi, lienHe.SDT1, lienHe.SDT2, lienHe.email, lienHe.timKiem);
         $('#ChiTiet_Save_Input').innerHTML = `<a href="${card}" download="${APP.detail.control.creatDateStringForFileName(Date.now()) + lienHe.SDT1}danhba.vcf">
-                <div class="imageButton" style="height:25px;">
+                <div class="image-button" style="height:25px;">
                     ${APP.detail.ui.assets.img.save}
                 </div>
             </a>`;
@@ -170,7 +170,7 @@ APP.detail.ui =
 
         //Họ và tên:
         $('#ChiTiet_HoVaTen_Input').innerHTML = '';
-        $('#ChiTiet_HoVaTen_Input').innerText = lienHe.TenHienThi;
+        $('#ChiTiet_HoVaTen_Input').innerText = lienHe.tenHienThi;
         
         //Phòng Ban, Đơn vị:
         var PbDvi = lienHe.GetPhongBan1();
@@ -184,13 +184,13 @@ APP.detail.ui =
         $('#ChiTiet_DonVi_Input').innerText = PbDvi ;
         
         ///Địa chỉ:
-        var DiaChi_Full = '';
-        if (lienHe.DiaChi !== ''){DiaChi_Full = lienHe.DiaChi;}
+        var diaChi_Full = '';
+        if (lienHe.diaChi !== ''){diaChi_Full = lienHe.diaChi;}
 
-        $('#ChiTiet_DiaChi_Input').innerText = DiaChi_Full;
+        $('#ChiTiet_diaChi_Input').innerText = diaChi_Full;
         
-        ///Email:
-        $('#ChiTiet_Email_Input').innerText = lienHe.Email;
+        ///email:
+        $('#ChiTiet_email_Input').innerText = lienHe.email;
         
         ///Điện thoại:
         this.renderSoDienThoai(lienHe.SDT1, 1);
@@ -198,31 +198,31 @@ APP.detail.ui =
         this.renderSoDienThoai(lienHe.SDT3, 3);   
             
         ////Ngày tháng năm sinh:
-        this.renderNgayThangNamSinh(lienHe.NgaySinh, lienHe.ThangSinh, lienHe.NamSinh);
+        this.renderNgayThangnamSinh(lienHe.ngaySinh, lienHe.thangSinh, lienHe.namSinh);
         
         $('#detail_divChe').style.display = 'block';
         $('#ChiTiet_Div').style.display = 'block';
     
     },
-    renderSoDienThoai: function(sdt, stt)
+    renderSoDienThoai: function(SDT, stt)
     {
         let divContainer = $('#ChiTiet_DienThoai' + stt + '_Input');
-        if (sdt !== '')
+        if (SDT !== '')
         {
             var HtmlDt = `<center>
                 <table>
                     <tr>
                         <td>
-                            <a href="tel:${sdt}">
+                            <a href="tel:${SDT}">
                                 <img src="assets/img/call.png" style="height:20px;" alt="call">
                             </a>
                         </td>
                         <td>
-                            <a href="tel:${sdt}"><font color="white">${sdt}</font></a>
+                            <a href="tel:${SDT}"><font color="white">${SDT}</font></a>
                         </td>
                         <td>
-                            <a href="javascript:void(0);" onclick="copySoDienThoai('${sdt}');">                                
-                                <div class="imageButton" alt="copy" style="height:18px;margin-left:10px;">
+                            <a href="javascript:void(0);" onclick="copySoDienThoai('${SDT}');">                                
+                                <div class="image-button" alt="copy" style="height:18px;margin-left:10px;">
                                     ${APP.detail.ui.assets.img.copy_white}
                                 </div>
                             </a>
@@ -236,7 +236,7 @@ APP.detail.ui =
             divContainer.style.display = 'none';
         }
     },
-    renderNgayThangNamSinh: function(ngay, thang, nam)
+    renderNgayThangnamSinh: function(ngay, thang, nam)
     {
         var NTNSinh ='';
         if (ngay ==0){} else {NTNSinh = NTNSinh + ngay + '/';}
@@ -259,8 +259,8 @@ APP.detail.ui =
                 NTNSinh = NTNSinh + nam;
             }
             
-            if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Ngày sinh: ' + NTNSinh;}
-            else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
+            if (NTNSinh.length > 0) {$('#ChiTiet_ngaySinh_Input').innerText = 'Ngày sinh: ' + NTNSinh;}
+            else {$('#ChiTiet_ngaySinh_Input').innerText = '';}
             
         }
         else 
@@ -274,8 +274,8 @@ APP.detail.ui =
                 NTNSinh = NTNSinh + nam;
             }
             
-            if (NTNSinh.length > 0) {$('#ChiTiet_NgaySinh_Input').innerText = 'Năm sinh: ' + NTNSinh;}
-            else {$('#ChiTiet_NgaySinh_Input').innerText = '';}
+            if (NTNSinh.length > 0) {$('#ChiTiet_ngaySinh_Input').innerText = 'Năm sinh: ' + NTNSinh;}
+            else {$('#ChiTiet_ngaySinh_Input').innerText = '';}
         }
     },
     hide: function()

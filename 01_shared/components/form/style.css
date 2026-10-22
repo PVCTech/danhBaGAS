@@ -13,7 +13,7 @@
     padding: 16px 10px 16px 10px;
 }
 
-@media (max-width: 981px)
+@media (max-width: 576px)
 {
     .form__grid
     {
@@ -110,8 +110,7 @@ textarea {
     border-bottom: 2px solid white;
 }
 
-::-webkit-input-placeholder { /* Edge */
-    color: rgba(255,255,255,0.6);
+::-webkit-input-placeholder { /* Edge color: rgba(255,255,255,0.6);*/
     font-size:14px;
 }
 
@@ -156,7 +155,7 @@ textarea {
     flex-wrap: wrap;
 }
 
-@media (max-width: 981px) {
+@media (max-width: 576px) {
     .form {
         grid-template-columns: 1fr;
     }

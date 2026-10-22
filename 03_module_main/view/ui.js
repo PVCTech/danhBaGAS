@@ -1,6 +1,7 @@
 APP.view = APP.view || {};
 APP.view.ui = 
 {
+    tabHistory: [],
     init: function()
     {
         div({
@@ -81,9 +82,20 @@ APP.view.ui =
         }
         tab.style.display = '';
         tab.classList.remove('hide');
+        this.addTabHistory(module); 
+    },
+    addTabHistory: function(module)
+    {
+        this.remveTabHistory();
+        APP.view.ui.tabHistory.push(module);
+    },
+    remveTabHistory: function(module)
+    {
+        APP.view.ui.tabHistory = APP.view.ui.tabHistory.filter(x => x !== module);
     },
     clearTab: function(module)
     {
+        this.remveTabHistory(module);
         $(`#${module}_tab`).innerHTML = `Chưa có dữ liệu`;
     },
     removeTab: function(module)
@@ -98,6 +110,7 @@ APP.view.ui =
         {
             tab.remove();
         }
+        this.remveTabHistory(module);
     },
     clearAllTab: function()
     {
@@ -108,5 +121,11 @@ APP.view.ui =
     clear: function()
     {
         $('#view').innerHTML = '';
+        APP.view.ui.tabHistory = [];
+    },
+    back: function()
+    {
+        if (APP.view.ui.tabHistory.length > 1) this.remveTabHistory(APP.state.manHinhHienTai);
+        this.showTab(APP.view.ui.tabHistory[APP.view.ui.tabHistory.length - 1]);
     }
 };

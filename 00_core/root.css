@@ -78,8 +78,7 @@
     
     --shadow: 0 12px 35px rgba(0, 130, 175, 0.10);
     
-
-    --do-rong-toi-da: 1180px;
+    --mobile-width-on-pc: 400px;
     --header-height: 56px;
 
     --padding-sm: 6px;
@@ -107,7 +106,7 @@
     }
 }
 
-@media (max-width: 981px) 
+@media (max-width: 576px) 
 {
     .hide-on-mobile
     {

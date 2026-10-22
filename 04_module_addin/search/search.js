@@ -8,7 +8,7 @@ class TimKiem_TextBox
     Show()
     {
 		document.write('<input type="text" ');
-			document.write('id="' + this.Id + '" ');
+			document.write('id="' + this.id + '" ');
 			document.write('value="' + this.Value + '" ');
 			document.write('placeholder="' + this.Place_Holder + '" ');
 			
@@ -28,7 +28,7 @@ class TimKiem_TextBox
     
 	Clear()
 	{
-		$('#' + this.Id).val('');
+		$('#' + this.id).value = '';
 	}
 	
     KeyUp()
@@ -41,7 +41,7 @@ class TimKiem_TextBox
 function TimKiemDanhBa()
 {
 	let SoKetQuaHienThi = 20;
-	var TimKiem_Input = $('#TimKiem_TextBox').val();
+	var TimKiem_Input = $('#TimKiem_TextBox').value;
 	TimKiem_Input = TimKiem_Input.toLowerCase();
 	$('#TableData').html('');
 	if (TimKiem_Input.length > 1)
@@ -65,7 +65,7 @@ function TimKiemDanhBa()
 		{
 			for (var i=0;i<DSXungHo.length;i++)
 			{
-				if (ChuoiTrongChuoi(Tach[0],DSXungHo[i].Ten,TyLeTuyetDoi))
+				if (ChuoiTrongChuoi(Tach[0],DSXungHo[i].ten,TyLeTuyetDoi))
 				{
 					CoXungHo = 1;
 				}
@@ -82,9 +82,9 @@ function TimKiemDanhBa()
 			var SoKq = 0;
 			for (var i=0; i<DSLienHe.length; i++)
 			{
-				var TenI = DSLienHe[i].Ten.toLowerCase();
+				var TenI = DSLienHe[i].ten.toLowerCase();
 				
-				if ((TenI == TimKiem_Input || boDau(TenI) == TimKiem_Input) && DSXungHoId_NhoHon.includes(DSLienHe[i].XungHoId))
+				if ((TenI == TimKiem_Input || boDau(TenI) == TimKiem_Input) && DSXungHoId_NhoHon.includes(DSLienHe[i].xungHoId))
 				{
 					SoKq ++;
 					if (SoKq <= SoKetQuaHienThi)
@@ -100,7 +100,7 @@ function TimKiemDanhBa()
 			{
 				for (var i=0; i<DSLienHe.length; i++)
 				{
-					var TenI = DSLienHe[i].TenHienThi.toLowerCase();
+					var TenI = DSLienHe[i].tenHienThi.toLowerCase();
 					
 					if (TenI == TimKiem_Input || boDau(TenI) == TimKiem_Input)
 					{
@@ -122,7 +122,7 @@ function TimKiemDanhBa()
 			var SoKq = 0;
 			for (var i=0; i<DSLienHe.length; i++)
 			{
-				var TenI = DSLienHe[i].Ten.toLowerCase();
+				var TenI = DSLienHe[i].ten.toLowerCase();
 				if ((TenI == Tach[1] || boDau(TenI) == Tach[1]) && ChuoiTrongChuoi(Tach[0],DSLienHe[i].GetXungHo(),1) )
 				{
 					SoKq ++;
@@ -193,7 +193,7 @@ function TimTatCa(NoiDungTim)
 	//1. Tìm tên
 	for (var i=0; i<DSLienHe.length; i++)
 	{
-		if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].Ten,TyLeTuyetDoi1))
+		if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].ten,TyLeTuyetDoi1))
 		{
 			SoKq ++;
 			if (SoKq <= SoKetQuaHienThi)
@@ -212,7 +212,7 @@ function TimTatCa(NoiDungTim)
 	{
 		for (var i=0; i<DSLienHe.length; i++)
 		{
-			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].TenHienThi,TyLeTuyetDoi1))
+			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].tenHienThi,TyLeTuyetDoi1))
 			{
 				if (!KetQuaId_Array.includes(i))
 				{
@@ -237,7 +237,7 @@ function TimTatCa(NoiDungTim)
 	{
 		for (var i=0; i<DSLienHe.length; i++)
 		{
-			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].TimKiem,TyLeTuyetDoi1))
+			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].timKiem,TyLeTuyetDoi1))
 			{
 				if (!KetQuaId_Array.includes(i))
 				{
@@ -326,7 +326,7 @@ function TimTatCa(NoiDungTim)
 	//1. Tìm tên
 	for (var i=0; i<DSLienHe.length; i++)
 	{
-		if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].Ten,TyLeTuyetDoi))
+		if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].ten,TyLeTuyetDoi))
 		{
 			SoKq ++;
 			if (SoKq <= SoKetQuaHienThi)
@@ -345,7 +345,7 @@ function TimTatCa(NoiDungTim)
 	{
 		for (var i=0; i<DSLienHe.length; i++)
 		{
-			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].TenHienThi,TyLeTuyetDoi))
+			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].tenHienThi,TyLeTuyetDoi))
 			{
 				if (!KetQuaId_Array.includes(i))
 				{
@@ -370,7 +370,7 @@ function TimTatCa(NoiDungTim)
 	{
 		for (var i=0; i<DSLienHe.length; i++)
 		{
-			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].TimKiem,TyLeTuyetDoi))
+			if (ChuoiTrongChuoi(NoiDungTim,DSLienHe[i].timKiem,TyLeTuyetDoi))
 			{
 				if (!KetQuaId_Array.includes(i))
 				{

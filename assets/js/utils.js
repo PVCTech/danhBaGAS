@@ -1,9 +1,9 @@
-const copySoDienThoai = (sdt) =>
+const copySoDienThoai = (SDT) =>
 {
-    sdt = String(sdt);
-    if (sdt.substring(0,1) !== '0')
+    SDT = String(SDT);
+    if (SDT.substring(0,1) !== '0')
     {
-        sdt = '0' + sdt;
+        SDT = '0' + SDT;
     }
-    copyToClipboard(sdt);
+    copyToClipboard(SDT);
 }

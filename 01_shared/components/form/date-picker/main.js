@@ -56,7 +56,7 @@ const datePicker_init = () => {
                                         inputGiaTriHienTai.type = 'text';
                                         inputGiaTriHienTai.id = 'PVC_Fns_CN_GiaTriHienTai';
                                         inputGiaTriHienTai.value = '';
-                                        inputGiaTriHienTai.className = 'InputBox';
+                                        inputGiaTriHienTai.className = 'inputBox';
                                         inputGiaTriHienTai.style.width = '110px';
                                         inputGiaTriHienTai.addEventListener('dblclick', function()	
                                         {

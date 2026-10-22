@@ -1,41 +1,41 @@
 class DonVi
 {
-   constructor({Id,Ten,TimKiem})
+   constructor({id,ten,timKiem})
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = id;
+	   this.ten = ten;
+	   this.timKiem = timKiem;
    }
 }
 
 class PhongBan
 {
-   constructor({Id,Ten,TimKiem})
+   constructor({id,ten,timKiem})
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = id;
+	   this.ten = ten;
+	   this.timKiem = timKiem;
    }
 }
 
 class Tinh
 {
-   constructor({Id,Ten,TimKiem})
+   constructor({id,ten,timKiem})
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = id;
+	   this.ten = ten;
+	   this.timKiem = timKiem;
    }
 }
 
 
 class PhuongXa
 {
-   constructor({Id,Ten,TimKiem})
+   constructor({id,ten,timKiem})
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = id;
+	   this.ten = ten;
+	   this.timKiem = timKiem;
    }
 }
 
@@ -45,10 +45,10 @@ class PhuongXa
 
 class XungHo
 {
-   constructor({Id,Ten,TimKiem})
+   constructor({id,ten,timKiem})
    {
-	   this.Id = Id;
-	   this.Ten = Ten;
-	   this.TimKiem = TimKiem;
+	   this.id = id;
+	   this.ten = ten;
+	   this.timKiem = timKiem;
    }
 }

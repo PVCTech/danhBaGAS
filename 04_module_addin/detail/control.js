@@ -8,65 +8,65 @@ APP.detail.control =
     copyChiTiet2: function()
     {
         const lienHeId = APP.detail.lienHeId;
-        const lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.Id) === String(lienHeId));
+        const lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lienHeId));
         let dt2 = lienHe.SDT2 !== '0' && lienHe.SDT2 !== '' ? '<br>✆ ' + lienHe.SDT2 : '';
         let dt3 = lienHe.SDT3 !== '0' && lienHe.SDT3 !== '' ? '<br>✆ ' + lienHe.SDT3 : '';
-        var TTCopy2 = `${lienHe.TenHienThi}<br>✆ ${lienHe.SDT1}${dt2}${dt3}`;        
+        var TTCopy2 = `${lienHe.tenHienThi}<br>✆ ${lienHe.SDT1}${dt2}${dt3}`;        
         copyToClipboard(TTCopy2);            
     },
     copyChiTiet3: function()
     {
         const lienHeId = APP.detail.lienHeId;
-        const lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.Id) === String(lienHeId));
+        const lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lienHeId));
         let dt2 = lienHe.SDT2 !== '0' && lienHe.SDT2 !== '' ? '<br>✆ ' + lienHe.SDT2 : '';
         let dt3 = lienHe.SDT3 !== '0' && lienHe.SDT3 !== '' ? '<br>✆ ' + lienHe.SDT3 : '';
-        var DiaChi_Full = lienHe.DiaChi !== '0' && lienHe.DiaChi !== "" ? '<br>' + lienHe.DiaChi : '';
-        var TTCopy3 = `${lienHe.TenHienThi}<br>✆ ${lienHe.SDT1}${dt2}${dt3}${DiaChi_Full}`;
+        var diaChi_Full = lienHe.diaChi !== '0' && lienHe.diaChi !== "" ? '<br>' + lienHe.diaChi : '';
+        var TTCopy3 = `${lienHe.tenHienThi}<br>✆ ${lienHe.SDT1}${dt2}${dt3}${diaChi_Full}`;
         copyToClipboard(TTCopy3); 
         /*
-        if (DiaChi !== '0'){TTCopy3 = TTCopy3 + '<br>' + DiaChi;}
+        if (diaChi !== '0'){TTCopy3 = TTCopy3 + '<br>' + diaChi;}
         
         
         var PhongBan = DSPB_FullName_Array[DSPB_Id_Array.indexOf(PhongBanId,1)];
-        var DonVi1 = DSDonVi_FullName_Array[DSDonVi_Id_Array.indexOf(DonVi1Id,1)];
-        var DonVi2 = DSDonVi_FullName_Array[DSDonVi_Id_Array.indexOf(DonVi2Id,1)];
+        var DonVi1 = DSDonVi_FullName_Array[DSDonVi_Id_Array.indexOf(donVi1Id,1)];
+        var DonVi2 = DSDonVi_FullName_Array[DSDonVi_Id_Array.indexOf(donVi2Id,1)];
         
         if (DSPB_Id_Array.indexOf(PhongBanId,1) > -1) {TTCopy3 = TTCopy3 + '<br>' + PhongBan;}
-        if (DSDonVi_Id_Array.indexOf(DonVi1Id,1) > -1){TTCopy3 = TTCopy3 + '<br>' + DonVi1;}
-        if (DSDonVi_Id_Array.indexOf(DonVi2Id,1) > -1){TTCopy3 = TTCopy3 + '<br>' + DonVi2;} 
+        if (DSDonVi_Id_Array.indexOf(donVi1Id,1) > -1){TTCopy3 = TTCopy3 + '<br>' + DonVi1;}
+        if (DSDonVi_Id_Array.indexOf(donVi2Id,1) > -1){TTCopy3 = TTCopy3 + '<br>' + DonVi2;} 
         
         
-        var DiaChi_Full = '';
-        if (DiaChi !== '0' && DiaChi !== "")
+        var diaChi_Full = '';
+        if (diaChi !== '0' && diaChi !== "")
         {
-            DiaChi_Full = DiaChi;
+            diaChi_Full = diaChi;
         }
         
-        if (DSPX_Id_Array.indexOf(PhuongXaId,1) > -1)
+        if (DSPX_Id_Array.indexOf(phuongXaId,1) > -1)
         {
-            if (DiaChi_Full =="")
+            if (diaChi_Full =="")
             {
-                DiaChi_Full = PhuongXa;
+                diaChi_Full = PhuongXa;
             }
             else
             {
-                DiaChi_Full = DiaChi_Full + ", " + PhuongXa;
+                diaChi_Full = diaChi_Full + ", " + PhuongXa;
             }
             
         }
         if (DSHuyenTP_Id_Array.indexOf(HuyenTPId,1) > -1) 
         {
-            if (DiaChi_Full ==""){DiaChi_Full = HuyenTP;}
+            if (diaChi_Full ==""){diaChi_Full = HuyenTP;}
             else {
-            DiaChi_Full = DiaChi_Full + ', ' + HuyenTP;}
+            diaChi_Full = diaChi_Full + ', ' + HuyenTP;}
         }
-        if (DSTinh_Id_Array.indexOf(TinhId,1) > -1) 
+        if (DSTinh_Id_Array.indexOf(tinhId,1) > -1) 
         {
-            if (DiaChi_Full ==""){DiaChi_Full = Tinh;}
+            if (diaChi_Full ==""){diaChi_Full = Tinh;}
             else {
-            DiaChi_Full = DiaChi_Full + ', ' + Tinh;}
+            diaChi_Full = diaChi_Full + ', ' + Tinh;}
         }
-        if (DiaChi_Full !==""){TTCopy3 = TTCopy3 + '<br>' + DiaChi_Full;}
+        if (diaChi_Full !==""){TTCopy3 = TTCopy3 + '<br>' + diaChi_Full;}
         
         TTCopy3 = TTCopy3 + "'";
         TTCopy3 = TTCopy3 + ');"'; */
@@ -82,15 +82,15 @@ APP.detail.control =
         if (day.length < 2) day = '0' + day;    
         return [year, month, day].join('-');
     },
-    getVCardLink: function(ten, sdt1, sdt2, email, ghiChu)
+    getVCardLink: function(ten, SDT1, SDT2, email, ghiChu)
     {        
         var card = 'data:text/vcard;charset=utf-8,';
         card += 'BEGIN:VCARD' + '%0A';
         card += 'VERSION:3.0' + '%0A';
         card += 'N:;' + ten + '%0A';
         card += 'FN:' + ten + ' ' + '%0A';
-        card += 'TEL;TYPE=CELL:' + sdt1 + '%0A';
-        card += 'TEL;TYPE=WORK:' + sdt2 + '%0A';
+        card += 'TEL;TYPE=CELL:' + SDT1 + '%0A';
+        card += 'TEL;TYPE=WORK:' + SDT2 + '%0A';
         card += 'EMAIL:' + email + '%0A';
         card += 'NOTE:' + ghiChu + '%0A';
         card += 'END:VCARD' + '%0A';
