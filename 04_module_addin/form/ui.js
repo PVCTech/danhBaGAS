@@ -120,6 +120,7 @@ APP.form.ui =
                     let item = field.list.find(it => String(it.id) === String(lienHe[key + 'Id']));
                     if (item)
                     {
+                        APP.form.state[key + 'Id'] = item.id;
                         $('#' + field.id).innerText = item.ten;
                         $('#' + field.id).classList.add('has-value');
                         $('#' + field.id).classList.remove('not-has-value');

@@ -5,19 +5,19 @@ APP.form.goiY.ui =
     init: function()
     {
         const main = document.createElement('div');
-        main.className = 'tab__main';
+        main.className = 'tab__main form__input__goiY__container';
         APP.view.ui.addTab('form_input_goiY', main);
     },
-    render: function(noiDung, selectedId)
+    render: function(noiDung)
     {
         document.getElementById('form_input_goiY_tab').innerHTML = `
-        <div class="Input_GoiY_Div" class="form__input__goiY__container">
+        <div>
             <div class="form__input__goiY__header__container">
                 <center>
                     <table style="">
                         <tr>
                             <td style="width:50px;">
-                                <img src="themes/img/back.svg" height="35px" clas="button_Click" style="margin-left:8px;opacity:0.85;"  onclick="form_Input_Click('DonVi');">
+                                <img src="assets/img/back.svg" height="35px" clas="button_Click" style="margin-left:8px;opacity:0.85;"  onclick="form_Input_Click('DonVi');">
                             </td>
                             <td>
                                 <center>
@@ -81,9 +81,14 @@ APP.form.goiY.ui =
 
         //$('#form_Tinh_ShortName_ShowHide').show();
         //$('#form_Tinh_ShortName_input').hide();
+        this.show();
     },
     filter: function(search)
     {
 
+    },
+    show: function()
+    {
+        APP.view.ui.showTab('form_input_goiY', main);
     }
 }

@@ -3,7 +3,11 @@ APP.form.mode = 'addNew';
 APP.form.state = 
 {
     lienHeId:'',
-    
+    donVi1Id: '',
+    donVi2Id: '',
+    phongBanId: '',
+    tinhId: '',
+    phuongXaId: ''
 };
 
 APP.form.control = {
