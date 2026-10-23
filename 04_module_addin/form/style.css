@@ -1,0 +1,14 @@
+#lienHe_Form .has-value
+{
+    color: var(--color-primary);
+}
+
+#lienHe_Form .not-has-value
+{
+    color: rgba(0,0,0,0.5);
+}
+
+#lienHe_Form input
+{
+    color: var(--color-primary);
+}

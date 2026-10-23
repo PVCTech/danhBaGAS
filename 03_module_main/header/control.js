@@ -10,6 +10,6 @@ APP.header.control =
             parent: document.body
         });
 
-        $('#header').innerHTML = `<span class="hide-on-mobile">Phòng cho thuê</span>`;
+        $('#header').innerHTML = `<span class="hide-on-mobile">Danh bạ</span>`;
     }
 };

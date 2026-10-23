@@ -8,7 +8,7 @@ APP.form.goiY.ui =
         main.className = 'tab__main';
         APP.view.ui.addTab('form_input_goiY', main);
     },
-    render: function(noiDung)
+    render: function(noiDung, selectedId)
     {
         document.getElementById('form_input_goiY_tab').innerHTML = `
         <div class="Input_GoiY_Div" class="form__input__goiY__container">
@@ -78,6 +78,9 @@ APP.form.goiY.ui =
                 </div>
             </div>
         </div>`;
+
+        //$('#form_Tinh_ShortName_ShowHide').show();
+        //$('#form_Tinh_ShortName_input').hide();
     },
     filter: function(search)
     {

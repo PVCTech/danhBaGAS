@@ -2,7 +2,7 @@ APP.sidebar = APP.sidebar || {};
 APP.sidebar.ui = 
 {   
     moduleList: [
-        { module: 'home', ten: 'Home' },
+        { module: 'home', ten: 'Lịch sử' },
         { module: 'list', ten: 'Full danh sách' }
     ],
     init: function()

@@ -27,7 +27,7 @@ APP.detail.ui =
         divct.innerHTML = `        
             <center>
                 <div style="height:80px;color:white;">.</div>
-                <div class="Containner" style="border-radius:10px 10px 0px 0px;background:white;height:260px;position:relative;">
+                <div class="containner" style="border-radius:10px 10px 0px 0px;background:white;height:260px;position:relative;">
                     <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;">
                         <img id="ChiTiet_Star_Image" src="assets/img/star.svg?version=1" style="width:100%;">
                     </div>
@@ -50,9 +50,9 @@ APP.detail.ui =
                         </div>
                     </div>
                 </div>
-                <div class="Containner" style="background:#e5e5e5;height:10px;">
+                <div class="containner" style="background:#e5e5e5;height:10px;">
                 </div>
-                <div class="Containner" style="border-radius:0px 0px 10px 10px; background:var(--color-primary-dark); min-height:300px;position:relative;"><br>
+                <div class="containner" style="border-radius:0px 0px 10px 10px; background:var(--color-primary-dark); min-height:300px;position:relative;"><br>
                     <table style="width:100%;color:white;font-size:14px;padding:10px;">
                         <tr>
                             <td colspan="3">
@@ -113,9 +113,9 @@ APP.detail.ui =
                         </tr>   
                         <tr>
                             <td colspan="3">
-                                <div class="inputBox" id="ChiTiet_DienThoai1_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
-                                <div class="inputBox" id="ChiTiet_DienThoai2_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;margin-left:5px;"></div>
-                                <div class="inputBox" id="ChiTiet_DienThoai3_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
+                                <div class="inputBox" id="ChiTiet_SDT1_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
+                                <div class="inputBox" id="ChiTiet_SDT2_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;margin-left:5px;"></div>
+                                <div class="inputBox" id="ChiTiet_SDT3_Input" style="float:left;padding:5px 3px 5px 3px;width:45%;font-size:14px;text-align:center;border:1px solid white;"></div>
                                 <input type="text" id="Copy" style="display:none;">
                             </td>
                         </tr>
@@ -206,7 +206,7 @@ APP.detail.ui =
     },
     renderSoDienThoai: function(SDT, stt)
     {
-        let divContainer = $('#ChiTiet_DienThoai' + stt + '_Input');
+        let divContainer = $('#ChiTiet_SDT' + stt + '_Input');
         if (SDT !== '')
         {
             var HtmlDt = `<center>

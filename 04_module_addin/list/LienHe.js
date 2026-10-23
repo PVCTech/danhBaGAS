@@ -1,13 +1,13 @@
 		class LienHe
 		{
             constructor({id,star,
-                tenHienThi,xungHoId,Ten,
-                ngaySinh,thangSinh,namSinh,
+                tenHienThi, xungHoId, ten,
+                ngaySinh, thangSinh, namSinh,
                 donVi1Id,phongBan1Id,
                 donVi2Id,phongBan2Id,
                 tinhId,huyenThanhPhoId,phuongXaId,
-                TimKiem,
-                SDT1,SDT2,SDT3,
+                timKiem,
+                SDT1,SDT2,SDT3,SDTZalo,
                 avatarId,avatar,avatarVersion,
                 email,
                 diaChi,
@@ -15,41 +15,42 @@
                 lichSuTruyCap = {}
             })
             {
-			   this.id = id;
-			   this.star = star;
-			   this.tenHienThi = tenHienThi;
-               this.xungHoId = xungHoId;
-               this.ten = Ten;
-			   
-			   this.ngaySinh = ngaySinh;
-			   this.thangSinh = thangSinh;
-			   this.namSinh = namSinh;
-			   
-               this.donVi1Id = donVi1Id;
-               this.phongBan1Id = phongBan1Id;
-			   
-               this.donVi2Id = donVi2Id;
-			   this.phongBan2Id = phongBan2Id;
-			   
-			   this.tinhId =tinhId;
-			   this.huyenThanhPhoId = huyenThanhPhoId;
-			   this.phuongXaId = phuongXaId;
-			   
-               this.timKiem = TimKiem;
+                this.id = id;
+                this.star = star;
+                this.tenHienThi = tenHienThi;
+                this.xungHoId = xungHoId;
+                this.ten = ten;
+                
+                this.ngaySinh = ngaySinh;
+                this.thangSinh = thangSinh;
+                this.namSinh = namSinh;
+                
+                this.donVi1Id = donVi1Id;
+                this.phongBan1Id = phongBan1Id;
+                
+                this.donVi2Id = donVi2Id;
+                this.phongBan2Id = phongBan2Id;
+                
+                this.tinhId =tinhId;
+                this.huyenThanhPhoId = huyenThanhPhoId;
+                this.phuongXaId = phuongXaId;
+                
+                this.timKiem = timKiem;
 			   
                
-				this.SDT1 = ChuanHoaSDT(SDT1);
-               this.SDT2 = ChuanHoaSDT(SDT2);
-               this.SDT3 = ChuanHoaSDT(SDT3);
-			   
-			   this.avatarId = avatarId;
-			   this.avatar = avatar;
-			   this.avatarVersion = avatarVersion;
-			   
-			   this.email =email;
-			   this.diaChi = diaChi;
-			   this.ghiChu = ghiChu;
-               this.lichSuTruyCap = lichSuTruyCap;
+			    this.SDT1 = ChuanHoaSDT(SDT1);
+                this.SDT2 = ChuanHoaSDT(SDT2);
+                this.SDT3 = ChuanHoaSDT(SDT3);
+                this.SDTZalo = SDTZalo;
+                
+                this.avatarId = avatarId;
+                this.avatar = avatar;
+                this.avatarVersion = avatarVersion;
+                
+                this.email =email;
+                this.diaChi = diaChi;
+                this.ghiChu = ghiChu;
+                this.lichSuTruyCap = lichSuTruyCap;
 			}
 			
 			GetArrayId()

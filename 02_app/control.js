@@ -18,6 +18,10 @@ APP.control =
         await APP.cache.init(); //Nếu có cache trong local và token thì load cache và kiểm tra user dưới background
         APP.history.ui.render();
         APP.loadingScreen.hide();
+
+        APP.form.ui.updateListField();
+        APP.form.ui.renderDanhSachXungHo();
+        
     },
     onGas()
     {

@@ -24,22 +24,14 @@
         border:2px solid rgba(0,0,0,0.23);
     }
     
-    .avatar
-    {
-        width:95%;
-        border-radius:5px;
-        border:0.5px solid rgba(0,0,0,0.23);
-    }
-
-    
-    .Containner
+    .containner
     {
         box-shadow: 5px -5px 8px rgba(0,0,0,0.3);
     }
     
     @media only screen and (max-width:450px)
     {
-        .Containner
+        .containner
         {
             width:100%;
         }
@@ -48,7 +40,7 @@
     
     @media only screen and (min-width:451px)
     {
-        .Containner
+        .containner
         {
             width:450px;
         }

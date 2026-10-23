@@ -1,6 +1,11 @@
 APP.form = APP.form || {};
-APP.form.lienHeId = '';
 APP.form.mode = 'addNew';
+APP.form.state = 
+{
+    lienHeId:'',
+    
+};
+
 APP.form.control = {
     init: function()
     {
@@ -534,9 +539,9 @@ APP.form.control = {
         $('#form_XungHo_Input').dispatchEvent(new Event('change', { bubbles: true }));
         
         
-        $('#form_DienThoai1_Input').value = DT1;        
-        $('#form_DienThoai2_Input').value = DT2;        
-        $('#form_DienThoai3_Input').value = DT3;        
+        $('#form_SDT1_Input').value = DT1;        
+        $('#form_SDT2_Input').value = DT2;        
+        $('#form_SDT3_Input').value = DT3;        
         $('#form_ngaySinh_Input').value = ngaySinh;        
         $('#form_thangSinh_Input').value = thangSinh;        
         $('#form_namSinh_Input').value = namSinh;        
@@ -777,9 +782,9 @@ APP.form.control = {
         var Ten = $('#form_Ten_Input').value;
         var TimKiem = $('#form_TimKiem_Input').value;
         var XungHoId = $('#form_XungHo_Input').value;
-        var SDT1 = $('#form_DienThoai1_Input').value;
-        var SDT2 = $('#form_DienThoai2_Input').value;
-        var SDT3 = $('#form_DienThoai3_Input').value;
+        var SDT1 = $('#form_SDT1_Input').value;
+        var SDT2 = $('#form_SDT2_Input').value;
+        var SDT3 = $('#form_SDT3_Input').value;
         var ngaySinh = $('#form_ngaySinh_Input').value;
         var thangSinh = $('#form_thangSinh_Input').value;
         var namSinh = $('#form_namSinh_Input').value;
