@@ -102,7 +102,7 @@ APP.form.ui =
         }
         else
         {
-            let lienHe = APP.cache.data.danhSachLienHe.find(lh=> String(lh.id) === String(APP.form.state.lienHeId));
+            let lienHe = APP.cache.data.danhSachLienHe.find(lh=> String(lh.id) === String(APP.form.state.lienHe.id));
             if (!lienHe)
             {
                 canhBao('Không thể load form: id không tồn tại');
@@ -120,13 +120,37 @@ APP.form.ui =
                     let item = field.list.find(it => String(it.id) === String(lienHe[key + 'Id']));
                     if (item)
                     {
-                        APP.form.state[key + 'Id'] = item.id;
-                        $('#' + field.id).innerText = item.ten;
-                        $('#' + field.id).classList.add('has-value');
-                        $('#' + field.id).classList.remove('not-has-value');
+                        APP.form.state[key] = item;
+                    }
+                    else
+                    {
+                        APP.form.state[key] = {id: '', ten: '', timKiem: ''};
                     }
                 }
+                else
+                {
+                    APP.form.state[key] = {id: '', ten: '', timKiem: ''};
+                }
+                this.renderListField(key);
             });
+        }
+    },
+    renderListField: function(noiDung)
+    {
+        const id = APP.form.state[noiDung].id;
+        const ten = APP.form.state[noiDung].ten;
+        let formInput = $('#' + APP.form.ui.listField[noiDung].id);
+        if (id!= null && id !== '' && Number(id) !== 0)
+        {            
+            formInput.innerText = ten;
+            formInput.classList.add('has-value');
+            formInput.classList.remove('not-has-value');            
+        }
+        else
+        {
+            formInput.innerText = APP.form.ui.listField[noiDung].text;
+            formInput.classList.remove('has-value');
+            formInput.classList.add('not-has-value');
         }
     },
     renderDanhSachXungHo: function()
@@ -140,7 +164,7 @@ APP.form.ui =
     show: function(lienHeId)
     {
         APP.form.mode = lienHeId == '' ? 'addNew' : 'update';        
-        APP.form.state.lienHeId = lienHeId;
+        APP.form.state.lienHe.id = lienHeId;
         this.render();
         APP.view.ui.showTab('form');
     },

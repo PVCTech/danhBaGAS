@@ -2,7 +2,6 @@ APP.control =
 {
     init: function()
     {
-        //if (!this.onGas()) return;
         console.log('APP.init:');
         APP.ui.init();
     },

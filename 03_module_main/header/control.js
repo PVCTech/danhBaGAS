@@ -10,6 +10,10 @@ APP.header.control =
             parent: document.body
         });
 
-        $('#header').innerHTML = `<span class="hide-on-mobile">Danh bạ</span>`;
+        $('#header').innerHTML = `        
+            <div style="font-size: 20px;" class="hide-on-mobile">Danh bạ</div>
+            <div id="sidebar_hamburger_container" class="hide-on-pc"></div>
+            <div>Tìm kiếm</div>
+            `;
     }
 };

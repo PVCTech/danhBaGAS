@@ -10,7 +10,8 @@ APP.ui =
         
         //Render layout: header, sidebar, view, footer
         APP.loadingScreen.init();
-        APP.header.control.init();  
+        APP.form.goiY.ui.header.init();
+        APP.header.control.init();
         
         APP.sidebar.control.init();
         APP.actionbar.control.init();

@@ -15,8 +15,8 @@ APP.sidebar.ui =
 
         div({
             id: 'sidebar_hamburger', 
-            className: 'sidebar__hamburger', 
-            parentId: 'header',
+            className: 'sidebar__hamburger image-button', 
+            parentId: 'sidebar_hamburger_container',
             onclick: el => {
                 APP.sidebar.ui.toggle();
             }

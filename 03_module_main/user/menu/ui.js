@@ -14,7 +14,7 @@ APP.user.menu.ui =
 
         div({
             id: 'userMenu_hamburger',
-            html: `<img src="assets/img/user.svg" style="height: 25px;cursor: pointer;">`,
+            html: `<img class="image-button" src="assets/img/user.svg" style="height: 25px;cursor: pointer;">`,
             parentId: parentId
         });
 

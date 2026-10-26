@@ -41,7 +41,7 @@ APP.history.ui =
                             ${chuanHoaNgayThang(lienHe.lichSuTruyCap.ngay)}/${chuanHoaNgayThang(lienHe.lichSuTruyCap.thang)}/${chuanHoaNgayThang(lienHe.lichSuTruyCap.nam)} ${chuanHoaNgayThang(lienHe.lichSuTruyCap.gio)}:${chuanHoaNgayThang(lienHe.lichSuTruyCap.phut)}
                         </span>
 					</td>
-                    <td class="TdData" style="width:15px;" onclick="APP.form.ui.show('${lienHe.id}');">
+                    <td class="TdData" style="width:15px; cursor:pointer;" onclick="APP.form.ui.show('${lienHe.id}');">
                         <img src="assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
                     </td>
 				</tr>`;

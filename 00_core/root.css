@@ -80,6 +80,7 @@
     
     --mobile-width-on-pc: 400px;
     --header-height: 56px;
+    --sidebar-width: 220px;
 
     --padding-sm: 6px;
     --padding-md: var(--space-2);
@@ -98,7 +99,12 @@
     display: none !important;
 }
 
-@media (min-width: 982px) 
+.hidden 
+{
+    display: none !important;
+}
+
+@media (min-width: 577px) 
 {
     .hide-on-pc
     {

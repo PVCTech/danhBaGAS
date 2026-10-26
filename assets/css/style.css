@@ -54,21 +54,7 @@
     }
     
     
-    .Input_GoiY_Div_Data
-    {
-        background:white;
-        overflow:scroll;
-        font-size:15px;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }  
-    .Input_GoiY_Div_Data::-webkit-scrollbar 
-    {
-      display: none;
-    }
-    
-    @media only screen and (max-width:400px){.Input_GoiY_Div_Data{width:95%;}}
-    @media only screen and (min-width:401px){.Input_GoiY_Div_Data{width:400px;}}
+
     
     .LocTheoNhom
     {

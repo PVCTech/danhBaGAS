@@ -2,12 +2,12 @@ APP.form = APP.form || {};
 APP.form.mode = 'addNew';
 APP.form.state = 
 {
-    lienHeId:'',
-    donVi1Id: '',
-    donVi2Id: '',
-    phongBanId: '',
-    tinhId: '',
-    phuongXaId: ''
+    lienHe: {},
+    donVi1: {},
+    donVi2: {},
+    phongBan: {},
+    tinh: {},
+    phuongXa: {}
 };
 
 APP.form.control = {
@@ -25,8 +25,7 @@ APP.form.control = {
         {
             var canvas = document.createElement('canvas');
             var canvasContext = canvas.getContext('2d');
-            var base64Image = '';
-        
+            var base64Image = '';       
             
             var img = new Image;
             
