@@ -3,8 +3,10 @@ APP.form.ui =
 {
     listField: {
         donVi1: {id: 'form_donVi1_input', text: 'Đơn vị/Nhóm', list: APP.cache.data.danhSachDonVi},
+        phongBan1: {id: 'form_phongBan1_input', text: 'Phòng ban 1', list: APP.cache.data.danhSachPhongBan},
+
         donVi2: {id: 'form_donVi2_input', text: 'Đơn vị/Nhóm 2', list: APP.cache.data.danhSachDonVi},
-        phongBan: {id: 'form_phongBan_input', text: 'Phòng ban', list: APP.cache.data.danhSachPhongBan},
+        phongBan2: {id: 'form_phongBan2_input', text: 'Phòng ban 2', list: APP.cache.data.danhSachPhongBan},
         tinh: {id: 'form_tinh_input', text: 'Tỉnh', list: APP.cache.data.danhSachTinh},
         //huyenThanhPho: {id: 'form_huyenThanhPho_input', text: 'Huyện/thành phố', list: APP.cache.data.danhSachHuyenThanhPho},
         phuongXa: {id: 'form_phuongXa_input', text: 'Phường xã', list: APP.cache.data.danhSachPhuongXa}
@@ -13,7 +15,8 @@ APP.form.ui =
     {
         this.listField.donVi1.list = APP.cache.data.danhSachDonVi;
         this.listField.donVi2.list = APP.cache.data.danhSachDonVi;
-        this.listField.phongBan.list = APP.cache.data.danhSachPhongBan;
+        this.listField.phongBan1.list = APP.cache.data.danhSachPhongBan;
+        this.listField.phongBan2.list = APP.cache.data.danhSachPhongBan;
         this.listField.tinh.list = APP.cache.data.danhSachTinh;
         this.listField.phuongXa.list = APP.cache.data.danhSachPhuongXa;
     },
@@ -30,7 +33,7 @@ APP.form.ui =
         APP.view.ui.addTab('form', main);
         let html = `
             <form id="lienHe_Form" autocomplete="nope"  enctype="multipart/form-data">
-                <div style="display: flex; flex-direction: column; gap:8px; width: 96%;padding-bottom:200px;">
+                <div id="form_tab_container" style="display: flex; flex-direction: column; gap:8px; width: 96%;padding-bottom:200px;">
                     <div style="display: grid; grid-template-columns: 3fr 7fr;">
                         <div style="display: flex; flex-direction: column; gap:4px;">
                             <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
@@ -46,14 +49,15 @@ APP.form.ui =
                             <div id="form_Anh_Preview"></div>
                         </div>
                         <div style="display: flex; flex-direction: column; gap:4px;">
-                            <div style="height:35px;width:100%;position:relative;">
+                            <div style="height:35px;width:100%;">
                                 <input type="text" class="inputBox" id="form_tenHienThi_input" placeholder="họ và tên" autocomplete="nope">
-                                <img src="assets/img/recycle.jpg" style="position:absolute;right:-15px;top:-10px;width:15px;opacity:0.4;" onclick="Edit_Delete()">
+                                
                             </div>
                             <div style="display:flex; gap:4px;">
                                 <select class="inputBox" id="form_xungHoId_input" style="height:35px;width:70px;color:var(--color-primary);padding:4px;background:white;">
                                 </select>
                                 <input type="text" class="inputBox" id="form_ten_input" style="width:80px;" placeholder="tên" autocomplete="nope">
+                                <img src="assets/img/recycle.jpg" style="width:16px; height:22px;opacity:0.4;margin-left:4px;" class="image-button" onclick="APP.form.control.delete()">
                             </div>
                             <input type="text" class="inputBox" id="form_timKiem_input" placeholder="tìm mở rộng" autocomplete="nope">
                             <div style="display: grid; grid-template-columns: 50px 50px 100px 1fr; gap:4px;">
@@ -86,8 +90,8 @@ APP.form.ui =
                     <input type="text" class="inputBox" id="form_email_input" placeholder="Email" autocomplete="off">
                     <div style="width: 100%;display: grid;grid-template-columns: 1fr 90px 90px 1fr; gap: 16px; box-sizing: border-box;">
                         <div></div>
-                        <div class="button" onclick="ThemDanhBa();">OK</div>
-                        <div class="button" style="background:#999999;color:white;" onclick="APP.form.ui.boQua();">Bỏ qua</div>                                                        
+                        <div class="button" onclick="APP.form.control.submit();">OK</div>
+                        <div class="button" style="background:#bbb;color:white;" onclick="APP.form.ui.boQua();">Bỏ qua</div>                                                        
                     </div>
                 </div>
             </form>`;
@@ -217,6 +221,7 @@ APP.form.ui =
     clear: function()
     {
         $('#lienHe_Form').reset();
+        APP.form.lienHeId = '';
         Object.keys(this.listField).forEach(key => {
             let field = this.listField[key];
             $('#' + field.id).innerText = field.text;

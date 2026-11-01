@@ -25,6 +25,7 @@ APP.ui =
         APP.list.ui.init();
         APP.detail.control.init();
         APP.form.control.init();
+        APP.search.ui.init();
     },
     render: function()
     {

@@ -134,31 +134,25 @@
 				}
 				return "";
 			}
-           
-		   
-           
-           toTr(Color)
-           {
-			   var Tr = '';
-				Tr = Tr + '<tr onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[' + this.GetArrayId() + ']) ">';
-					Tr = Tr + '<td style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">';
-						if (this.avatar =='' || this.avatar === undefined) 
-						{
-							Tr = Tr + '<image src="assets/img/avatar_star.svg" style="width:40px;">';
-						}
-						else
-						{
-							Tr = Tr + '<image src="' + this.avatar + '" style="width:40px;">';
-						}
-					Tr = Tr + '</td>';
-					
-					Tr = Tr + '<td style="padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">';
-						Tr = Tr + '<span style="color:' + Color + ';font-size:14px;font-weight:bold;">' + this.tenHienThi + '</span>';
-						Tr = Tr + '<br><span style="color:rgba(0,0,0,0.5);font-size:12px;">' + this.SDT1 + ' - ' + this.SDT2 + '</span>';
-					Tr = Tr + '</td>';
-				Tr = Tr + '</tr>';
-                return Tr;
-           }
+
+            renderForListRow()
+            {
+                let avatar = this.avatar =='' || this.avatar === undefined ? `<image src="assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${this.avatar}" style="width:40px;">`;
+                return `<tr>
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.GetArrayId()}])"
+                                style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
+                                ${avatar}
+                            </td>
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.GetArrayId()}])"
+                                style="padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
+                                <span style="color:var(--color-primary); font-size:14px;font-weight:bold;">${this.tenHienThi}</span>
+                                <br><span style="color:rgba(0,0,0,0.5);font-size:12px;">${this.SDT1} - ${this.SDT2}</span>
+                            </td>
+                            <td class="TdData" style="width:15px; cursor:pointer;" onclick="APP.form.ui.show('${this.id}');">
+                                <img src="assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
+                            </td>
+                        </tr>`;
+            }
 		   
 		}
        

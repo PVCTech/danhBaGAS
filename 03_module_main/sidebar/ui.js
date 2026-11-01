@@ -3,7 +3,8 @@ APP.sidebar.ui =
 {   
     moduleList: [
         { module: 'home', ten: 'Lịch sử' },
-        { module: 'list', ten: 'Full danh sách' }
+        { module: 'list', ten: 'Danh bạ' },
+        { module: 'sinhNhat', ten: 'Sinh nhật' }
     ],
     init: function()
     {
@@ -15,14 +16,13 @@ APP.sidebar.ui =
 
         div({
             id: 'sidebar_hamburger', 
-            className: 'sidebar__hamburger image-button', 
             parentId: 'sidebar_hamburger_container',
             onclick: el => {
                 APP.sidebar.ui.toggle();
             }
         });
 
-        $('#sidebar_hamburger').innerHTML = '☰';
+        $('#sidebar_hamburger').innerHTML = '<span class="sidebar__hamburger image-button" style="width:26px;">☰</span>';
         
         div({
             id: 'sidebar_divChe',

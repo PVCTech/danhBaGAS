@@ -202,7 +202,7 @@ APP.detail.ui =
         
         $('#detail_divChe').style.display = 'block';
         $('#ChiTiet_Div').style.display = 'block';
-    
+        
     },
     renderSoDienThoai: function(SDT, stt)
     {

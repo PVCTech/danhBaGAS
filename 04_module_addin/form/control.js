@@ -5,7 +5,8 @@ APP.form.state =
     lienHe: {},
     donVi1: {},
     donVi2: {},
-    phongBan: {},
+    phongBan1: {},
+    phongBan2: {},
     tinh: {},
     phuongXa: {}
 };
@@ -314,29 +315,189 @@ APP.form.control = {
         
         }
     },
-    Edit_Delete: function()
+    delete: async function()
     {
-        if (confirm("Bạn có chắc chắn muốn xóa!") == true)
+        const xacMinh = await canhBao('Bạn có chắc chắn muốn xóa!', 'Cảnh báo', 'okCancel');
+        if (!xacMinh) return;
+        if (APP.form.state.lienHe.id == '') 
         {
-            var AllData = 'cuongpv;;;m;;;' + $('#form_Id').value;
-            $.ajax
-            ({
-                url: 'index_files/themdanhba_ajax_xoadanhba.php',
-                type: "POST",
-                data: 'AllData=' + AllData,
-                success: function (data)
-                {
-                    if (data.length >0) {alert (data);}
-                    else {window.location.reload(); }
-                    
-                },
-                error: function (e)
-                {
-                    console.log(e.message);
-                }
-            });
+            canhBao('Id của liên hệ không đúng!', 'Xóa liên hệ');
+            return;
+        }
+
+        let deleteStatus = await APP.api.delete();
+        if (deleteStatus.thanhCong)
+        {
+            //cập nhật cache, xóa lịch sử nếu có
+            let dlIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
+            if (dlIndex !==-1) 
+            {
+                APP.cache.data.danhSachLienHe.splice(dlIndex,1);                
+            }
+
+            let historyIndex = APP.cache.data.danhSachLichSu.findIndex(lh => String(lh.lienHeId) === String(APP.form.state.lienHe.id));
+            if (historyIndex !==-1) APP.cache.data.danhSachLichSu.splice(historyIndex,1);
+            
+            //render lại và showtab lịch sử
+            APP.form.ui.clear();
+            APP.history.ui.render();
+            APP.view.ui.showTab('home');
+        }
+        else
+        {
+            canhBao('Xóa không thành công');
         }
     },
+    readData: function()
+    {
+        let d = new Date();
+        let date = d.getDate();
+        let month = d.getMonth() + 1;
+        let year = d.getFullYear();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let s = d.getSeconds;
+
+        let id = APP.form.state.lienHe.id;
+        APP.form.state.lienHe =
+        {
+            id: id,
+            star: $('#form_Star_input').value,
+            tenHienThi: $('#form_tenHienThi_input').value, 
+            xungHoId: $('#form_xungHoId_input').value, 
+            ten: $('#form_ten_input').value, 
+            
+            ngaySinh: $('#form_ngaySinh_input').value,
+            thangSinh: $('#form_thangSinh_input').value,
+            namSinh: $('#form_namSinh_input').value,
+            
+            donVi1Id: APP.form.state.donVi1.id,
+            phongBan1Id: APP.form.state.phongBan1.id,
+            donVi2Id: APP.form.state.donVi2.id,
+            phongBan2Id: APP.form.state.phongBan2.id,
+            tinhId: APP.form.state.tinh.id,
+            huyenThanhPhoId: '',
+            phuongXaId: APP.form.state.phuongXa.id,
+            
+            timKiem: $('#form_timKiem_input').value,
+            SDT1: $('#form_SDT1_input').value,
+            SDT2: $('#form_SDT2_input').value,
+            SDT3: $('#form_SDT3_input').value,
+            SDTZalo: '',
+            
+            avatarId: '',
+            avatar: '',
+            avatarVersion: '',
+            email: $('#form_email_input').value,
+            diaChi: $('#form_diaChi_input').value,
+            ghiChu: '',
+            lichSuTruyCap:{
+                ngay: date,
+                thang: month,
+                nam: year,
+                gio: h,
+                phut: m,
+                giay: s
+            }
+        };
+    },
+    submit: async function()
+    {
+        this.readData();
+        if (APP.form.mode === 'addNew')
+        {
+            toast('Đang thêm mới..');
+            let addNewStatus = await APP.api.addNew();
+            if (addNewStatus.thanhCong)
+            {
+                APP.form.state.lienHe.id = addNewStatus.id;
+                //cập nhật cache, xóa lịch sử nếu có
+                APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
+                console.log('APP.cache.data.danhSachLienHe', APP.cache.data.danhSachLienHe);
+                APP.cache.data.danhSachLichSu.push({
+                    ngay: APP.form.state.lienHe.lichSuTruyCap.ngay, 
+                    thang: APP.form.state.lienHe.lichSuTruyCap.thang, 
+                    nam: APP.form.state.lienHe.lichSuTruyCap.nam, 
+                    gio: APP.form.state.lienHe.lichSuTruyCap.gio, 
+                    phut: APP.form.state.lienHe.lichSuTruyCap.phut, 
+                    giay: APP.form.state.lienHe.lichSuTruyCap.giay, 
+                    lienHeId: APP.form.state.lienHe.id});
+               
+                //render lại và showtab lịch sử
+                APP.form.ui.clear();
+                APP.history.ui.render();
+                APP.view.ui.showTab('home');
+            }
+            else
+            {
+                canhBao('Thêm mới không thành công');
+            }            
+        }
+        else
+        {
+            toast('Đang cập nhật..');
+            if (APP.form.state.lienHe.id == '') 
+            {
+                canhBao('Id của liên hệ không đúng!', 'Cập nhật liên hệ');
+                return;
+            }
+
+            let updateStatus = await APP.api.update();
+            if (updateStatus.thanhCong)
+            {
+                //cập nhật cache, xóa lịch sử nếu có
+                let udIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
+                if (udIndex !==-1) 
+                {
+                    APP.cache.data.danhSachLienHe[udIndex] = new LienHe(APP.form.state.lienHe);     
+                }
+
+                let historyIndex = APP.cache.data.danhSachLichSu.findIndex(lh => String(lh.lienHeId) === String(APP.form.state.lienHe.id));
+                if (historyIndex !==-1) 
+                {
+                    APP.cache.data.danhSachLichSu[historyIndex] = {
+                        ngay: APP.form.state.lienHe.lichSuTruyCap.ngay,
+                        thang: APP.form.state.lienHe.lichSuTruyCap.thang,
+                        nam: APP.form.state.lienHe.lichSuTruyCap.nam,
+                        gio: APP.form.state.lienHe.lichSuTruyCap.gio,
+                        phut: APP.form.state.lienHe.lichSuTruyCap.phut,
+                        giay: APP.form.state.lienHe.lichSuTruyCap.giay,
+                        lienHeId: APP.form.state.lienHe.id
+                    }
+                }
+                
+                //render lại và showtab lịch sử
+                APP.form.ui.clear();
+                APP.history.ui.render();
+                APP.view.ui.showTab('home');
+            }
+            else
+            {
+                canhBao('Cập nhật không thành công');
+            }
+        }
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     EditDanhBa: function(Nd,Id)
     {
         //1: all

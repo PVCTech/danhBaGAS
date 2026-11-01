@@ -161,4 +161,6 @@ body
 {
     font-size: 13px;
     height: var(--header-height);
+    background: var(--color-primary-gradient);
+    color: var(--color-on-primary-gradient);
 }

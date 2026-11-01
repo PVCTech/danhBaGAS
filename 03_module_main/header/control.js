@@ -13,7 +13,7 @@ APP.header.control =
         $('#header').innerHTML = `        
             <div style="font-size: 20px;" class="hide-on-mobile">Danh bạ</div>
             <div id="sidebar_hamburger_container" class="hide-on-pc"></div>
-            <div>Tìm kiếm</div>
+            <div id="timKiem_searchBox_container"></div>
             `;
     }
 };

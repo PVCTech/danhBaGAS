@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="180.169px"
+   height="185.166px"
+   viewBox="-3.082 -4.015 180.169 185.166"
+   enable-background="new -3.082 -4.015 180.169 185.166"
+   xml:space="preserve"
+   sodipodi:docname="new_white.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs17" /><sodipodi:namedview
+   id="namedview15"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="1.5337589"
+   inkscape:cx="8.4759084"
+   inkscape:cy="118.01073"
+   inkscape:window-width="1440"
+   inkscape:window-height="738"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+
+<path
+   fill="white"
+   d="M86.649,2.969c0,0-38.417,11.417-45.333,16.917S16.3,50.154,13.278,70.529  c-4.717,31.81,31.954,79.856,31.954,79.856l64.25,20.75c0,0-34,6.75-57.75-2.5S5.479,132.099,0.925,99.198  C-2.462,74.731,3.486,52.539,18.208,32.99C45.149-0.365,86.649,2.969,86.649,2.969z"
+   id="path2"
+   style="fill:#ffffff;fill-opacity:0.52158618" /><path
+   fill="none"
+   stroke="orange"
+   stroke-width="20"
+   stroke-miterlimit="10"
+   d="M71.157,13.383  c14.371-3.684,28.742-4.271,42.762,1.214c27.815,10.883,43.902,31.888,48.848,60.748c5.302,30.941-4.372,57.046-29.52,76.566  c-10.463,8.121-22.791,11.781-35.925,12.803c-17.231,2.447-32.15-3.498-45.337-13.719c-22.936-17.777-33.088-42.031-31.226-70.514  c1.813-27.743,14.621-49.636,39.677-63.334C63.8,15.306,67.512,14.439,71.157,13.383z"
+   id="path4"
+   style="stroke:#ffffff;stroke-opacity:1" />
+<polygon
+   fill="orange"
+   points="56.665,110.51 54.189,79.359 130.828,73.256 133.307,104.405 "
+   id="polygon6"
+   style="fill:#ffffff;fill-opacity:0.51021791" />
+<rect
+   x="77.703"
+   y="46.846"
+   transform="matrix(-0.9969 0.0787 -0.0787 -0.9969 189.5784 174.2154)"
+   fill="orange"
+   width="27.304"
+   height="87.997"
+   id="rect8"
+   style="fill:#ffffff;fill-opacity:0.62439358" />
+<rect
+   x="82.537"
+   y="41.685"
+   transform="matrix(-0.9969 0.0788 -0.0788 -0.9969 198.8281 163.5253)"
+   fill="white"
+   width="27.301"
+   height="88.001"
+   id="rect10" />
+<polygon
+   fill="white"
+   points="59.262,106.291 56.786,75.14 133.425,69.038 135.902,100.19 "
+   id="polygon12" />
+</svg>

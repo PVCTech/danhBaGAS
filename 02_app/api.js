@@ -68,5 +68,91 @@ APP.api =
                     .sv_appstartup_getData(APP.state.user.token);
             });
         }    
+    },
+    delete: function()
+    {
+        if (APP.mode == 'demo')
+        {
+            return Promise.resolve(
+            {                
+                thanhCong: true,
+                massage: 'đã xóa'                                
+            });                    
+        }
+        else
+        {
+            return new Promise((resolve, reject) =>
+            {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    .sv_appstartup_getData(APP.state.user.token);
+            });
+        }    
+    },
+    addNew: function()
+    {
+        if (APP.mode == 'demo')
+        {
+            return Promise.resolve(
+            {                
+                thanhCong: true,
+                massage: 'đã thêm mới',
+                id: '123456789'                            
+            });
+            //Thêm mới liên hệ
+            //Thêm mới hoặc cập nhật các ListField (tỉnh, đơn vị, phòng ban, ...)
+        }
+        else
+        {
+            const data = {
+                lienHe: APP.form.state.lienHe,
+                donVi: APP.form.state.donVi,
+                donVi2: APP.form.state.donVi2,
+                phongBan1: APP.form.state.phongBan1,
+                phongBan2: APP.form.state.phongBan2,
+                tinh: APP.form.state.tinh,
+                phuongXa: APP.form.state.phuongXa
+            };
+
+            return new Promise((resolve, reject) =>
+            {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    .sv_appstartup_getData(data, APP.state.user.token);
+            });
+        }    
+    },
+    update: function()
+    {
+        if (APP.mode == 'demo')
+        {
+            return Promise.resolve(
+            {                
+                thanhCong: true,
+                massage: 'đã cập nhật'                                
+            });                    
+        }
+        else
+        {
+            const data = {
+                lienHe: APP.form.state.lienHe,
+                donVi: APP.form.state.donVi,
+                donVi2: APP.form.state.donVi2,
+                phongBan1: APP.form.state.phongBan1,
+                phongBan2: APP.form.state.phongBan2,
+                tinh: APP.form.state.tinh,
+                phuongXa: APP.form.state.phuongXa
+            };
+
+            return new Promise((resolve, reject) =>
+            {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    .sv_appstartup_getData(data, APP.state.user.token);
+            });
+        }    
     }
 };
