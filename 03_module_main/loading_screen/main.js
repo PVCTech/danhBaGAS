@@ -2,7 +2,7 @@ APP.loadingScreen =
 {
     init: function()
     {
-        loadingScreen_init();
+        loadingScreen_init();        
     },
     show: function(noiDung = 'Dữ liệu của bạn đang được tải')
     {
