@@ -28,7 +28,7 @@ body
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
+    height: 100vh;
 
     font-family: "MainFont", sans-serif;
     background: var(--color-background-gradient);
