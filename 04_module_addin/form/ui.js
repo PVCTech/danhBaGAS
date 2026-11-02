@@ -61,7 +61,7 @@ APP.form.ui =
                                 <img src="assets/img/recycle.jpg" style="width:16px; height:22px;opacity:0.4;margin-left:4px;" class="image-button" onclick="APP.form.control.delete()">
                             </div>
                             <input type="text" class="inputBox" id="form_timKiem_input" placeholder="tìm mở rộng" autocomplete="nope">
-                            <div style="display: grid; grid-template-columns: 50px 50px 100px 1fr; gap:4px;">
+                            <div style="display: grid; grid-template-columns: 40px 40px 80px auto; gap:4px;width:100%;">
                                 <input type="number" class="inputBox" id="form_ngaySinh_input" max-length="2">
                                 <input type="number" class="inputBox" id="form_thangSinh_input" max-length="2">
                                 <input type="number" class="inputBox" id="form_namSinh_input" max-length="4" placeholder="năm sinh">
