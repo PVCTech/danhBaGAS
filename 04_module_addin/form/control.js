@@ -146,7 +146,7 @@ APP.form.control = {
         }
 
         let deleteStatus = await APP.api.delete();
-        if (deleteStatus.thanhCong)
+        if (deleteStatus.status == 'ok')
         {
             //cập nhật cache, xóa lịch sử nếu có
             let dlIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
@@ -230,7 +230,7 @@ APP.form.control = {
         {
             toast('Đang thêm mới..');
             let addNewStatus = await APP.api.addNew();
-            if (addNewStatus.thanhCong)
+            if (addNewStatus.status == 'ok')
             {
                 APP.form.state.lienHe.id = addNewStatus.id;
                 //cập nhật cache, xóa lịch sử nếu có
@@ -265,7 +265,7 @@ APP.form.control = {
             }
 
             let updateStatus = await APP.api.update();
-            if (updateStatus.thanhCong)
+            if (updateStatus.status == 'ok')
             {
                 //cập nhật cache, xóa lịch sử nếu có
                 let udIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));

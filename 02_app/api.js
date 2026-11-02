@@ -82,8 +82,8 @@ APP.api =
         {
             return Promise.resolve(
             {                
-                thanhCong: true,
-                massage: 'đã xóa'                                
+                status: 'ok',
+                message: 'đã xóa'                                
             });                    
         }
         else
@@ -103,8 +103,8 @@ APP.api =
         {
             return Promise.resolve(
             {                
-                thanhCong: true,
-                massage: 'đã thêm mới',
+                status: 'ok',
+                message: 'đã thêm mới',
                 id: '123456789'                            
             });
             //Thêm mới liên hệ
@@ -137,8 +137,8 @@ APP.api =
         {
             return Promise.resolve(
             {                
-                thanhCong: true,
-                massage: 'đã cập nhật'                                
+                status: 'ok',
+                message: 'đã cập nhật'                                
             });                    
         }
         else

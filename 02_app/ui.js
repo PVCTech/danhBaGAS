@@ -29,7 +29,7 @@ APP.ui =
     },
     render: function()
     {
-        APP.user.ui.render();        
+        APP.user.ui.render(); 
         APP.sidebar.ui.render();
         APP.sidebar.ui.hideIfMobile();
 

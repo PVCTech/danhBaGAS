@@ -148,5 +148,26 @@ APP.user.api =
                     .sv_user_doLogin(JSON.stringify(loginInfor));
             });
         }
+    },
+    changePassword: function(sendData)
+    {
+        if (APP.mode == 'demo')
+        {
+            return Promise.resolve(
+            {
+                status: 'ok',
+                message: 'Đổi mật khẩu thành công'
+            });
+        }
+        else
+        {
+            return new Promise((resolve, reject) =>
+            {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    .sv_user_changePassword(JSON.stringify(sendData));
+            });
+        }
     }
 };

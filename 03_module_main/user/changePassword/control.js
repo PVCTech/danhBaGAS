@@ -42,25 +42,61 @@ APP.user.changePassword.control =
         }
         else
         {
-            $('#user_changePassword_submitButton').innerText = 'Đang đổi mật khẩu..';
-            inactiveButton('user_changePassword_submitButton');
-            toast('Đang đổi mật khẩu..');
-            google.script.run.withSuccessHandler(function(user)
+            try
             {
-                user = JSON.parse(user);
-                if (user.status == 'ok')
+                $('#user_changePassword_submitButton').innerText = 'Đang đổi mật khẩu..';
+                inactiveButton('user_changePassword_submitButton');
+                //toast('Đang đổi mật khẩu..');
+
+                const sendData = {userName: APP.state.user.userName, password: pass1, token: APP.state.user.token};
+                let changePasswordResult = await APP.user.api.changePassword(sendData);
+
+                changePasswordResult  = typeof changePasswordResult === 'string' ? JSON.parse(changePasswordResult) : changePasswordResult;                
+                if (changePasswordResult.status == 'ok')
                 {
-                    $('#user_changePassword_submitButton').innerText = 'Đổi mật khẩu';
-                    activeButton('user_changePassword_submitButton');
-                    localStorage.setItem('a00001_user', JSON.stringify(user));
-                    APP.state.user.token = user.token;
-                    APP.user.changePassword.hide();
+                    toast('Đổi mật khẩu thành công!');
+                    APP.user.control.logout();                
                 }
                 else
                 {
-                    canhBao(user.message);
+                    canhBao(changePasswordResult.message || 'đổi mật khẩu không thành công', 'Đổi mật khẩu');
+                    APP.user.changePassword.ui.reset();
                 }
-            }).sv_user_changePassword(APP.state.user.userName, pass1, APP.state.user.token);
+            }
+            catch (error)
+            {
+                console.error('Đổi mật khẩu không thành công:', error);
+                canhBao(error.message || 'Không thể đổi mật khẩu. Vui lòng thử lại.', 'Đổi mật khẩu');
+                APP.user.changePassword.ui.reset();
+            }          
+           
         }
-    }        
+    },
+    checkForm: function()
+    {
+        let pass1 = document.getElementById("changePass_newPassword1").value;
+        let pass2 = document.getElementById("changePass_newPassword2").value;
+        if (pass1.length < 6)
+        {
+            inactiveButton('user_changePassword_submitButton');
+            document.getElementById("changePass1_checkIcon").innerHTML = APP.user.changePassword.ui.assets.img.checkFail(18, 18);
+            return false;
+        }
+        else 
+        {
+            document.getElementById("changePass1_checkIcon").innerHTML = APP.user.changePassword.ui.assets.img.checkOk(18, 18);
+            if (pass1 !== pass2)
+            {
+                inactiveButton('user_changePassword_submitButton');
+                document.getElementById("changePass2_checkIcon").innerHTML = APP.user.changePassword.ui.assets.img.checkFail(18, 18);
+                return false;
+            }
+            else
+            {
+                activeButton('user_changePassword_submitButton');
+                document.getElementById("changePass2_checkIcon").innerHTML = APP.user.changePassword.ui.assets.img.checkOk(18, 18);
+                return true;
+            }
+        }
+    }     
 }

@@ -40,15 +40,23 @@ APP.user.changePassword.ui =
                     </tr>
                     <tr>
                         <td style="position:relative;">
-                            <input type="password" id="changePass_newPassword1" placeholder="Mật khẩu" class="inputBox inputBox-001">
+                            <input type="password" id="changePass_newPassword1" 
+                                onkeyup="APP.user.changePassword.control.checkForm()"
+                                class="inputBox inputBox-001">
                             <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <div id="changePass1_checkIcon" style="position:absolute;right:20px;bottom:7px;width:18px;height:18px;">
+                            </div>
                         </td>
                     </tr>
 
                     <tr>
                         <td style="position:relative;">
-                            <input type="password" id="changePass_newPassword2" placeholder="Mật khẩu" class="inputBox inputBox-001">
+                            <input type="password" id="changePass_newPassword2" 
+                                onkeyup="APP.user.changePassword.control.checkForm()"
+                                class="inputBox inputBox-001">
                             <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <div id="changePass2_checkIcon" style="position:absolute;right:20px;bottom:7px;width:18px;height:18px;">
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -90,8 +98,9 @@ APP.user.changePassword.ui =
             inactiveButton('user_changePassword_submitButton');
         }
 
+        this.reset();
         if (APP.state.manHinhHienTai == 'changePassword')
-        {
+        {            
             this.show();
         }
         else
@@ -99,19 +108,42 @@ APP.user.changePassword.ui =
             this.hide();
         }
     },
+    reset: function()
+    {
+        $('#changePass_newPassword1').value = '';
+        $('#changePass_newPassword2').value = '';
+        document.getElementById("changePass1_checkIcon").innerHTML = '';
+        document.getElementById("changePass2_checkIcon").innerHTML = '';
+        inactiveButton('user_changePassword_submitButton');
+    },
     show: function()
     {
         show('user_changePassword_divChe');
-        $('#changePassword_container').style.display = 'flex';
-        $('#changePass_newPassword1').value = '';
-        $('#changePass_newPassword2').value = '';
-        APP.user.menu.ui.hide();
+        $('#changePassword_container').style.display = 'flex';        
     },
     hide: function()
     {
         hide('user_changePassword_divChe');
-        $('#changePass_newPassword1').value = '';
-        $('#changePass_newPassword2').value = '';
         hide('changePassword_container');
+    },
+    assets:
+    {
+        img: 
+        {
+            checkOk: function (w,h)
+            { 
+                return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:${h}px;width:${w}px;">
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#fff" stroke-width="8"/>
+                    <path d="m 32 51 12 12 25-27" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`;
+            },
+            checkFail: function (w,h)
+            {
+                return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="height:${h}px;width:${w}px;">
+                    <circle cx="50" cy="50" r="44" fill="none" stroke="#fff" stroke-width="8"/>
+                    <path d="m 37 37 26 26m0-26L37 63" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                </svg>`;
+            }
+        }
     }
 }
