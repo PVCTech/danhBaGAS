@@ -233,25 +233,19 @@ APP.detail.ui =
         let divContainer = $('#ChiTiet_SDT' + stt + '_Input');
         if (SDT !== '')
         {
-            var HtmlDt = `<center>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="tel:${SDT}">
-                                <img src="assets/img/call.png" style="height:20px;" alt="call">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="tel:${SDT}"><font color="white">${SDT}</font></a>
-                        </td>
-                        <td>
-                            <a href="javascript:void(0);" onclick="copySoDienThoai('${SDT}');">                                
-                                <div class="image-button" alt="copy" style="height:18px;margin-left:10px;">
-                                    ${APP.detail.ui.assets.img.copy_white}
-                                </div>
-                            </a>
-                        </td>
-                </tr></table></center>`;
+            var HtmlDt = `
+                <div style="display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;">
+                    <a href="tel:${SDT}">
+                        <img src="assets/img/call.png" style="height:20px;" alt="call">
+                    </a>
+
+                    <a href="tel:${SDT}"><font color="white">${SDT}</font></a>
+
+                    <div onclick="copySoDienThoai('${SDT}');"
+                        class="image-button" style="height:18px;margin-left:10px;">
+                        ${APP.detail.ui.assets.img.copy_white}
+                    </div>
+                </div>`;
             divContainer.innerHTML = HtmlDt;
             divContainer.style.display = 'block';
         }

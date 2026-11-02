@@ -5,9 +5,10 @@
                 ngaySinh, thangSinh, namSinh,
                 donVi1Id,phongBan1Id,
                 donVi2Id,phongBan2Id,
-                tinhId,huyenThanhPhoId,phuongXaId,
+                tinhId, phuongXaId,
                 timKiem,
-                SDT1,SDT2,SDT3,SDTZalo,
+                SDT1,SDT2,SDT3,
+                SDT1Zalo,SDT2Zalo,SDT3Zalo,
                 avatar,
                 email,
                 diaChi,
@@ -32,7 +33,6 @@
                 this.phongBan2Id = phongBan2Id;
                 
                 this.tinhId =tinhId;
-                this.huyenThanhPhoId = huyenThanhPhoId;
                 this.phuongXaId = phuongXaId;
                 
                 this.timKiem = timKiem;
@@ -41,8 +41,10 @@
 			    this.SDT1 = ChuanHoaSDT(SDT1);
                 this.SDT2 = ChuanHoaSDT(SDT2);
                 this.SDT3 = ChuanHoaSDT(SDT3);
-                this.SDTZalo = SDTZalo;
-                
+                this.SDT1Zalo = SDT1Zalo;
+                this.SDT2Zalo = SDT2Zalo;
+                this.SDT3Zalo = SDT3Zalo;
+
                 this.avatar = avatar;
                 
                 this.email =email;

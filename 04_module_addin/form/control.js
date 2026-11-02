@@ -70,187 +70,7 @@ APP.form.control = {
                 } 
             img.src = URL.createObjectURL(e.target.files[0]);
         });
-
-
-
-        $("#form_DonVi_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_DonVi_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_DonVi_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('DonVi',j,'Đơn vị/Nhóm',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('DonVi');
-                }
-            }
-            else
-            {
-                form_GoiY('DonVi');
-            }
-        });
-
-
-
-
-        $("#form_DonVi2_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_DonVi2_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_DonVi2_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('DonVi2',j,'Đơn vị/Nhóm 2',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('DonVi2');
-                }
-            }
-            else
-            {
-                form_GoiY('DonVi2');
-            }
-        });
-
-
-
-
-
-        $("#form_PhongBan_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_PhongBan_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_PhongBan_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('PhongBan',j,'Phòng ban',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('PhongBan');
-                }
-            }
-            else
-            {
-                form_GoiY('PhongBan');
-            }
-        });
-
-
-
-
-        $("#form_Tinh_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_Tinh_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_Tinh_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('Tinh',j,'Tỉnh',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('Tinh');
-                }
-            }
-            else
-            {
-                form_GoiY('Tinh');
-            }
-        });
-
-
-
-
-        $("#form_HuyenTP_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_HuyenTP_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_HuyenTP_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('HuyenTP',j,'Huyện/TPhố',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('HuyenTP');
-                }
-            }
-            else
-            {
-                form_GoiY('HuyenTP');
-            }
-        });
-
-
-
-
-        $("#form_PhuongXa_FullName_Input").on('keyup', function (e) 
-        {
-            if (e.key === 'Enter' || e.keyCode === 13) 
-            {
-                if ($('#form_ChonNhom_GoiY_SoKetQua').value == '1')
-                {
-                    for (var j=1;j<=parseInt($('#GoiY_PhuongXa_Sum').value);j++)
-                    {
-                        var ThemMoiDivId = '#form_GoiY_Data_Div_PhuongXa_' + j;
-                        if ($(ThemMoiDivId).is(":visible"))
-                        {
-                            form_LuaChon_LoadThongTin('PhuongXa',j,'Phường xã',j);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    form_GoiY('PhuongXa');
-                }
-            }
-            else
-            {
-                form_GoiY('PhuongXa');
-            }
-        });
-    */
+*/
 
 
 
@@ -356,7 +176,7 @@ APP.form.control = {
         let year = d.getFullYear();
         let h = d.getHours();
         let m = d.getMinutes();
-        let s = d.getSeconds;
+        let sec = d.getSeconds();
 
         let id = APP.form.state.lienHe.id;
         APP.form.state.lienHe =
@@ -383,6 +203,7 @@ APP.form.control = {
             SDT1: $('#form_SDT1_input').value,
             SDT2: $('#form_SDT2_input').value,
             SDT3: $('#form_SDT3_input').value,
+
             SDT1Zalo: $('#form_SDT1Zalo_input').value,
             SDT2Zalo: $('#form_SDT2Zalo_input').value,
             SDT3Zalo: $('#form_SDT3Zalo_input').value,
@@ -391,13 +212,14 @@ APP.form.control = {
             email: $('#form_email_input').value,
             diaChi: $('#form_diaChi_input').value,
             ghiChu: '',
-            lichSuTruyCap:{
+            lichSuTruyCap:
+            {
                 ngay: date,
                 thang: month,
                 nam: year,
                 gio: h,
                 phut: m,
-                giay: s
+                giay: sec
             }
         };
     },
@@ -476,226 +298,5 @@ APP.form.control = {
                 canhBao('Cập nhật không thành công');
             }
         }
-    },
-    form_GoiY: function(NoiDung)
-    {
-        var FullNameId = "#form_" + NoiDung + "_FullName_Input";
-        var Full = $(FullNameId).value;
-        
-        //var ShortNameId = "#form_" + NoiDung + "_ShortName_Input";
-        //var Short = $(ShortNameId).value;
-        
-        var SumId = "#GoiY_" + NoiDung + "_Sum";
-        var Sum = parseInt($(SumId).value);
-        $('#form_ChonNhom_GoiY_SoKetQua').value = '0';
-        var SoKQ = 0;
-            
-        if (Full.length > 1)
-        {
-            Full = xoa_dau(Full);
-            Full = Full.toUpperCase();
-            
-            //Short = xoa_dau(Short);
-            //Short = Short.toUpperCase();
-            //Short = Short.replace(/[^a-zA-Z0-9]/g, '');
-            //Full.indexOf
-            var TachFull = Full.split(' ');
-            //var TachShort = Short.split(' ');
-            
-            //var DivId = "#form_" + NoiDung + "_Input";
-            //alert(Full);
-            
-            for (var i=0;i<=Sum;i++)
-            {
-                var GoiYFullId = '#GoiY_' + NoiDung + '_FullName_' + i;
-                var GoiYShortId = '#GoiY_' + NoiDung + '_ShortName_' + i;
-                var GoiYFull = $(GoiYFullId).value;
-                var GoiYShort = $(GoiYShortId).value;
-                
-                GoiYFull = xoa_dau(GoiYFull);
-                GoiYFull = GoiYFull.toUpperCase();
-                GoiYFull = GoiYFull.replace(/[^a-zA-Z0-9]/g, '');
-                
-                GoiYShort = xoa_dau(GoiYShort);
-                GoiYShort = GoiYShort.toUpperCase();
-                GoiYShort = GoiYShort.replace(/[^a-zA-Z0-9]/g, '');
-                
-                var Ok=1;
-                for (var j=0;j<TachFull.length;j++)
-                {
-                    if (TachFull[j]!=='')
-                    {
-                        if (GoiYFull.indexOf(TachFull[j]) > -1){}
-                        else
-                        {
-                            Ok=0;
-                        }
-                    }
-                }
-                
-                if (Ok == 0)
-                {
-                    Ok=1;
-                    for (var j=0;j<TachFull.length;j++)
-                    {
-                        if (GoiYShort.indexOf(TachFull[j]) > -1){}
-                        else
-                        {
-                            Ok=0;
-                        }
-                    }
-                }
-                
-                var GoiYDivId = '#form_GoiY_Data_Div_' + NoiDung + '_' + i;
-                if (Ok ==1)
-                {
-                    $(GoiYDivId).show();
-                    SoKQ = SoKQ + 1;
-                    $('#form_ChonNhom_GoiY_SoKetQua').value = SoKQ;
-                }
-                else
-                {
-                    $(GoiYDivId).hide();
-                }
-                
-            }
-        }
-        else
-        {
-            for (var i=0;i<=Sum;i++)
-            {
-                var GoiYDivId = '#form_GoiY_Data_Div_' + NoiDung + '_' + i;
-                $(GoiYDivId).show();
-            }
-        }
-    },
-    ThemDanhBa:function()
-    {
-        var Id = $('#form_Id').value;
-        var HoVaTen = $('#form_HoVaTen_Input').value;
-        var Ten = $('#form_Ten_Input').value;
-        var TimKiem = $('#form_TimKiem_Input').value;
-        var XungHoId = $('#form_XungHo_Input').value;
-        var SDT1 = $('#form_SDT1_Input').value;
-        var SDT2 = $('#form_SDT2_Input').value;
-        var SDT3 = $('#form_SDT3_Input').value;
-        var ngaySinh = $('#form_ngaySinh_Input').value;
-        var thangSinh = $('#form_thangSinh_Input').value;
-        var namSinh = $('#form_namSinh_Input').value;
-        if (ngaySinh.length == 0){ngaySinh = "0";}
-        if (thangSinh.length == 0){thangSinh = "0";}
-        if (namSinh.length == 0){namSinh = "0";}
-        if (ngaySinh.length >2){ngaySinh = ngaySinh.substr(0,2);}
-        if (thangSinh.length >2){thangSinh = thangSinh.substr(0,2);}
-        if (namSinh.length >4){namSinh = namSinh.substr(0,4);}
-        
-        var diaChi = $('#form_diaChi_Input').value;
-        var email = $('#form_email_Input').value;
-        var Star = $('#form_Star_Input').value;
-        
-                            var form_DonVi_Id_Input = $('#form_DonVi_Id_Input').value;
-            var form_DonVi_FullName_Input = $('#form_DonVi_FullName_Input').value;
-            var form_DonVi_ShortName_Input = $('#form_DonVi_ShortName_Input').value;
-                            var form_DonVi2_Id_Input = $('#form_DonVi2_Id_Input').value;
-            var form_DonVi2_FullName_Input = $('#form_DonVi2_FullName_Input').value;
-            var form_DonVi2_ShortName_Input = $('#form_DonVi2_ShortName_Input').value;
-                            var form_PhongBan_Id_Input = $('#form_PhongBan_Id_Input').value;
-            var form_PhongBan_FullName_Input = $('#form_PhongBan_FullName_Input').value;
-            var form_PhongBan_ShortName_Input = $('#form_PhongBan_ShortName_Input').value;
-                            var form_Tinh_Id_Input = $('#form_Tinh_Id_Input').value;
-            var form_Tinh_FullName_Input = $('#form_Tinh_FullName_Input').value;
-            var form_Tinh_ShortName_Input = $('#form_Tinh_ShortName_Input').value;
-                            var form_HuyenTP_Id_Input = $('#form_HuyenTP_Id_Input').value;
-            var form_HuyenTP_FullName_Input = $('#form_HuyenTP_FullName_Input').value;
-            var form_HuyenTP_ShortName_Input = $('#form_HuyenTP_ShortName_Input').value;
-                            var form_PhuongXa_Id_Input = $('#form_PhuongXa_Id_Input').value;
-            var form_PhuongXa_FullName_Input = $('#form_PhuongXa_FullName_Input').value;
-            var form_PhuongXa_ShortName_Input = $('#form_PhuongXa_ShortName_Input').value;
-                        
-        
-        //alert(HoVaTen);
-        if (HoVaTen =='')
-        {
-            Alert('Vui lòng Nhập <b>HỌ VÀ TÊN</b>!!');
-        }
-        else
-        {
-            if (SDT1 =='' && SDT2=='')
-            {
-                Alert('Vui lòng nhập ít nhất 1 SĐT!');
-            }
-            else
-            {
-                
-                var AllData = 'cuongpv;;;m;;;' + Id + ';;;m;;;' + HoVaTen + ';;;m;;;' + Ten + ';;;m;;;' + SDT1 + ';;;m;;;' + SDT2;
-                AllData = AllData + ';;;m;;;' + ngaySinh + ';;;m;;;' + thangSinh + ';;;m;;;' + namSinh;
-                                            AllData = AllData + ';;;m;;;' + form_DonVi_Id_Input + ';;;m;;;' + form_DonVi_FullName_Input + ';;;m;;;' + form_DonVi_ShortName_Input;
-                                            AllData = AllData + ';;;m;;;' + form_DonVi2_Id_Input + ';;;m;;;' + form_DonVi2_FullName_Input + ';;;m;;;' + form_DonVi2_ShortName_Input;
-                                            AllData = AllData + ';;;m;;;' + form_PhongBan_Id_Input + ';;;m;;;' + form_PhongBan_FullName_Input + ';;;m;;;' + form_PhongBan_ShortName_Input;
-                                            AllData = AllData + ';;;m;;;' + form_Tinh_Id_Input + ';;;m;;;' + form_Tinh_FullName_Input + ';;;m;;;' + form_Tinh_ShortName_Input;
-                                            AllData = AllData + ';;;m;;;' + form_HuyenTP_Id_Input + ';;;m;;;' + form_HuyenTP_FullName_Input + ';;;m;;;' + form_HuyenTP_ShortName_Input;
-                                            AllData = AllData + ';;;m;;;' + form_PhuongXa_Id_Input + ';;;m;;;' + form_PhuongXa_FullName_Input + ';;;m;;;' + form_PhuongXa_ShortName_Input;
-                                        AllData = AllData + ';;;m;;;' + SDT3 + ';;;m;;;' + diaChi + ';;;m;;;' + email + ';;;m;;;' + Star;
-                AllData = AllData + ';;;m;;;' + form_Anh;
-                AllData = AllData + ';;;m;;;' + TimKiem  + ';;;m;;;' + XungHoId;
-                AllData = AllData + ';;;m;;;1'
-                //alert (AllData);
-                $.ajax
-                ({
-                    url: 'index_files/themdanhba_ajax_themdanhba.php',
-                    type: "POST",
-                    data: 'AllData=' + AllData,
-                    success: function (data)
-                    {
-                        if (data.length >0) {alert (data);}
-                        else {window.location.reload(); }
-                        
-                    },
-                    error: function (e)
-                    {
-                        console.log(e.message);
-                    }
-                });
-            }
-        }
-    },
-    form_LuaChon_LoadThongTin: function(NoiDung,Id,NoiDung_Caption,Stt)
-    {
-        var FullNameId = '#form_' + NoiDung + '_FullName_Input';
-        var ShortNameId = '#form_' + NoiDung + '_ShortName_Input';
-        var IdId = '#form_' + NoiDung + '_Id_Input';
-        
-        var FullNameId2 = '#GoiY_' + NoiDung + '_FullName_' + Stt;
-        var ShortNameId2 = '#GoiY_' + NoiDung + '_ShortName_' + Stt;
-        var IdId2 = '#GoiY_' + NoiDung + '_Id_' + Stt;
-        
-        $(FullNameId).value = $(FullNameId2).value;
-        $(ShortNameId).value = $(ShortNameId2).value;
-        $(IdId).value = $(IdId2).value;
-        
-        var DivId = '#form_' + NoiDung + '_Input';
-        if (Id ==0) 
-        {
-            $(DivId).html(NoiDung_Caption);
-            $(FullNameId).focus();
-        }
-        else
-        {
-            $(DivId).html('<span style="color:green;">' + $(FullNameId2).value + '</span>');
-            form_Input_Click(NoiDung);
-        }
-        
-        var SumId = "#GoiY_" + NoiDung + "_Sum";
-        var Sum = parseInt($(SumId).value);
-        for (var i=1;i<=Sum;i++)
-        {
-            var DataDiv = "#form_GoiY_Data_Div_" + NoiDung + "_"  + i;
-            $(DataDiv).classList.remove('form_GoiY_Data_Div_Selected');
-            $(DataDiv).classList.add('form_GoiY_Data_Div_NotSelected');
-        }
-        
-        var DataDiv = "#form_GoiY_Data_Div_" + NoiDung + "_"  + Stt;
-        $(DataDiv).classList.remove('form_GoiY_Data_Div_NotSelected');
-        $(DataDiv).classList.add('form_GoiY_Data_Div_Selected');
     }
 }

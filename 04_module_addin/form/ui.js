@@ -23,7 +23,8 @@ APP.form.ui =
     textField: [
         'tenHienThi', 'xungHoId', 'ten', 'timKiem', 
         'ngaySinh', 'thangSinh', 'namSinh', 
-        'SDT1', 'SDT2', 'SDT3', 
+        'SDT1', 'SDT2', 'SDT3',
+        'SDT1Zalo', 'SDT2Zalo', 'SDT3Zalo',
         'diaChi', 'email'
     ],
     init: function()
@@ -85,17 +86,26 @@ APP.form.ui =
                     <div style="display: grid;grid-template-columns: 1fr 1fr 1fr; gap: 8px; box-sizing: border-box;">
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT1_input" placeholder="Điện thoại 1" autocomplete="off">
-                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-active" alt="zalo">
+                            <img src="assets/img/zalo.png" 
+                                id="form_SDT1Zalo_image"
+                                onclick="APP.form.ui.changeZalo('SDT1');"
+                                style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-active image-button" alt="zalo">
                         </div>
 
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT2_input" placeholder="Điện thoại 2" autocomplete="off">
-                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive" alt="zalo">
+                            <img src="assets/img/zalo.png" 
+                                id="form_SDT2Zalo_image"
+                                onclick="APP.form.ui.changeZalo('SDT2');"
+                                style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive image-button" alt="zalo">
                         </div>
 
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT3_input" placeholder="Điện thoại 3" autocomplete="off">
-                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive" alt="zalo">
+                            <img src="assets/img/zalo.png" 
+                                id="form_SDT3Zalo_image"
+                                onclick="APP.form.ui.changeZalo('SDT3');"
+                                style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive image-button" alt="zalo">
                         </div>
 
                         <input type="hidden" id="form_SDT1Zalo_input" value="1">
@@ -152,6 +162,25 @@ APP.form.ui =
                 }
                 this.renderListField(key);
             });
+
+            this.renderZalo('SDT1');
+            this.renderZalo('SDT2');
+            this.renderZalo('SDT3');
+        }
+    },
+    renderZalo: function(SDT)
+    {
+        var Zalo = $("#form_" + SDT + "Zalo_input").value;
+        var img = $('#form_' + SDT + 'Zalo_image');
+        if (Zalo == '0')
+        {
+            img.classList.remove('image-active');
+            img.classList.add('image-inactive');
+        }
+        else
+        {
+            img.classList.remove('image-inactive');
+            img.classList.add('image-active');
         }
     },
     renderListField: function(noiDung)
@@ -212,6 +241,23 @@ APP.form.ui =
             $("#form_Star_input").value = '0';
         }
     },
+    changeZalo: function(SDT)
+    {
+        let img = $('#form_' + SDT + 'Zalo_image');
+        var Zalo = $("#form_" + SDT + "Zalo_input").value;
+        if (Zalo == '0')
+        {
+            $("#form_" + SDT + "Zalo_input").value = '1';
+            img.classList.remove('image-inactive');
+            img.classList.add('image-active');
+        }
+        else
+        {
+            $("#form_" + SDT + "Zalo_input").value = '0';
+            img.classList.remove('image-active');
+            img.classList.add('image-inactive');
+        }
+    },
     form_input_Click: function(NoiDung)
     {
         $('.Input_GoiY_Div').hide();
@@ -252,6 +298,23 @@ APP.form.ui =
             $('#' + field.id).classList.remove('has-value');
             $('#' + field.id).classList.add('not-has-value');
         });
+
+        $('#form_Star_input').value = '0';
+        $('#form_Star_Image').classList.remove('form_Star_Active');
+        $('#form_Star_Image').classList.add('form_Star_InActive');
+
+        $('#form_SDT1Zalo_input').value = '1';
+        $('#form_SDT2Zalo_input').value = '0';
+        $('#form_SDT3Zalo_input').value = '0';
+
+        $('#form_SDT1Zalo_image').classList.remove('image-inactive');
+        $('#form_SDT1Zalo_image').classList.add('image-active');
+
+        $('#form_SDT2Zalo_image').classList.remove('image-active');
+        $('#form_SDT2Zalo_image').classList.add('image-inactive');
+
+        $('#form_SDT3Zalo_image').classList.remove('image-active');
+        $('#form_SDT3Zalo_image').classList.add('image-inactive');
     },
     boQua: function()
     {
