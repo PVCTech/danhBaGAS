@@ -28,10 +28,10 @@ APP.history.ui =
             $('#history_table').innerHTML +=
                 `<tr>
 					<td class="TdData" style="width:60px;">
-                        <div class="avatar_Div" onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${lienHe.GetArrayId()}])">
+                        <div class="avatar_Div" onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${lienHe.getArrayId()}])">
                         ${avatar}</div>
 					</td>					
-					<td class="TdData" onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${lienHe.GetArrayId()}])" style="padding-left:10px;">
+					<td class="TdData" onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${lienHe.getArrayId()}])" style="padding-left:10px;">
                         <span style="color:var(--color-primary); font-size:${hoVaTen_textSize}px;font-weight:bold;">${lienHe.tenHienThi}</span>
 						${namSinh}
                         <br><span style="font-size:14px;color:rgba(0,0,0,0.6);">${lienHe.SDT1}</span>                        

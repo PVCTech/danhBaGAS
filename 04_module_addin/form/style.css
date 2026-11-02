@@ -12,3 +12,15 @@
 {
     color: var(--color-primary);
 }
+
+
+#lienHe_Form .image-active {
+  transition: filter 0.3s ease, opacity 0.3s ease; /* Tạo hiệu ứng mượt mà nếu có đổi trạng thái */
+}
+
+#lienHe_Form .image-inactive
+{
+    filter: grayscale(100%); /* Chuyển hoàn toàn sang màu xám */
+    opacity: 0.6;            /* Giảm nhẹ độ mờ để nhìn giống "inactive" hơn */
+    cursor: not-allowed;     /* Đổi con trỏ chuột thành biển báo cấm nếu có thể click */
+}

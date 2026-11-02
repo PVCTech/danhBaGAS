@@ -10,7 +10,7 @@ Phiên bản danh bạ chạy trực tiếp trên google sheet
 ## Ưu nhược điểm:
 1. Ưu điểm:
 - Không phụ thuộc vào host ngoài (google thì đằng nào cũng phụ thuộc rồi và cũng là danh bạ trên android)
-
+- Có thể thương mại hóa với giá thành phù hợp
 
 2. Nhược điểm:
 - Tốc độ không tốt bằng php

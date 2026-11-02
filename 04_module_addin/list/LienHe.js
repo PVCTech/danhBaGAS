@@ -8,7 +8,7 @@
                 tinhId,huyenThanhPhoId,phuongXaId,
                 timKiem,
                 SDT1,SDT2,SDT3,SDTZalo,
-                avatarId,avatar,avatarVersion,
+                avatar,
                 email,
                 diaChi,
                 ghiChu,
@@ -43,9 +43,7 @@
                 this.SDT3 = ChuanHoaSDT(SDT3);
                 this.SDTZalo = SDTZalo;
                 
-                this.avatarId = avatarId;
                 this.avatar = avatar;
-                this.avatarVersion = avatarVersion;
                 
                 this.email =email;
                 this.diaChi = diaChi;
@@ -53,27 +51,25 @@
                 this.lichSuTruyCap = lichSuTruyCap;
 			}
 			
-			GetArrayId()
+			getArrayId()
 			{
 				for (var i=0;i<APP.cache.data.danhSachLienHe.length;i++)
 				{
 				   if (this.id == APP.cache.data.danhSachLienHe[i].id)
 				   {
 					   return i;
-					   break;
 				   }
 				}
 				return -1;
 			}
 		   
-			GetXungHo()
+			getXungHo()
 			{
 				for (var i=0;i<APP.cache.data.danhSachXungHo.length;i++)
 				{
 				   if (this.xungHoId == APP.cache.data.danhSachXungHo[i].id)
 				   {
 					   return APP.cache.data.danhSachXungHo[i].ten;
-					   break;
 				   }
 				}
 				return '';
@@ -83,46 +79,43 @@
 			
 			
 			
-			GetDonVi1()
+			getDonVi1()
 			{
 				for (var i=0;i<APP.cache.data.danhSachDonVi.length;i++)
 				{
 					if (parseInt(this.donVi1Id) == parseInt(APP.cache.data.danhSachDonVi[i].id))
 					{
                        return APP.cache.data.danhSachDonVi[i].ten;
-					   break;
 					}
 				}
 				return "";
 			}
 			
-			GetPhongBan1()
+			getPhongBan1()
 			{
 				for (var i=0;i<APP.cache.data.danhSachPhongBan.length;i++)
 				{
 					if (this.phongBan1Id == APP.cache.data.danhSachPhongBan[i].id)
 					{
                        return APP.cache.data.danhSachPhongBan[i].ten;
-					   break;
 					}
 				}
 				return "";
 			}
 		   
-			GetDonVi2()
+			getDonVi2()
 			{
 				for (var i=0;i<APP.cache.data.danhSachDonVi.length;i++)
 				{
 					if (this.donVi2Id == APP.cache.data.danhSachDonVi[i].id)
 					{
                        return APP.cache.data.danhSachDonVi[i].ten;
-					   break;
 					}
 				}
 				return "";
 			}
 			
-			GetPhongBan2()
+			getPhongBan2()
 			{
 				for (var i=0;i<APP.cache.data.danhSachPhongBan.length;i++)
 				{
@@ -135,15 +128,28 @@
 				return "";
 			}
 
+
+            getPhuongXa()
+            {
+                let phuongXa = APP.cache.data.danhSachPhuongXa.find(item => String(item.id) === String(this.phuongXaId));
+                return phuongXa ? phuongXa.ten : '';
+            }
+
+            getTinh()
+            {
+                let tinh = APP.cache.data.danhSachTinh.find(item => String(item.id) === String(this.tinhId));
+                return tinh ? tinh.ten : '';
+            }
+
             renderForListRow()
             {
                 let avatar = this.avatar =='' || this.avatar === undefined ? `<image src="assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${this.avatar}" style="width:40px;">`;
                 return `<tr>
-                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.GetArrayId()}])"
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.getArrayId()}])"
                                 style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
                                 ${avatar}
                             </td>
-                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.GetArrayId()}])"
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.getArrayId()}])"
                                 style="padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
                                 <span style="color:var(--color-primary); font-size:14px;font-weight:bold;">${this.tenHienThi}</span>
                                 <br><span style="color:rgba(0,0,0,0.5);font-size:12px;">${this.SDT1} - ${this.SDT2}</span>

@@ -83,9 +83,24 @@ APP.form.ui =
                     html += `
                     <input type="text" class="inputBox" id="form_diaChi_input" placeholder="Địa chỉ" autocomplete="off">
                     <div style="display: grid;grid-template-columns: 1fr 1fr 1fr; gap: 8px; box-sizing: border-box;">
-                        <input type="text" class="inputBox" id="form_SDT1_input" placeholder="Điện thoại 1" autocomplete="off">
-                        <input type="text" class="inputBox" id="form_SDT2_input" placeholder="Điện thoại 2" autocomplete="off">
-                        <input type="text" class="inputBox" id="form_SDT3_input" placeholder="Điện thoại 3" autocomplete="off">
+                        <div style="position:relative;">
+                            <input type="text" class="inputBox" id="form_SDT1_input" placeholder="Điện thoại 1" autocomplete="off">
+                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-active" alt="zalo">
+                        </div>
+
+                        <div style="position:relative;">
+                            <input type="text" class="inputBox" id="form_SDT2_input" placeholder="Điện thoại 2" autocomplete="off">
+                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive" alt="zalo">
+                        </div>
+
+                        <div style="position:relative;">
+                            <input type="text" class="inputBox" id="form_SDT3_input" placeholder="Điện thoại 3" autocomplete="off">
+                            <img src="assets/img/zalo.png" style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive" alt="zalo">
+                        </div>
+
+                        <input type="hidden" id="form_SDT1Zalo_input" value="1">
+                        <input type="hidden" id="form_SDT2Zalo_input" value="0">
+                        <input type="hidden" id="form_SDT3Zalo_input" value="0">
                     </div>
                     <input type="text" class="inputBox" id="form_email_input" placeholder="Email" autocomplete="off">
                     <div style="width: 100%;display: grid;grid-template-columns: 1fr 90px 90px 1fr; gap: 16px; box-sizing: border-box;">
@@ -171,6 +186,15 @@ APP.form.ui =
         APP.form.state.lienHe.id = lienHeId;
         this.render();
         APP.view.ui.showTab('form');
+        const view = $('#view');
+        const tab = $('#form_tab');
+        if (view) view.scrollTop = 0;
+        if (tab)
+        {
+            tab.scrollTop = 0;
+            const main = tab.querySelector('.tab__main');
+            if (main) main.scrollTop = 0;
+        }
     },
     changeStar: function()
     {

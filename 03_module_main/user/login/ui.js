@@ -32,6 +32,8 @@ APP.user.login.ui =
         APP.user.login.state.message = 'Vui lòng đăng nhập để vào trang này';
         APP.user.login.state.doingLogin = false;
         $('#login_password').value = '';
+        $('#login_submitButton').innerText = 'Đăng nhập';
+        activeButton('login_submitButton');
     },
     init: function()
     {

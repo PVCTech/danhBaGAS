@@ -79,7 +79,7 @@ APP.ui =
     hideAllTabs: function()
     {
         document
-            .querySelectorAll('#ui_main .tab')
+            .querySelectorAll('#view > .view__tab')
             .forEach(function(tab)
             {
                 tab.style.display = 'none';

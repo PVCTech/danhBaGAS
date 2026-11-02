@@ -21,10 +21,21 @@ APP.footer.ui =
         });
 
         $('#footer_menuMobile').innerHTML = `
-            <img class="image-button" src="assets/img/back_white.svg" style="width:32px;" onclick="APP.footer.control.back()" />
+            <img class="image-button" id="footer_backButton" src="assets/img/back_white.svg" style="width:32px;" onclick="APP.view.ui.back()" />
             <div style="text-align: center;">DANH BẠ ĐIỆN THOẠI</div>
             <img class="image-button" src="assets/img/new_white.svg" 
                 style="width:32px;" onclick="APP.form.ui.show('');" />
             `;
+    },
+    backButton:
+    {
+        disable: function()
+        {
+            inactiveButton('footer_backButton');
+        },
+        enable: function()
+        {
+            activeButton('footer_backButton');
+        }
     }
 };

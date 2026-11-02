@@ -169,26 +169,50 @@ APP.detail.ui =
          
 
         //Họ và tên:
-        $('#ChiTiet_HoVaTen_Input').innerHTML = '';
-        $('#ChiTiet_HoVaTen_Input').innerText = lienHe.tenHienThi;
+        $('#ChiTiet_HoVaTen_Input').innerHTML = lienHe.tenHienThi;
         
         //Phòng Ban, Đơn vị:
-        var PbDvi = lienHe.GetPhongBan1();
+        var PbDvi = lienHe.getPhongBan1();
         if (PbDvi.length !=='') {PbDvi = PbDvi + ' ';}
-        PbDvi = PbDvi + lienHe.GetDonVi1();
+        PbDvi = PbDvi + lienHe.getDonVi1();
         
-        if (lienHe.GetDonVi2() !=='') {PbDvi = PbDvi + ', ';}
-        PbDvi = PbDvi + lienHe.GetPhongBan2();
-        if (lienHe.GetPhongBan2() !=='') {PbDvi = PbDvi + ' ';}
-        PbDvi = PbDvi + lienHe.GetDonVi2();
+        if (lienHe.getDonVi2() !=='') {PbDvi = PbDvi + ', ';}
+        PbDvi = PbDvi + lienHe.getPhongBan2();
+        if (lienHe.getPhongBan2() !=='') {PbDvi = PbDvi + ' ';}
+        PbDvi = PbDvi + lienHe.getDonVi2();
         $('#ChiTiet_DonVi_Input').innerText = PbDvi ;
         
         ///Địa chỉ:
         var diaChi_Full = '';
         if (lienHe.diaChi !== ''){diaChi_Full = lienHe.diaChi;}
 
-        $('#ChiTiet_diaChi_Input').innerText = diaChi_Full;
         
+        const phuongXa = lienHe.getPhuongXa();
+        if (phuongXa) 
+        {
+            if (diaChi_Full !== '') 
+            {
+                diaChi_Full += ', ' + phuongXa;
+            } 
+            else 
+            {
+                diaChi_Full = phuongXa;
+            }
+        }
+        const tinh = lienHe.getTinh();
+        if (tinh) 
+        {
+            if (diaChi_Full !== '')
+            {
+                diaChi_Full += ', ' + tinh;
+            } 
+            else 
+            {
+                diaChi_Full = tinh;
+            }
+        }
+        $('#ChiTiet_diaChi_Input').innerText = diaChi_Full;
+
         ///email:
         $('#ChiTiet_email_Input').innerText = lienHe.email;
         

@@ -99,7 +99,7 @@ APP.search.control =
                     for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
                     {
                         var TenI = APP.cache.data.danhSachLienHe[i].ten.toLowerCase();
-                        if ((TenI == Tach[1] || boDau(TenI) == Tach[1]) && ChuoiTrongChuoi(Tach[0],APP.cache.data.danhSachLienHe[i].GetXungHo(),1) )
+                        if ((TenI == Tach[1] || boDau(TenI) == Tach[1]) && ChuoiTrongChuoi(Tach[0],APP.cache.data.danhSachLienHe[i].getXungHo(),1) )
                         {
                             if (!APP.search.control.themKetQuaNeuChuaCo(i)) break;
                         }
@@ -196,7 +196,7 @@ APP.search.control =
         {
             for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
             {
-                var DonVi1 = APP.cache.data.danhSachLienHe[i].GetDonVi2();
+                var DonVi1 = APP.cache.data.danhSachLienHe[i].getDonVi1();
                 if (DonVi1=="")
                 {
                     if (ChuoiTrongChuoi(NoiDungTim,DonVi1,tyLeTuyetDoi1))
@@ -212,7 +212,7 @@ APP.search.control =
         {
             for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
             {
-                var DonVi2 = APP.cache.data.danhSachLienHe[i].GetDonVi2();
+                var DonVi2 = APP.cache.data.danhSachLienHe[i].getDonVi2();
                 if (DonVi2!=="")
                 {
                     if (ChuoiTrongChuoi(NoiDungTim,DonVi2,tyLeTuyetDoi1))
@@ -268,7 +268,7 @@ APP.search.control =
         {
             for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
             {
-                var DonVi1 = APP.cache.data.danhSachLienHe[i].GetDonVi2();
+                var DonVi1 = APP.cache.data.danhSachLienHe[i].getDonVi1();
                 if (DonVi1=="")
                 {
                     if (ChuoiTrongChuoi(NoiDungTim,DonVi1,APP.search.control.tyLeTuyetDoi))
@@ -284,7 +284,7 @@ APP.search.control =
         {
             for (var i=0; i< APP.cache.data.danhSachLienHe.length; i++)
             {
-                var DonVi2 = APP.cache.data.danhSachLienHe[i].GetDonVi2();
+                var DonVi2 = APP.cache.data.danhSachLienHe[i].getDonVi2();
                 if (DonVi2!=="")
                 {
                     if (ChuoiTrongChuoi(NoiDungTim,DonVi2,APP.search.control.tyLeTuyetDoi))

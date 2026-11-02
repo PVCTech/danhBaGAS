@@ -62,14 +62,11 @@ APP.user.login.control =
                     APP.ui.render();
 
                     $('#user_hoVaTen').innerText = loginStatus.user.hoVaTen;
-                    
-                    $('#login_submitButton').innerText = 'Đăng nhập';
-                    activeButton('login_submitButton');
                     APP.user.login.ui.hide();
                 }
                 else
                 {
-                    canhBao(user.message || 'Tên đăng nhập hoặc mật khẩu không đúng', 'Đăng nhập ứng dụng');
+                    canhBao(loginStatus.message || 'đăng nhập không thành công', 'Đăng nhập ứng dụng');
                     APP.user.login.ui.reset();
                 }
             }
