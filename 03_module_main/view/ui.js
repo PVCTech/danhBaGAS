@@ -82,7 +82,9 @@ APP.view.ui =
         }
         tab.style.display = '';
         tab.classList.remove('hide');
-        this.addTabHistory(module); 
+        this.addTabHistory(module);
+
+        APP.sidebar.ui.render();
     },
     addTabHistory: function(module)
     {

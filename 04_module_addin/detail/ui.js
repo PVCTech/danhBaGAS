@@ -67,7 +67,7 @@ APP.detail.ui =
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <div style="overflow: scroll;height:110px;" class="noScrollbar">
+                                <div style="overflow: scroll;height:128px;" class="noScrollbar">
                                     <table style="width:100%;color:white;">
                                         <tr>
                                             <td>
