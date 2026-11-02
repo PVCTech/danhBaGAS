@@ -19,10 +19,10 @@ APP.user.changePassword.ui =
                     <tr>
                         <td style="position:relative;">
                         <div style="width:100%;text-align:center;">
-                            <img src="assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
                         </div>
                         
-                        <img src="assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
+                        <img src="https://pvctech.github.io/danhBaGAS/assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
                         </td>
                     </tr>
                 </table>
@@ -43,7 +43,7 @@ APP.user.changePassword.ui =
                             <input type="password" id="changePass_newPassword1" 
                                 onkeyup="APP.user.changePassword.control.checkForm()"
                                 class="inputBox inputBox-001">
-                            <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                             <div id="changePass1_checkIcon" style="position:absolute;right:20px;bottom:7px;width:18px;height:18px;">
                             </div>
                         </td>
@@ -54,7 +54,7 @@ APP.user.changePassword.ui =
                             <input type="password" id="changePass_newPassword2" 
                                 onkeyup="APP.user.changePassword.control.checkForm()"
                                 class="inputBox inputBox-001">
-                            <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                             <div id="changePass2_checkIcon" style="position:absolute;right:20px;bottom:7px;width:18px;height:18px;">
                             </div>
                         </td>

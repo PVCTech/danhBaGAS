@@ -6,7 +6,7 @@ const canhBao_init = () =>
     container.innerHTML = 
         `<div class="thong-bao-popup__div-noi-dung">
             <div class="thong-bao-popup__div-noi-dung__caption">
-                <img src="assets/img/infor.svg" style="height:20px;">      
+                <img src="https://pvctech.github.io/danhBaGAS/assets/img/infor.svg" style="height:20px;">      
                 <div id="canhBaoPopup_caption" style="color:white;">
                 Cập nhật thông tin ...
                 </div>

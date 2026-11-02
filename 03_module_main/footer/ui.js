@@ -21,9 +21,9 @@ APP.footer.ui =
         });
 
         $('#footer_menuMobile').innerHTML = `
-            <img class="image-button" id="footer_backButton" src="assets/img/back_white.svg" style="width:32px;" onclick="APP.view.ui.back()" />
+            <img class="image-button" id="footer_backButton" src="https://pvctech.github.io/danhBaGAS/assets/img/back_white.svg" style="width:32px;" onclick="APP.view.ui.back()" />
             <div style="text-align: center;">DANH BẠ ĐIỆN THOẠI</div>
-            <img class="image-button" src="assets/img/new_white.svg" 
+            <img class="image-button" src="https://pvctech.github.io/danhBaGAS/assets/img/new_white.svg" 
                 style="width:32px;" onclick="APP.form.ui.show('');" />
             `;
     },

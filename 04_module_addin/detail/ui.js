@@ -29,7 +29,7 @@ APP.detail.ui =
                 <div style="height:40px;color:white;">.</div>
                 <div style="border-radius:10px 10px 0px 0px;background:white;height:220px;position:relative;">
                     <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;">
-                        <img id="ChiTiet_Star_Image" src="assets/img/star.svg?version=1" style="width:100%;">
+                        <img id="ChiTiet_Star_Image" src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg?version=1" style="width:100%;">
                     </div>
                     <div style="width:100%;position:absolute;left:0px;top:40px;">
                         <center>
@@ -71,7 +71,7 @@ APP.detail.ui =
                                     <table style="width:100%;color:white;">
                                         <tr>
                                             <td>
-                                                <img src="assets/img/date.png" style="width:20px;">
+                                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/date.png" style="width:20px;">
                                             </td>
                                             <td>
                                                 <div id="ChiTiet_ngaySinh_Input" style="margin-left:10px;opacity:0.75;"></div>
@@ -79,7 +79,7 @@ APP.detail.ui =
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="assets/img/location.png" style="width:20px;">
+                                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/location.png" style="width:20px;">
                                             </td>
                                             <td>
                                                 <div id="ChiTiet_diaChi_Input" style="margin-left:10px;opacity:0.75;"></div>
@@ -87,7 +87,7 @@ APP.detail.ui =
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="assets/img/donvi.png" style="width:20px;">
+                                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/donvi.png" style="width:20px;">
                                             </td>
                                             <td>
                                                 <div id="ChiTiet_DonVi_Input" style="margin-left:10px;opacity:0.75;"></div>
@@ -95,7 +95,7 @@ APP.detail.ui =
                                         </tr>
                                         <tr>
                                             <td >
-                                                <img src="assets/img/email.png" style="width:20px;">
+                                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/email.png" style="width:20px;">
                                             </td>
                                             <td>
                                                 <div id="ChiTiet_email_Input" style="margin-left:10px;opacity:0.75;"></div>
@@ -157,7 +157,7 @@ APP.detail.ui =
         //avatar:
         if (lienHe.avatar =='' || lienHe.avatar === undefined) 
         {
-            var HTML = '<image src="assets/img/avatar_star.svg" style="height:95%;">';
+            var HTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
         }
         else
         {
@@ -249,7 +249,7 @@ APP.detail.ui =
             var HtmlDt = `
                 <div style="display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;">
                     <a href="tel:${SDT}">
-                        <img src="assets/img/call.png" style="height:20px;" alt="call">
+                        <img src="https://pvctech.github.io/danhBaGAS/assets/img/call.png" style="height:20px;" alt="call">
                     </a>
 
                     <a href="tel:${SDT}"><font color="white">${SDT}</font></a>
@@ -273,7 +273,7 @@ APP.detail.ui =
         if (SDT !== '' && zalo == '1')
         {
             var HtmlZalo = `<a href="https://zalo.me/${SDT}" target="_blank">
-                        <img src="assets/img/zalo.png" style="height:28px;">
+                        <img src="https://pvctech.github.io/danhBaGAS/assets/img/zalo.png" style="height:28px;">
                     </a>`;
             divContainer.innerHTML += HtmlZalo;
             divContainer.style.display = 'block';

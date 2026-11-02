@@ -145,7 +145,7 @@
 
             renderForListRow()
             {
-                let avatar = this.avatar =='' || this.avatar === undefined ? `<image src="assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${this.avatar}" style="width:40px;">`;
+                let avatar = this.avatar =='' || this.avatar === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${this.avatar}" style="width:40px;">`;
                 return `<tr>
                             <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.getArrayId()}])"
                                 style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
@@ -157,7 +157,7 @@
                                 <br><span style="color:rgba(0,0,0,0.5);font-size:12px;">${this.SDT1} - ${this.SDT2}</span>
                             </td>
                             <td class="TdData" style="width:15px; cursor:pointer;" onclick="APP.form.ui.show('${this.id}');">
-                                <img src="assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
+                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
                             </td>
                         </tr>`;
             }

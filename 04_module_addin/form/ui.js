@@ -58,7 +58,7 @@ APP.form.ui =
                                 <select class="inputBox" id="form_xungHoId_input" style="height:35px;width:70px;color:var(--color-primary);padding:4px;background:white;">
                                 </select>
                                 <input type="text" class="inputBox" id="form_ten_input" style="width:80px;" placeholder="tên" autocomplete="nope">
-                                <img src="assets/img/recycle.jpg" style="width:16px; height:22px;opacity:0.4;margin-left:4px;" class="image-button" onclick="APP.form.control.delete()">
+                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/recycle.jpg" style="width:16px; height:22px;opacity:0.4;margin-left:4px;" class="image-button" onclick="APP.form.control.delete()">
                             </div>
                             <input type="text" class="inputBox" id="form_timKiem_input" placeholder="tìm mở rộng" autocomplete="nope">
                             <div style="display: grid; grid-template-columns: 40px 40px 80px auto; gap:4px;width:100%;">
@@ -66,7 +66,7 @@ APP.form.ui =
                                 <input type="number" class="inputBox" id="form_thangSinh_input" max-length="2">
                                 <input type="number" class="inputBox" id="form_namSinh_input" max-length="4" placeholder="năm sinh">
                                 <div style="height:35px;position:relative;">
-                                    <img src="assets/img/star.svg" class="form_Star_InActive" id="form_Star_Image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
+                                    <img src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg" class="form_Star_InActive" id="form_Star_Image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
                                 </div>
                             </div>
                         </div>                        
@@ -86,7 +86,7 @@ APP.form.ui =
                     <div style="display: grid;grid-template-columns: 1fr 1fr 1fr; gap: 8px; box-sizing: border-box;">
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT1_input" placeholder="Điện thoại 1" autocomplete="off">
-                            <img src="assets/img/zalo.png" 
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/zalo.png" 
                                 id="form_SDT1Zalo_image"
                                 onclick="APP.form.ui.changeZalo('SDT1');"
                                 style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-active image-button" alt="zalo">
@@ -94,7 +94,7 @@ APP.form.ui =
 
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT2_input" placeholder="Điện thoại 2" autocomplete="off">
-                            <img src="assets/img/zalo.png" 
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/zalo.png" 
                                 id="form_SDT2Zalo_image"
                                 onclick="APP.form.ui.changeZalo('SDT2');"
                                 style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive image-button" alt="zalo">
@@ -102,7 +102,7 @@ APP.form.ui =
 
                         <div style="position:relative;">
                             <input type="text" class="inputBox" id="form_SDT3_input" placeholder="Điện thoại 3" autocomplete="off">
-                            <img src="assets/img/zalo.png" 
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/zalo.png" 
                                 id="form_SDT3Zalo_image"
                                 onclick="APP.form.ui.changeZalo('SDT3');"
                                 style="width:20px;position:absolute;right:-4px;top:-4px;" class="image-inactive image-button" alt="zalo">

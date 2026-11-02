@@ -44,9 +44,9 @@ APP.user.login.ui =
                     <tr>
                         <td style="position:relative;">
                             <div style="width:100%;text-align:center;">
-                                <img src="assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
+                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/contact_caption.svg" style="height:25px;opacity:0.75;">
                             </div>
-                            <img src="assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/contact_book.svg" style="height:32px;position:absolute;right:30px;top:2px;opacity:0.55;">
                         </td>
                     </tr>
                 </table>
@@ -70,13 +70,13 @@ APP.user.login.ui =
                     <tr>
                         <td style="position:relative;">
                             <input type="text" id="login_userName" class="inputBox inputBox-001" value="">
-                            <img src="assets/img/user_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/user_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
                     <tr>
                         <td style="position:relative;">
                             <input type="password" id="login_password" class="inputBox inputBox-001">
-                            <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
+                            <img src="https://pvctech.github.io/danhBaGAS/assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
                     <tr>

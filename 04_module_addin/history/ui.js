@@ -14,7 +14,7 @@ APP.history.ui =
         APP.cache.data.danhSachLichSu.forEach(lichSu =>
         {
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) == String(lichSu.lienHeId));
-            let avatar = lienHe.avatar =='' || lienHe.avatar === undefined ? `<image src="assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${lienHe.avatar}" style="width:40px;">`;
+            let avatar = lienHe.avatar =='' || lienHe.avatar === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${lienHe.avatar}" style="width:40px;">`;
             let hoVaTen_textSize = 18;
             if (lienHe.tenHienThi.length > 15 && lienHe.tenHienThi.indexOf(' ') == -1)
             {
@@ -42,7 +42,7 @@ APP.history.ui =
                         </span>
 					</td>
                     <td class="TdData" style="width:15px; cursor:pointer;" onclick="APP.form.ui.show('${lienHe.id}');">
-                        <img src="assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
+                        <img src="https://pvctech.github.io/danhBaGAS/assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
                     </td>
 				</tr>`;
         });
