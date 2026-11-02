@@ -72,7 +72,7 @@ APP.api =
                 google.script.run
                     .withSuccessHandler(resolve)
                     .withFailureHandler(reject)
-                    .sv_appstartup_getData(APP.state.user.token);
+                    .sv_appstartup_getData(APP.state.user.token, localVersion);
             });
         }    
     },

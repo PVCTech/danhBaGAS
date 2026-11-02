@@ -14,11 +14,23 @@ APP.cache =
     init: async function()
     {
         console.log('Cache init');
-        let localCacheData = this.getLocal(); //obj
-        if (localCacheData && typeof localCacheData !== 'object')
+        let localCacheData = this.getLocal();
+        if (localCacheData)
         {
-            localStorage.removeItem(APP.config.id + '_cache');
-            localCacheData = null;
+            try
+            {
+                localCacheData = JSON.parse(localCacheData);
+                if (!localCacheData || typeof localCacheData !== 'object')
+                {
+                    throw new Error('Dữ liệu cache không hợp lệ');
+                }
+            }
+            catch (error)
+            {
+                console.error('Không thể đọc cache liên hệ:', error);
+                localStorage.removeItem(APP.config.id + '_cache');
+                localCacheData = null;
+            }
         }
 
         if (localCacheData)
@@ -59,7 +71,7 @@ APP.cache =
     },
     setLocal: function()
     {
-        localStorage.setItem(APP.config.id + '_cache', APP.cache.data);
+        localStorage.setItem(APP.config.id + '_cache', JSON.stringify(APP.cache.data));
     },
     getLocal: function()
     {

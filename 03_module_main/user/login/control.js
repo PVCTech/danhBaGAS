@@ -59,6 +59,7 @@ APP.user.login.control =
                     APP.state.user = loginStatus.user;
                     
                     await APP.control.getStartupData();
+                    APP.state.manHinhHienTai = 'home';
                     APP.ui.render();
 
                     $('#user_hoVaTen').innerText = loginStatus.user.hoVaTen;

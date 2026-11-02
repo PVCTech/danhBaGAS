@@ -46,6 +46,12 @@ APP.history.ui =
                     </td>
 				</tr>`;
         });
+        
+        APP.state.manHinhHienTai = APP.state.manHinhHienTai || 'home';
+        if (APP.state.manHinhHienTai == 'history' || APP.state.manHinhHienTai == 'home')
+        {
+            APP.view.ui.showTab('home');
+        }
     }
 };
 
