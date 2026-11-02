@@ -27,7 +27,7 @@ APP.detail.ui =
         divct.innerHTML = `        
             <center>
                 <div style="height:40px;color:white;">.</div>
-                <div style="border-radius:10px 10px 0px 0px;background:white;height:220px;position:relative;">
+                <div  class="containner" style="border-radius:10px 10px 0px 0px;background:white;height:220px;position:relative;">
                     <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;">
                         <img id="ChiTiet_Star_Image" src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg?version=1" style="width:100%;">
                     </div>
