@@ -69,13 +69,13 @@ APP.user.login.ui =
                     </tr>
                     <tr>
                         <td style="position:relative;">
-                            <input type="text" id="login_userName" placeholder="Tên đăng nhập" class="inputBox inputBox-001" value="">
+                            <input type="text" id="login_userName" class="inputBox inputBox-001" value="">
                             <img src="assets/img/user_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
                     <tr>
                         <td style="position:relative;">
-                            <input type="password" id="login_password" placeholder="Mật khẩu" class="inputBox inputBox-001">
+                            <input type="password" id="login_password" class="inputBox inputBox-001">
                             <img src="assets/img/password_icon.png" style="position:absolute;left:5px;bottom:7px;width:18px;opacity:0.5;">
                         </td>
                     </tr>
