@@ -8,5 +8,4 @@ const sv_history_addNew = (history, token) =>
         tbl.deleteRow(2);
     }
     sv_insertRow_('lichSu', history);
-    setServerCacheVersion(token);
 }

@@ -8,7 +8,7 @@ APP.history.control =
         const newHistory = 
         {
             ngay: d.getDate(),
-            thang: d.getMonth +1,
+            thang: d.getMonth() +1,
             nam: d.getFullYear(),
             gio: d.getHours(),
             phut: d.getMinutes(),
