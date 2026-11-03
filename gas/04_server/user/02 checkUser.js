@@ -29,10 +29,10 @@ function sv_user_getLoginStatus(tk)
 
 
 
-function sv_user_kiemTraQuyen_(danhSachLoaiTaiKhoan, token) 
+const sv_user_kiemTraQuyen_ = (danhSachVaiTro, token) =>
 {
     const user = sv_user_getCurrentUser_(token);
-    if (danhSachLoaiTaiKhoan.indexOf(user.loaiTaiKhoan) === -1) {
+    if (danhSachVaiTro.indexOf(user.vaiTro) === -1) {
         throw new Error('sv_user_kiemTraQuyen_: Không có quyền thực hiện thao tác này');
     }
     return user;

@@ -13,18 +13,17 @@ function sv_getNewCacheData(token, localVersion)
     let serverCacheVersion = getServerCacheVersion(token);
     if (serverCacheVersion !== localVersion)
     {
-        const newCacheData = sv_getTableData_('04_cache');
         return Promise.resolve(
         {
             data: 
             {
                 version: serverCacheVersion,
-                danhSachLienHe: getTableData_('lienHe').data,
-                danhSachLichSu: getTableData_('lichSu').data,
-                danhSachDonVi: getTableData_('donVi').data,
-                danhSachPhongBan: getTableData_('phongBan').data,
-                danhSachTinh: getTableData_('tinh').data,
-                danhSachPhuongXa: getTableData_('phuongXa').data
+                danhSachLienHe: sv_getTableData_('lienHe').data,
+                danhSachLichSu: sv_getTableData_('lichSu').data,
+                danhSachDonVi: sv_getTableData_('donVi').data,
+                danhSachPhongBan: sv_getTableData_('phongBan').data,
+                danhSachTinh: sv_getTableData_('tinh').data,
+                danhSachPhuongXa: sv_getTableData_('phuongXa').data
             },
             newCache: true
         });

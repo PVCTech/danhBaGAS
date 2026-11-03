@@ -1,9 +1,8 @@
 const APPID = '00148';
 
-function sv_user_getCurrentUser_(token) 
+const sv_user_getCurrentUser_ = (token) => 
 {
     const taiKhoan = sv_getRowData_('02_user', 'token', token);
-
     if (!taiKhoan) 
     {
         throw new Error('sv_user_getCurrentUser_: không thấy tài khoản khớp với token: ' + token);
@@ -23,19 +22,19 @@ function sv_user_getCurrentUser_(token)
         userName: taiKhoan.userName,
         hoVaTen: taiKhoan.hoVaTen,
         email: taiKhoan.email,
-        loaiTaiKhoan: taiKhoan.loaiTaiKhoan,
-        idKhachHang: taiKhoan.idKhachHang || '',
+        vaiTro: taiKhoan.vaiTro,
         token: token,
-        quyen: layQuyenTheoLoaiTaiKhoan_(taiKhoan.loaiTaiKhoan)
+        cacheVersion: taiKhoan.cacheVersion,
+        quyen: layQuyenTheoVaiTro_(taiKhoan.vaiTro)
     };
 }
 
-function layQuyenTheoLoaiTaiKhoan_(loaiTaiKhoan) {
+function layQuyenTheoVaiTro_(vaiTro) {
     const quyen = {
         user: ['XemTatCa', 'SuaTatCa', 'QuanLyTaiKhoan', 'XuLySuCo'],
         quanLy: ['XemPhong', 'XemKhach', 'XuLySuCo'],
         khach: ['XemDuLieuCuaMinh', 'BaoSuCo', 'NhapChiSo']
     };
 
-    return quyen[loaiTaiKhoan] || [];
+    return quyen[vaiTro] || [];
 }

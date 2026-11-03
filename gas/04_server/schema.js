@@ -112,7 +112,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'loaiTaiKhoan',
+            name: 'vaiTro',
             caption: '',
             type: { type: 'text', options: {} },
             key: 0,

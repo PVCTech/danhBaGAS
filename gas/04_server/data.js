@@ -2,11 +2,9 @@
 function sv_getTable_(tableName) 
 {
     const bang = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(tableName);
-
     if (!bang) {
         throw new Error('sv_getTable_: Không tìm thấy tên bảng: ' + tableName);
     }
-
     return bang;
 }
 

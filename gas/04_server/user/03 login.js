@@ -49,7 +49,7 @@ function sv_user_loginStatus_(thanhCong, message, taiKhoan = {})
             {
                 userName: thanhCong ? taiKhoan.userName : '',
                 hoVaTen: thanhCong ? taiKhoan.hoVaTen : '',
-                vaiTro: thanhCong ? taiKhoan.loaiTaiKhoan : '',
+                vaiTro: thanhCong ? taiKhoan.vaiTro : '',
                 token: thanhCong ? taiKhoan.token : ''
             },        
             cacheVersion: taiKhoan.cacheVersion || ''
