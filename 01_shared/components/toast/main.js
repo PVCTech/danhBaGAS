@@ -6,7 +6,7 @@ function toast_init()
         let el = '<div style="position: relative;">';
         if (APP.config.showIcon)
         {
-            el += '<image src="fav.ico" style="position:absolute; top:-36px; left:-24px; height:36px;">';
+            el += `<image src="${APP.config.publicUrl}fav.ico" style="position:absolute; top:-36px; left:-24px; height:36px;">`;
         }
         el += `
                 <div class="toast__noiDung" id="toast__noiDung">
