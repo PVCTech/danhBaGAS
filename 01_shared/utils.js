@@ -128,7 +128,6 @@ const copyToClipboard = (NoiDung)  =>
 
 const chuanHoaNgayThang = (number) =>
 {
-    console.log('chuan hoa: ' + number);
     if (String(number) == '')
     {
         return '';

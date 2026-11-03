@@ -94,8 +94,8 @@ APP.cache =
             console.log('update to new version');
             APP.cache.data = newCacheData.data;
             this.convertCache();
+            this.setLocal();
         }        
-        this.setLocal();
     },
     convertCache: function()
     {

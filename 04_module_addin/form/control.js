@@ -201,7 +201,7 @@ APP.form.control = {
             phuongXaId: APP.form.state.phuongXa.id,
             
             timKiem: $('#form_timKiem_input').value,
-            
+
             SDT1: $('#form_SDT1_input').value,
             SDT2: $('#form_SDT2_input').value,
             SDT3: $('#form_SDT3_input').value,
@@ -239,12 +239,7 @@ APP.form.control = {
                 APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
                 console.log('APP.cache.data.danhSachLienHe', APP.cache.data.danhSachLienHe);
                 APP.cache.data.danhSachLichSu.push({
-                    ngay: APP.form.state.lienHe.lichSuTruyCap.ngay, 
-                    thang: APP.form.state.lienHe.lichSuTruyCap.thang, 
-                    nam: APP.form.state.lienHe.lichSuTruyCap.nam, 
-                    gio: APP.form.state.lienHe.lichSuTruyCap.gio, 
-                    phut: APP.form.state.lienHe.lichSuTruyCap.phut, 
-                    giay: APP.form.state.lienHe.lichSuTruyCap.giay, 
+                    ...APP.form.state.lienHe.lichSuTruyCap,
                     lienHeId: APP.form.state.lienHe.id});
                
                 //render lại và showtab lịch sử
@@ -280,12 +275,7 @@ APP.form.control = {
                 if (historyIndex !==-1) 
                 {
                     APP.cache.data.danhSachLichSu[historyIndex] = {
-                        ngay: APP.form.state.lienHe.lichSuTruyCap.ngay,
-                        thang: APP.form.state.lienHe.lichSuTruyCap.thang,
-                        nam: APP.form.state.lienHe.lichSuTruyCap.nam,
-                        gio: APP.form.state.lienHe.lichSuTruyCap.gio,
-                        phut: APP.form.state.lienHe.lichSuTruyCap.phut,
-                        giay: APP.form.state.lienHe.lichSuTruyCap.giay,
+                        ...APP.form.state.lienHe.lichSuTruyCap,
                         lienHeId: APP.form.state.lienHe.id
                     }
                 }

@@ -11,6 +11,8 @@ APP.history.ui =
     {
         $('#home_tab').innerHTML = `<table style="width:100%;" id="history_table">
         </table>`;
+
+        console.log(JSON.stringify(APP.cache.data.danhSachLichSu));
         APP.cache.data.danhSachLichSu.forEach(lichSu =>
         {
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) == String(lichSu.lienHeId));
