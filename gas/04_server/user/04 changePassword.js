@@ -2,7 +2,7 @@ const sv_user_changePassword = (userName, pass, token) =>
 {
     try {
         if (!userName) return sv_user_loginStatus_(false, 'User Name trống.');
-        const taiKhoan = sv_getRowData_('02_User', 'userName', userName);
+        const taiKhoan = sv_getRowData_('02_user', 'userName', userName);
         
         if (!taiKhoan || taiKhoan.token !== token) 
         {
@@ -10,7 +10,7 @@ const sv_user_changePassword = (userName, pass, token) =>
         }
 
         token = sv_user_newToken_();
-        sv_updateCell_('02_User', 'userName', taiKhoan.userName, {
+        sv_updateCell_('02_user', 'userName', taiKhoan.userName, {
             token: token, password: sv_hashMatKhau_(pass)
         });
 

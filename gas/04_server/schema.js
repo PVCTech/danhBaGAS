@@ -62,7 +62,7 @@ var SCHEMA = {
         }
     ],
 
-    '02_User': [
+    '02_user': [
         {
             name: 'userName',
             caption: '',

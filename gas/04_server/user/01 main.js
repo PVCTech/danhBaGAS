@@ -2,7 +2,7 @@ const APPID = '00148';
 
 function sv_user_getCurrentUser_(token) 
 {
-    const taiKhoan = sv_getRowData_('02_User', 'token', token);
+    const taiKhoan = sv_getRowData_('02_user', 'token', token);
 
     if (!taiKhoan) 
     {

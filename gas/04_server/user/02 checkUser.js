@@ -1,4 +1,4 @@
-/* Quản lý phiên đăng nhập bằng token lưu tại sheet 02_User. */
+/* Quản lý phiên đăng nhập bằng token lưu tại sheet 02_user. */
 function sv_user_getLoginStatus(tk)
 {
     try
@@ -6,7 +6,7 @@ function sv_user_getLoginStatus(tk)
         const token = String(tk || '').trim();
         if (!token) return sv_user_loginStatus_(false, 'sv_user_getLoginStatus: Chưa có token đăng nhập.');
 
-        const taiKhoan = sv_getRowData_('02_User', 'token', token);
+        const taiKhoan = sv_getRowData_('02_user', 'token', token);
         if (!taiKhoan || !sv_user_tokenActive_(taiKhoan))
         {
             let msg = 'kô có tài khoản';
@@ -19,7 +19,7 @@ function sv_user_getLoginStatus(tk)
             return sv_user_loginStatus_(false, 'sv_user_getLoginStatus: Tài khoản hiện không hoạt động.');
         }
         
-        return sv_user_loginStatus_(true, '', taiKhoan, token);
+        return sv_user_loginStatus_(true, '', taiKhoan);
     }
     catch (loi)
     {

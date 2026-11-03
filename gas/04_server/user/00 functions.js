@@ -32,6 +32,6 @@ const sv_user_tokenActive_ = (taiKhoan) =>
 
 const sv_user_xoaKeyDangNhap_ = (userName) =>
 {
-    sv_updateCell_('02_User', 'userName', userName, { token: '', loginTime: '' });
+    sv_updateCell_('02_user', 'userName', userName, { token: '', loginTime: '' });
 }
 

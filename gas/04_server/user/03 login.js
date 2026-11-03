@@ -7,7 +7,7 @@ const sv_user_doLogin = (loginInfor) =>
 
         if (!userName || !password) return sv_user_loginStatus_(false, 'Vui lòng nhập tên đăng nhập và mật khẩu.');
 
-        const taiKhoan = sv_getRowData_('02_User', 'userName', userName);
+        const taiKhoan = sv_getRowData_('02_user', 'userName', userName);
         if (!taiKhoan || !sv_user_matKhauDung_(password, taiKhoan.password))
         {
             return sv_user_loginStatus_(false, 'Tên đăng nhập hoặc mật khẩu không đúng.');
@@ -21,12 +21,14 @@ const sv_user_doLogin = (loginInfor) =>
         const bayGio = new Date();
         const token = sv_user_newToken_();
         
-        sv_updateCell_('02_User', 'userName', taiKhoan.userName, {
+        sv_updateCell_('02_user', 'userName', taiKhoan.userName, {
             token: token,
             loginTime: bayGio.getTime(),
             dangNhapLanCuoi: bayGio
         });
 
+        taiKhoan.token = token;
+        taiKhoan.loginTime = bayGio.getTime();
         return sv_user_loginStatus_(true, '', taiKhoan);
     } 
     catch (loi) 
