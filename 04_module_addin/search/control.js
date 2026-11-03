@@ -98,6 +98,7 @@ APP.search.control =
                     //Tìm tuyệt đối theo tên (có dấu và không dấu) và Xưng hô phù hợp
                     for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
                     {
+                        console.log(APP.cache.data.danhSachLienHe[i].ten);
                         var TenI = APP.cache.data.danhSachLienHe[i].ten.toLowerCase();
                         if ((TenI == Tach[1] || boDau(TenI) == Tach[1]) && ChuoiTrongChuoi(Tach[0],APP.cache.data.danhSachLienHe[i].getXungHo(),1) )
                         {
