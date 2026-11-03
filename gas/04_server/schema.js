@@ -61,18 +61,6 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'idKhachHang',
-            caption: '',
-            type: { type: 'text', options: {} },
-            key: 0,
-            formula: '',
-            initialValue: null,
-            show: 1,
-            editable: 1,
-            require: 0,
-            search: 1
-        },
-        {
             name: 'active',
             caption: '',
             type: {
@@ -168,7 +156,7 @@ var SCHEMA = {
     'lienHe': 
     [
         {
-            name: 'Id',
+            name: 'id',
             caption: 'ID',
             type: { type: 'text', options: {} },
             key: 1,
@@ -180,7 +168,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Star',
+            name: 'star',
             caption: 'Đánh dấu',
             type: { type: 'text', options: {} },
             key: 0,
@@ -192,7 +180,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'TenHienThi',
+            name: 'tenHienThi',
             caption: 'Tên hiển thị',
             type: { type: 'text', options: {} },
             key: 0,
@@ -204,7 +192,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'XungHoId',
+            name: 'xungHoId',
             caption: 'Xưng hô',
             type: { type: 'text', options: {} },
             key: 0,
@@ -216,7 +204,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Ten',
+            name: 'ten',
             caption: 'Tên',
             type: { type: 'text', options: {} },
             key: 0,
@@ -228,7 +216,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'NgaySinh',
+            name: 'ngaySinh',
             caption: 'Ngày sinh',
             type: { type: 'text', options: {} },
             key: 0,
@@ -240,7 +228,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'ThangSinh',
+            name: 'thangSinh',
             caption: 'Tháng sinh',
             type: { type: 'text', options: {} },
             key: 0,
@@ -252,7 +240,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'NamSinh',
+            name: 'namSinh',
             caption: 'Năm sinh',
             type: { type: 'text', options: {} },
             key: 0,
@@ -264,7 +252,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'DonVi1Id',
+            name: 'donVi1Id',
             caption: 'Đơn vị 1',
             type: { type: 'text', options: {} },
             key: 0,
@@ -276,7 +264,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'PhongBan1Id',
+            name: 'phongBan1Id',
             caption: 'Phòng ban 1',
             type: { type: 'text', options: {} },
             key: 0,
@@ -288,7 +276,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'DonVi2Id',
+            name: 'donVi2Id',
             caption: 'Đơn vị 2',
             type: { type: 'text', options: {} },
             key: 0,
@@ -300,7 +288,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'PhongBan2Id',
+            name: 'phongBan2Id',
             caption: 'Phòng ban 2',
             type: { type: 'text', options: {} },
             key: 0,
@@ -312,7 +300,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'TinhId',
+            name: 'tinhId',
             caption: 'Tỉnh',
             type: { type: 'text', options: {} },
             key: 0,
@@ -324,19 +312,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'HuyenThanhPhoId',
-            caption: 'Huyện/thành phố',
-            type: { type: 'text', options: {} },
-            key: 0,
-            formula: '',
-            initialValue: null,
-            show: 1,
-            editable: 1,
-            require: 0,
-            search: 0
-        },
-        {
-            name: 'PhuongXaId',
+            name: 'phuongXaId',
             caption: 'Phường/xã',
             type: { type: 'text', options: {} },
             key: 0,
@@ -348,7 +324,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'TimKiem',
+            name: 'timKiem',
             caption: 'Tìm kiếm',
             type: { type: 'text', options: {} },
             key: 0,
@@ -394,21 +370,9 @@ var SCHEMA = {
             editable: 1,
             require: 0,
             search: 1
-        },
+        },/*
         {
-            name: 'AvatarId',
-            caption: 'Avatar ID',
-            type: { type: 'text', options: {} },
-            key: 0,
-            formula: '',
-            initialValue: null,
-            show: 0,
-            editable: 1,
-            require: 0,
-            search: 0
-        },
-        {
-            name: 'Avatar',
+            name: 'avatar',
             caption: 'Ảnh đại diện',
             type: { type: 'text', options: {} },
             key: 0,
@@ -418,21 +382,9 @@ var SCHEMA = {
             editable: 1,
             require: 0,
             search: 0
-        },
+        },*/
         {
-            name: 'AvatarVersion',
-            caption: 'Phiên bản avatar',
-            type: { type: 'text', options: {} },
-            key: 0,
-            formula: '',
-            initialValue: null,
-            show: 0,
-            editable: 1,
-            require: 0,
-            search: 0
-        },
-        {
-            name: 'Email',
+            name: 'email',
             caption: 'Email',
             type: { type: 'text', options: {} },
             key: 0,
@@ -444,7 +396,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'DiaChi',
+            name: 'diaChi',
             caption: 'Địa chỉ',
             type: { type: 'text', options: {} },
             key: 0,
@@ -456,7 +408,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'GhiChu',
+            name: 'ghiChu',
             caption: 'Ghi chú',
             type: { type: 'text', options: {} },
             key: 0,
@@ -558,7 +510,7 @@ var SCHEMA = {
 
     'tinh': [
         {
-            name: 'Id',
+            name: 'id',
             caption: 'ID',
             type: { type: 'text', options: {} },
             key: 1,
@@ -570,7 +522,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Ten',
+            name: 'ten',
             caption: 'Tên tỉnh',
             type: { type: 'text', options: {} },
             key: 0,
@@ -582,7 +534,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'TimKiem',
+            name: 'timKiem',
             caption: 'Tìm kiếm',
             type: { type: 'text', options: {} },
             key: 0,
@@ -597,7 +549,7 @@ var SCHEMA = {
 
     'phuongXa': [
         {
-            name: 'Id',
+            name: 'id',
             caption: 'ID',
             type: { type: 'text', options: {} },
             key: 1,
@@ -609,7 +561,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Ten',
+            name: 'ten',
             caption: 'Tên phường/xã',
             type: { type: 'text', options: {} },
             key: 0,
@@ -621,7 +573,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'TimKiem',
+            name: 'timKiem',
             caption: 'Tìm kiếm',
             type: { type: 'text', options: {} },
             key: 0,
@@ -636,7 +588,7 @@ var SCHEMA = {
 
     'donVi': [
         {
-            name: 'Id',
+            name: 'id',
             caption: 'ID',
             type: { type: 'text', options: {} },
             key: 1,
@@ -648,7 +600,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Ten',
+            name: 'ten',
             caption: 'Tên đơn vị',
             type: { type: 'text', options: {} },
             key: 0,
@@ -660,7 +612,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'TimKiem',
+            name: 'timKiem',
             caption: 'Tìm kiếm',
             type: { type: 'text', options: {} },
             key: 0,
@@ -675,7 +627,7 @@ var SCHEMA = {
 
     'phongBan': [
         {
-            name: 'Id',
+            name: 'id',
             caption: 'ID',
             type: { type: 'text', options: {} },
             key: 1,
@@ -687,7 +639,7 @@ var SCHEMA = {
             search: 0
         },
         {
-            name: 'Ten',
+            name: 'ten',
             caption: 'Tên phòng ban',
             type: { type: 'text', options: {} },
             key: 0,
@@ -699,7 +651,7 @@ var SCHEMA = {
             search: 1
         },
         {
-            name: 'TimKiem',
+            name: 'timKiem',
             caption: 'Tìm kiếm',
             type: { type: 'text', options: {} },
             key: 0,

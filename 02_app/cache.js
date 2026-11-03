@@ -108,7 +108,7 @@ APP.cache =
     updateHistoryInfor: function()
     {    
         console.log(JSON.stringify(APP.cache.data.danhSachLichSu));
-        console.log(JSON.stringify(APP.cache.data.danhSachLienHe));
+        
 
         APP.cache.data.danhSachLichSu.forEach(lichSu => {
             console.log('update lich su', JSON.stringify(lichSu));            
