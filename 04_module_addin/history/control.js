@@ -23,6 +23,7 @@ APP.history.control =
     {
         //add cache and set localStorage
         APP.cache.data.danhSachLichSu.push(history);
+        console.log('history: ' + JSON.stringify(history));
         APP.cache.setLocal();
         APP.history.ui.render();
     }
