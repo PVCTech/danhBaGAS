@@ -1,20 +1,3 @@
-const chuNha_quanLyKhachHang_form_settings = 
-{
-    columns: {},
-    layout: 
-    {
-
-    },
-    action:
-    {
-
-    }
-};
-
-
-
-
-
 const buildForm = (columnList = []) => {
     const form = div({className: 'form__grid'});
     const isEnabled = value => value === true || value === 1 || value === '1';

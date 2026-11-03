@@ -75,7 +75,7 @@ function sv_getTableData_(tableName)
         });
 
     return {
-        schema: schema || [],
+        //schema: schema || [],
         data: data
     };
 }

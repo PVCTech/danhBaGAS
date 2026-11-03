@@ -94,7 +94,7 @@ APP.user.api =
                     token: 'demo-token',
                     userName: 'admin',
                     hoVaTen: 'Nguyễn Văn A',
-                    vaiTro: 'chuNha'
+                    vaiTro: 'user'
                 },
                 cacheVersion: '1'
             }));

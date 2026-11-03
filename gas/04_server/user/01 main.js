@@ -32,7 +32,7 @@ function sv_user_getCurrentUser_(token)
 
 function layQuyenTheoLoaiTaiKhoan_(loaiTaiKhoan) {
     const quyen = {
-        chuNha: ['XemTatCa', 'SuaTatCa', 'QuanLyTaiKhoan', 'XuLySuCo'],
+        user: ['XemTatCa', 'SuaTatCa', 'QuanLyTaiKhoan', 'XuLySuCo'],
         quanLy: ['XemPhong', 'XemKhach', 'XuLySuCo'],
         khach: ['XemDuLieuCuaMinh', 'BaoSuCo', 'NhapChiSo']
     };
