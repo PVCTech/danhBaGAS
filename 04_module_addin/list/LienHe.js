@@ -9,7 +9,6 @@
                 timKiem,
                 SDT1,SDT2,SDT3,
                 SDT1Zalo,SDT2Zalo,SDT3Zalo,
-                avatar,
                 email,
                 diaChi,
                 ghiChu,

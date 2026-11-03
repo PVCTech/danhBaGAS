@@ -370,10 +370,10 @@ var SCHEMA = {
             editable: 1,
             require: 0,
             search: 1
-        },/*
+        },
         {
-            name: 'avatar',
-            caption: 'Ảnh đại diện',
+            name: 'SDT1Zalo',
+            caption: 'Điện thoại 1 (Zalo)',
             type: { type: 'text', options: {} },
             key: 0,
             formula: '',
@@ -381,8 +381,32 @@ var SCHEMA = {
             show: 1,
             editable: 1,
             require: 0,
-            search: 0
-        },*/
+            search: 1
+        },
+        {
+            name: 'SDT2Zalo',
+            caption: 'Điện thoại 2 (Zalo)',
+            type: { type: 'text', options: {} },
+            key: 0,
+            formula: '',
+            initialValue: null,
+            show: 1,
+            editable: 1,
+            require: 0,
+            search: 1
+        },
+        {
+            name: 'SDT3Zalo',
+            caption: 'Điện thoại 3 (Zalo)',
+            type: { type: 'text', options: {} },
+            key: 0,
+            formula: '',
+            initialValue: null,
+            show: 1,
+            editable: 1,
+            require: 0,
+            search: 1
+        },
         {
             name: 'email',
             caption: 'Email',
