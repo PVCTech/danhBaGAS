@@ -36,18 +36,36 @@ const sv_user_doLogin = (loginInfor) =>
 }
 
 
-function sv_user_loginStatus_(thanhCong, message, taiKhoan) 
+function sv_user_loginStatus_(thanhCong, message, taiKhoan = {}) 
 {
-    return JSON.stringify({
-        status: thanhCong ? 'ok' : 'notOk',
-        user: 
-        {
-            userName: thanhCong ? taiKhoan.userName : '',
-            hoVaTen: thanhCong ? taiKhoan.hoVaTen : '',
-            vaiTro: thanhCong ? taiKhoan.loaiTaiKhoan : '',
-            token: thanhCong ? taiKhoan.token : ''
-        },
-        message: message || '',
-        cacheVersion: taiKhoan.cacheVersion || ''
-    });
+    if (thanhCong) 
+    {
+        return JSON.stringify({
+            status: thanhCong ? 'ok' : 'notOk',
+            message: message || '',
+            user: 
+            {
+                userName: thanhCong ? taiKhoan.userName : '',
+                hoVaTen: thanhCong ? taiKhoan.hoVaTen : '',
+                vaiTro: thanhCong ? taiKhoan.loaiTaiKhoan : '',
+                token: thanhCong ? taiKhoan.token : ''
+            },        
+            cacheVersion: taiKhoan.cacheVersion || ''
+        });
+    }
+    else 
+    {
+        return JSON.stringify({
+            status: 'notOk',
+            message: message || '',
+            user:
+            {
+                userName: '',
+                hoVaTen: '',
+                vaiTro: '',
+                token: ''
+            },
+            cacheVersion: ''
+        });
+    }
 }

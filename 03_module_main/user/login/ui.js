@@ -16,7 +16,7 @@ APP.user.login.state =
 
 APP.user.login.ui = 
 {
-    appName: 'Ứng dụng nhà cho thuê',
+    appName: 'PVC Danh bạ',
     setMessage: function(message)
     {
         APP.user.login.state.message = message;
