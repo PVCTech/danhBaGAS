@@ -22,6 +22,7 @@ const sv_user_matKhauDung_ = (matKhau, hashDaLuu) =>
 
 const sv_user_tokenActive_ = (taiKhoan) =>
 {
+    if (taiKhoan.token !== String(taiKhoan.token || '').trim()) return false;
     const KEY_LIFE_TIME_DAYS = 3; //day
     const loginTime = taiKhoan.loginTime instanceof Date ? taiKhoan.loginTime.getTime() : Number(taiKhoan.loginTime);
     if (!loginTime || isNaN(loginTime)) return false;

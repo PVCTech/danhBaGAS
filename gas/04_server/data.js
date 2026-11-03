@@ -94,7 +94,6 @@ function sv_getRowData_(tableName, tenCotTim, giaTriTim)
             return danhSach[i];
         }
     }
-
     return null;
 }
 

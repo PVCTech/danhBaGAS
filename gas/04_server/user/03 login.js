@@ -8,7 +8,7 @@ const sv_user_doLogin = (loginInfor) =>
         if (!userName || !password) return sv_user_loginStatus_(false, 'Vui lòng nhập tên đăng nhập và mật khẩu.');
 
         const taiKhoan = sv_getRowData_('02_User', 'userName', userName);
-        if (!taiKhoan || !sv_user_matKhauDung_(password, taiKhoan.password)) 
+        if (!taiKhoan || !sv_user_matKhauDung_(password, taiKhoan.password))
         {
             return sv_user_loginStatus_(false, 'Tên đăng nhập hoặc mật khẩu không đúng.');
         }
@@ -31,7 +31,7 @@ const sv_user_doLogin = (loginInfor) =>
     } 
     catch (loi) 
     {
-        return sv_user_loginStatus_(false, loi.message || 'Không thể đăng nhập.');
+        return sv_user_loginStatus_(false, loi.message + 'sdfsdfds' || 'Không thể đăng nhập.');
     }
 }
 

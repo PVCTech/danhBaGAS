@@ -9,8 +9,9 @@ function sv_user_getLoginStatus(tk)
         const taiKhoan = sv_getRowData_('02_User', 'token', token);
         if (!taiKhoan || !sv_user_tokenActive_(taiKhoan))
         {
-            if (taiKhoan) sv_user_xoaKeyDangNhap_(taiKhoan.userName);
-            return sv_user_loginStatus_(false, 'sv_user_getLoginStatus: Phiên đăng nhập đã hết hạn.');
+            let msg = 'kô có tài khoản';
+            if (taiKhoan) {sv_user_xoaKeyDangNhap_(taiKhoan.userName); msg='có tài khoản: ' + JSON.stringify(taiKhoan);}
+            return sv_user_loginStatus_(false, 'sv_user_getLoginStatus: Phiên đăng nhập đã hết hạn.' + msg);
         }
 
         if (String(taiKhoan.active || '').trim().toLowerCase() !== '1')

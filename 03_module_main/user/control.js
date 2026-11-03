@@ -22,13 +22,14 @@ APP.user.control =
             }
             else
             {
-                if (!loginStatus.user.token)
+                if (!loginStatus.user.token || loginStatus.user.token !== String(loginStatus.user.token || '').trim())
                 {
                     APP.user.login.ui.show();
                     return;
                 }
             }
 
+            console.log('Check user: token found, checking with server...' + loginStatus.user.token);
             let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.user.token);
             console.log('new login status from server: ' + JSON.stringify(newLoginStatus));
             newLoginStatus = JSON.parse(newLoginStatus);
