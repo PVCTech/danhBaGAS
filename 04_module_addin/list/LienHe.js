@@ -168,8 +168,9 @@
 	
 		function ChuanHoaSDT(SDT)
 		{
-            console.log("SDT: " + SDT);
             if (SDT == undefined || SDT == null) {SDT = '';}
+            SDT = String(SDT);
+            
             SDT = SDT.replace(/ /g,'');
             SDT = SDT.replace(/\./g,'');
             SDT = SDT.replace(/\-/g,'');
