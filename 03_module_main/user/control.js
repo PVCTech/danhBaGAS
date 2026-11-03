@@ -105,7 +105,7 @@ APP.user.api =
                 google.script.run
                     .withSuccessHandler(resolve)
                     .withFailureHandler(reject)
-                    .sv_user_getLoginStatus_(token);
+                    .sv_user_getLoginStatus(token);
             });
         }
     },
