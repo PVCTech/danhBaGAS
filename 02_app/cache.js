@@ -14,45 +14,83 @@ APP.cache =
     init: async function()
     {
         console.log('Cache init');
-        let localCacheData = this.getLocal();
-        if (localCacheData)
-        {
-            try
-            {
-                localCacheData = JSON.parse(localCacheData);
-                if (!localCacheData || typeof localCacheData !== 'object')
-                {
-                    throw new Error('Dữ liệu cache không hợp lệ');
-                }
-            }
-            catch (error)
-            {
-                console.error('Không thể đọc cache liên hệ:', error);
-                localStorage.removeItem(APP.config.id + '_cache');
-                localCacheData = null;
-            }
-        }
+        const hasLocalCache = this.loadLocal();
+        await this.update(hasLocalCache ? this.data.version : '');
+        return hasLocalCache;
+    },
+    loadLocal: function()
+    {
+        const localCacheData = this.getLocal();
+        if (!localCacheData) return false;
 
-        if (localCacheData)
+        try
         {
-            console.log('Cache init: có cache local');
-            this.data = localCacheData;
+            const parsedData = JSON.parse(localCacheData);
+            if (!this.isValidData(parsedData)) throw new Error('Dữ liệu cache không hợp lệ');
+
+            console.log('Cache init: có cache local hợp lệ');
+            this.data = parsedData;
             this.convertCache();
+            return true;
         }
-
-        await this.update(localCacheData && localCacheData.version || '');
+        catch (error)
+        {
+            console.error('Không thể đọc cache liên hệ:', error);
+            localStorage.removeItem(APP.config.id + '_cache');
+            this.data = {
+                version: '',
+                danhSachLienHe: [],
+                danhSachLichSu: [],
+                danhSachDonVi: [],
+                danhSachPhongBan: [],
+                danhSachTinh: [],
+                danhSachPhuongXa: [],
+                danhSachXungHo: [],
+                newCache: false
+            };
+            return false;
+        }
+    },
+    isValidData: function(data)
+    {
+        const requiredLists = [
+            'danhSachLienHe',
+            'danhSachLichSu',
+            'danhSachDonVi',
+            'danhSachPhongBan',
+            'danhSachTinh',
+            'danhSachPhuongXa'
+        ];
+        return data &&
+            typeof data === 'object' &&
+            Object.prototype.hasOwnProperty.call(data, 'version') &&
+            (typeof data.version === 'string' ||
+                (typeof data.version === 'number' && Number.isFinite(data.version))) &&
+            requiredLists.every(name =>
+                Array.isArray(data[name]) &&
+                data[name].every(item => item && typeof item === 'object')
+            );
     },
     update: async function(localVersion)
     {
         console.log('Cache upadting..');
         let newCacheData = await APP.api.getNewCacheData(localVersion);
 
-        if (newCacheData.newCache == false)
+        if (!newCacheData || typeof newCacheData !== 'object')
+        {
+            throw new Error('Server trả về cache không hợp lệ');
+        }
+
+        if (newCacheData.newCache === false)
         {
             console.log('Not need update');
         }
         else
         {
+            if (!this.isValidData(newCacheData.data))
+            {
+                throw new Error('Server trả về dữ liệu cache mới không hợp lệ');
+            }
             console.log('update to new version');
             APP.cache.data = newCacheData.data;
             this.convertCache();
@@ -109,8 +147,11 @@ APP.cache =
     {    
         APP.cache.data.danhSachLichSu.forEach(lichSu => {          
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lichSu.lienHeId));
-            lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam, 
-                gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
+            if (lienHe)
+            {
+                lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam,
+                    gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
+            }
         });
     },
     clear: function()

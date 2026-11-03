@@ -10,21 +10,25 @@ APP.control =
         console.log('APP.startup (power on)');
         APP.user.control.checkUser();
     },
-    getStartupData: async function()
+    getStartupData: async function({showLoading = true} = {})
     {
         console.log('APP. get startup data:');
-        APP.loadingScreen.show();
-        await APP.cache.init(); //Nếu có cache trong local và token thì load cache và kiểm tra user dưới background
-        APP.history.ui.render();
-        
-        setTimeout(() =>
+        if (showLoading) APP.loadingScreen.show();
+        try
         {
-            APP.loadingScreen.hide();
-        }, 2000);
-
+            await APP.cache.init();
+            this.prepareStartupUI();
+        }
+        finally
+        {
+            if (showLoading) APP.loadingScreen.hide();
+        }
+    },
+    prepareStartupUI: function()
+    {
+        APP.history.ui.render();
         APP.form.ui.updateListField();
         APP.form.ui.renderDanhSachXungHo();
-        
     },
     onGas()
     {

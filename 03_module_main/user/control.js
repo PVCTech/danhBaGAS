@@ -10,50 +10,118 @@ APP.user.control =
     checkUser: async function()
     {
         console.log('checkUser..');
-        let loginStatus = localStorage.getItem('a00001_user');
-        if (loginStatus)
+        let loginStatus = null;
+        let token = '';
+        try
         {   
-            console.log('loginStatus: ' + loginStatus);
-            loginStatus = JSON.parse(loginStatus);
-            if (!loginStatus.user)
+            const localLoginStatus = localStorage.getItem('a00001_user');
+            if (localLoginStatus) loginStatus = JSON.parse(localLoginStatus);
+        }
+        catch (error)
+        {
+            console.error('Không thể đọc trạng thái đăng nhập local:', error);
+        }
+
+        if (loginStatus && loginStatus.user && typeof loginStatus.user.token === 'string')
+        {
+            token = loginStatus.user.token.trim();
+        }
+
+        const hasValidSession = loginStatus &&
+            loginStatus.status === 'ok' &&
+            token.length > 0;
+        const hasValidCache = APP.cache.loadLocal();
+
+        if (hasValidSession && hasValidCache)
+        {
+            console.log('Khởi động từ session và cache local hợp lệ');
+            APP.state.user = loginStatus.user;
+            APP.state.manHinhHienTai = 'home';
+            APP.control.prepareStartupUI();
+            APP.ui.render();
+            this.checkUserInBackground(token, APP.cache.data.version);
+            return;
+        }
+
+        APP.loadingScreen.show();
+        if (!token)
+        {
+            APP.control.clearData();
+            APP.state.user = {};
+            APP.state.manHinhHienTai = 'login';
+            APP.user.login.ui.show();
+            APP.loadingScreen.hide();
+            return;
+        }
+
+        APP.state.user = loginStatus.user;
+        await this.checkUserOnStartup(token);
+    },
+    checkUserOnStartup: async function(token)
+    {
+        try
+        {
+            const loginStatus = await this.requestLoginStatus(token);
+            if (loginStatus.status !== 'ok')
             {
-                APP.user.login.ui.show();
+                this.showLogin();
                 return;
             }
-            else
-            {
-                if (!loginStatus.user.token || loginStatus.user.token !== String(loginStatus.user.token || '').trim())
-                {
-                    APP.user.login.ui.show();
-                    return;
-                }
-            }
 
-            console.log('Check user: token found, checking with server...' + loginStatus.user.token);
-            let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.user.token);
-            console.log('new login status from server: ' + JSON.stringify(newLoginStatus));
-            newLoginStatus = JSON.parse(newLoginStatus);
-            localStorage.setItem('a00001_user', JSON.stringify(newLoginStatus));
-
-            if (newLoginStatus.status !== 'ok')
-            {
-                APP.control.clearData();
-                APP.user.login.ui.show();
-            }
-            else
-            {
-                console.log('Check user: oke');
-                APP.state.user = newLoginStatus.user;
-                await APP.control.getStartupData();
-                APP.ui.render();
-            }
+            APP.state.user = loginStatus.user;
+            localStorage.setItem('a00001_user', JSON.stringify(loginStatus));
+            await APP.control.getStartupData({showLoading: false});
+            APP.state.manHinhHienTai = 'home';
+            APP.ui.render();
         }
-        else
+        catch (error)
         {
-            console.log('Client checkUser: localstorage not found!');
-            APP.control.clearData();
+            console.error('Không thể khởi động từ server:', error);
+            APP.loadingScreen.hide();
             APP.user.login.ui.show();
+            canhBao(error.message || 'Không thể kiểm tra phiên đăng nhập.', 'Đăng nhập ứng dụng');
         }
+    },
+    checkUserInBackground: async function(token, localVersion)
+    {
+        try
+        {
+            const loginStatus = await this.requestLoginStatus(token);
+            if (loginStatus.status !== 'ok')
+            {
+                this.showLogin();
+                return;
+            }
+
+            APP.state.user = loginStatus.user;
+            localStorage.setItem('a00001_user', JSON.stringify(loginStatus));
+            await APP.cache.update(localVersion);
+            APP.control.prepareStartupUI();
+            APP.ui.render();
+        }
+        catch (error)
+        {
+            console.error('Không thể đồng bộ trạng thái đăng nhập/cache ở background:', error);
+        }
+    },
+    requestLoginStatus: async function(token)
+    {
+        const response = await APP.user.api.getLoginStatus(token);
+        const loginStatus = typeof response === 'string' ? JSON.parse(response) : response;
+        if (!loginStatus || typeof loginStatus !== 'object')
+        {
+            throw new Error('Server trả về trạng thái đăng nhập không hợp lệ');
+        }
+        return loginStatus;
+    },
+    showLogin: function()
+    {
+        APP.control.clearData();
+        APP.state.user = {};
+        APP.state.manHinhHienTai = 'login';
+        APP.loadingScreen.hide();
+        APP.user.login.ui.show();
+        APP.ui.render();
     },
     logout: function()
     {
