@@ -168,13 +168,14 @@
 	
 		function ChuanHoaSDT(SDT)
 		{
+            console.log("SDT: " + SDT);
             if (SDT == undefined || SDT == null) {SDT = '';}
             SDT = SDT.replace(/ /g,'');
             SDT = SDT.replace(/\./g,'');
             SDT = SDT.replace(/\-/g,'');
             SDT = SDT.replace(/\(/g,'');
             SDT = SDT.replace(/\)/g,'');
-            
+
 			if (SDT.length > 10 && SDT.substring(0,2) =="84")
 			{
 			   SDT = SDT.substring(2,SDT.length);
