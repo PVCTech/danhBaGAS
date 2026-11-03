@@ -1,3 +1,20 @@
+const setServerCacheVersion = (token) => 
+{
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    let newVersion = (
+        d.getFullYear() +
+        pad(d.getMonth() + 1) +
+        pad(d.getDate()) +
+        pad(d.getHours()) +
+        pad(d.getMinutes()) +
+        pad(d.getSeconds())
+    );
+
+    sv_updateCell_('02_user', 'token', token, {cacheVersion: newVersion});
+    return newVersion;
+};
+
 const getServerCacheVersion = (token) => 
 {
     const userCache = sv_getRowData_('02_user', 'token', token);

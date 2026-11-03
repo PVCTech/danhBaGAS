@@ -193,13 +193,15 @@ APP.form.control = {
             
             donVi1Id: APP.form.state.donVi1.id,
             phongBan1Id: APP.form.state.phongBan1.id,
+
             donVi2Id: APP.form.state.donVi2.id,
             phongBan2Id: APP.form.state.phongBan2.id,
+
             tinhId: APP.form.state.tinh.id,
-            huyenThanhPhoId: '',
             phuongXaId: APP.form.state.phuongXa.id,
             
             timKiem: $('#form_timKiem_input').value,
+            
             SDT1: $('#form_SDT1_input').value,
             SDT2: $('#form_SDT2_input').value,
             SDT3: $('#form_SDT3_input').value,

@@ -93,7 +93,7 @@ APP.api =
                 google.script.run
                     .withSuccessHandler(resolve)
                     .withFailureHandler(reject)
-                    .sv_appstartup_getData(APP.state.user.token);
+                    .sv_lienHe_delete(APP.form.state.lienHe.id, APP.state.user.token);
             });
         }    
     },
@@ -114,7 +114,7 @@ APP.api =
         {
             const data = {
                 lienHe: APP.form.state.lienHe,
-                donVi: APP.form.state.donVi,
+                donVi1: APP.form.state.donVi1,
                 donVi2: APP.form.state.donVi2,
                 phongBan1: APP.form.state.phongBan1,
                 phongBan2: APP.form.state.phongBan2,
@@ -127,7 +127,7 @@ APP.api =
                 google.script.run
                     .withSuccessHandler(resolve)
                     .withFailureHandler(reject)
-                    .sv_appstartup_getData(data, APP.state.user.token);
+                    .sv_lienHe_addNew(data, APP.state.user.token);
             });
         }    
     },
@@ -145,7 +145,7 @@ APP.api =
         {
             const data = {
                 lienHe: APP.form.state.lienHe,
-                donVi: APP.form.state.donVi,
+                donVi1: APP.form.state.donVi1,
                 donVi2: APP.form.state.donVi2,
                 phongBan1: APP.form.state.phongBan1,
                 phongBan2: APP.form.state.phongBan2,
@@ -158,7 +158,7 @@ APP.api =
                 google.script.run
                     .withSuccessHandler(resolve)
                     .withFailureHandler(reject)
-                    .sv_appstartup_getData(data, APP.state.user.token);
+                    .sv_lienHe_update(data, APP.state.user.token);
             });
         }    
     }

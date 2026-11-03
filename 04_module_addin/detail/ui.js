@@ -205,6 +205,7 @@ APP.detail.ui =
                 diaChi_Full = phuongXa;
             }
         }
+
         const tinh = lienHe.getTinh();
         if (tinh) 
         {
@@ -234,12 +235,11 @@ APP.detail.ui =
             
         ////Ngày tháng năm sinh:
         this.renderNgayThangnamSinh(lienHe.ngaySinh, lienHe.thangSinh, lienHe.namSinh);
+    
+        $('#detail_divChe').style.display = 'block';
+        $('#ChiTiet_Div').style.display = 'block';
         
-        /*if (APP.state.manHinhHienTai == 'detail')
-        {*/
-            $('#detail_divChe').style.display = 'block';
-            $('#ChiTiet_Div').style.display = 'block';
-        /*}*/
+        APP.history.control.addNew(lienHe.id);
     },
     renderSoDienThoai: function(SDT, stt)
     {
@@ -388,5 +388,4 @@ APP.detail.ui =
         }
     }
 }
-
 

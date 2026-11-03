@@ -7,8 +7,8 @@ APP.form.ui =
 
         donVi2: {id: 'form_donVi2_input', text: 'Đơn vị/Nhóm 2', list: APP.cache.data.danhSachDonVi},
         phongBan2: {id: 'form_phongBan2_input', text: 'Phòng ban 2', list: APP.cache.data.danhSachPhongBan},
+        
         tinh: {id: 'form_tinh_input', text: 'Tỉnh', list: APP.cache.data.danhSachTinh},
-        //huyenThanhPho: {id: 'form_huyenThanhPho_input', text: 'Huyện/thành phố', list: APP.cache.data.danhSachHuyenThanhPho},
         phuongXa: {id: 'form_phuongXa_input', text: 'Phường xã', list: APP.cache.data.danhSachPhuongXa}
     },
     updateListField: function()

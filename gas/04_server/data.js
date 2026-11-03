@@ -9,11 +9,6 @@ function sv_getTable_(tableName)
 }
 
 
-function isRending(trangThai)
-{
-    return ['DangThue', 'DaThue', 'Thue', 'HieuLuc'].indexOf(String(trangThai)) !== -1;
-}
-
 function taoId_(tienTo)
 {
     const so = Utilities.getUuid().replace(/-/g, '').substring(0, 10).toUpperCase();
@@ -84,7 +79,6 @@ function sv_getTableData_(tableName)
 function sv_getRowData_(tableName, tenCotTim, giaTriTim) 
 {
     const danhSach = sv_getTableData_(tableName).data;
-
     for (let i = 0; i < danhSach.length; i++) 
     {
         if (String(danhSach[i][tenCotTim]).toLowerCase() === String(giaTriTim).toLowerCase()) 
@@ -95,18 +89,33 @@ function sv_getRowData_(tableName, tenCotTim, giaTriTim)
     return null;
 }
 
+
+const sv_deleteRowData_ = (tableName, tenCotTim, giaTriTim) =>
+{
+    const danhSach = sv_getTableData_(tableName).data;
+    const tbl = sv_getTable_(tableName);
+    for (let i = 0; i < danhSach.length; i++)
+    {
+        if (String(danhSach[i][tenCotTim]).toLowerCase() === String(giaTriTim).toLowerCase()) 
+        {
+            tbl.deleteRow(i + 2);
+            return;
+        }
+    }
+    return null;
+}
+
 const sv_insertRow_ = (tableName, duLieu) =>
 {
     const bang = sv_getTable_(tableName);
     const schema = SCHEMA[tableName];
-
     const dong = schema.map(function(column) 
     {
         return duLieu[column.name] !== undefined ? duLieu[column.name] : '';
     });
-
     bang.getRange(bang.getLastRow() + 1, 1, 1, schema.length).setValues([dong]);
 }
+
 
 const sv_updateCell_ = (tableName, keyName, keyValue, duLieuCapNhat) =>
 {
