@@ -58,7 +58,7 @@ APP.search.control =
                     //Tìm tuyệt đối theo tên (có dấu và không dấu) Ưu tiên: không có xưng hô, em,cháu,con,
                     for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
                     {
-                        var TenI = APP.cache.data.danhSachLienHe[i].ten.toLowerCase();                        
+                        var TenI = String(APP.cache.data.danhSachLienHe[i].ten).toLowerCase();                        
                         if ((TenI == noiDungTimKiem || boDau(TenI) == noiDungTimKiem) && APP.search.control.danhSachXungHoId_NhoHon.includes(APP.cache.data.danhSachLienHe[i].xungHoId))
                         {
                             if (!APP.search.control.themKetQuaNeuChuaCo(i)) 
@@ -84,7 +84,7 @@ APP.search.control =
                     {
                         for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
                         {
-                            var TenI = APP.cache.data.danhSachLienHe[i].tenHienThi.toLowerCase();
+                            var TenI = String(APP.cache.data.danhSachLienHe[i].tenHienThi).toLowerCase();
                             if (TenI == noiDungTimKiem || boDau(TenI) == noiDungTimKiem)
                             {
                                 if (!APP.search.control.themKetQuaNeuChuaCo(i)) break;
@@ -98,8 +98,7 @@ APP.search.control =
                     //Tìm tuyệt đối theo tên (có dấu và không dấu) và Xưng hô phù hợp
                     for (var i=0; i<APP.cache.data.danhSachLienHe.length; i++)
                     {
-                        console.log(APP.cache.data.danhSachLienHe[i].ten);
-                        var TenI = APP.cache.data.danhSachLienHe[i].ten.toLowerCase();
+                        var TenI = String(APP.cache.data.danhSachLienHe[i].ten).toLowerCase();
                         if ((TenI == Tach[1] || boDau(TenI) == Tach[1]) && ChuoiTrongChuoi(Tach[0],APP.cache.data.danhSachLienHe[i].getXungHo(),1) )
                         {
                             if (!APP.search.control.themKetQuaNeuChuaCo(i)) break;
