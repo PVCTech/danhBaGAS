@@ -108,6 +108,7 @@ APP.cache =
     updateHistoryInfor: function()
     {        
         APP.cache.data.danhSachLichSu.forEach(lichSu => {
+            console.log('update lich su', JSON.stringify(lichSu));
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lichSu.lienHeId));
             lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam, 
                 gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
