@@ -22,8 +22,16 @@ APP.history.control =
     addToCache: function(history)
     {
         //add cache and set localStorage
-        APP.cache.data.danhSachLichSu.push(history);
-        console.log('history: ' + JSON.stringify(history));
+        let lichSuTonTaiIndex = APP.cache.data.danhSachLichSu.findIndex(ls => String(ls.lienHeId) === String(history.lienHeId));
+        if (lichSuTonTaiIndex !==-1)
+        {
+            APP.cache.data.danhSachLichSu[lichSuTonTaiIndex] = history;
+        }
+        else
+        {
+            APP.cache.data.danhSachLichSu.push(history);
+        }
+        
         APP.cache.setLocal();
         APP.history.ui.render();
     }

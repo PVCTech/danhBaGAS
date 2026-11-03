@@ -408,6 +408,18 @@ var SCHEMA = {
             search: 1
         },
         {
+            name: 'avatar',
+            caption: 'avatar',
+            type: { type: 'text', options: {} },
+            key: 0,
+            formula: '',
+            initialValue: null,
+            show: 1,
+            editable: 1,
+            require: 0,
+            search: 1
+        },
+        {
             name: 'email',
             caption: 'Email',
             type: { type: 'text', options: {} },
