@@ -95,9 +95,12 @@ APP.user.control =
 
             APP.state.user = loginStatus.user;
             localStorage.setItem('a00001_user', JSON.stringify(loginStatus));
-            await APP.cache.update(localVersion);
-            APP.control.prepareStartupUI();
-            APP.ui.render();
+            let change = await APP.cache.update(localVersion);
+            if (change)
+            {
+                APP.control.prepareStartupUI();
+                APP.ui.render();
+            }            
         }
         catch (error)
         {

@@ -84,6 +84,7 @@ APP.cache =
         if (newCacheData.newCache === false)
         {
             console.log('Not need update');
+            return false;
         }
         else
         {
@@ -95,6 +96,7 @@ APP.cache =
             APP.cache.data = newCacheData.data;
             this.convertCache();
             this.setLocal();
+            return true;
         }        
     },
     convertCache: function()
