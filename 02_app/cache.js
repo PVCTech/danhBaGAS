@@ -106,9 +106,12 @@ APP.cache =
         );
     },
     updateHistoryInfor: function()
-    {        
+    {    
+        console.log(JSON.stringify(APP.cache.data.danhSachLichSu));
+        console.log(JSON.stringify(APP.cache.data.danhSachLienHe));
+
         APP.cache.data.danhSachLichSu.forEach(lichSu => {
-            console.log('update lich su', JSON.stringify(lichSu));
+            console.log('update lich su', JSON.stringify(lichSu));            
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) === String(lichSu.lienHeId));
             lienHe.lichSuTruyCap = {ngay:lichSu.ngay, thang:lichSu.thang, nam:lichSu.nam, 
                 gio:lichSu.gio, phut:lichSu.phut, giay: lichSu.giay};
