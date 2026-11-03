@@ -30,7 +30,7 @@ APP.user.control =
             }
 
             let newLoginStatus = await APP.user.api.getLoginStatus(loginStatus.user.token);
-            console.log(JSON.stringify(newLoginStatus));
+            console.log('new login status from server: ' + JSON.stringify(newLoginStatus));
             newLoginStatus = JSON.parse(newLoginStatus);
             localStorage.setItem('a00001_user', JSON.stringify(newLoginStatus));
 

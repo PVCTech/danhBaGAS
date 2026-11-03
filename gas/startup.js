@@ -5,13 +5,12 @@ function include(filename)
         .getContent();
 }
 
-function doGet()
+function doGet(e)
 {
-    return HtmlService
-        .createTemplateFromFile('index')
-        .evaluate()
-        .setTitle('PVC danh bạ')
-        .setXFrameOptionsMode(
-            HtmlService.XFrameOptionsMode.ALLOWALL
-        );
+  let page = e.parameter.page || "index";
+
+  return HtmlService.createTemplateFromFile(page).evaluate()
+    .setTitle('PVC danh bạ')
+    .addMetaTag('viewport', 'width=device-width,initial-scale=1')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }

@@ -27,7 +27,7 @@ const sv_user_doLogin = (loginInfor) =>
             dangNhapLanCuoi: bayGio
         });
 
-        return sv_user_loginStatus_(true, '', taiKhoan, token);
+        return sv_user_loginStatus_(true, '', taiKhoan);
     } 
     catch (loi) 
     {
@@ -36,17 +36,18 @@ const sv_user_doLogin = (loginInfor) =>
 }
 
 
-function sv_user_loginStatus_(thanhCong, message, taiKhoan, token) 
+function sv_user_loginStatus_(thanhCong, message, taiKhoan) 
 {
     return JSON.stringify({
         status: thanhCong ? 'ok' : 'notOk',
+        user: 
+        {
+            userName: thanhCong ? taiKhoan.userName : '',
+            hoVaTen: thanhCong ? taiKhoan.hoVaTen : '',
+            vaiTro: thanhCong ? taiKhoan.loaiTaiKhoan : '',
+            token: thanhCong ? taiKhoan.token : ''
+        },
         message: message || '',
-        userName: thanhCong ? taiKhoan.userName : '',
-        hoVaTen: thanhCong ? taiKhoan.hoVaTen : '',
-        email: thanhCong ? taiKhoan.email : '',
-        loaiTaiKhoan: thanhCong ? taiKhoan.loaiTaiKhoan : '',
-        idKhachHang: thanhCong ? taiKhoan.idKhachHang || '' : '',
-        token: thanhCong ? token : '',
-        quyen: thanhCong ? layQuyenTheoLoaiTaiKhoan_(taiKhoan.loaiTaiKhoan) : []
+        cacheVersion: taiKhoan.cacheVersion || ''
     });
 }

@@ -1,5 +1,5 @@
 /* Quản lý phiên đăng nhập bằng token lưu tại sheet 02_User. */
-function sv_user_getLoginStatus_(tk) 
+function sv_user_getLoginStatus_(tk)
 {
     try
     {
