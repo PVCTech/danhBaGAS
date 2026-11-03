@@ -323,8 +323,8 @@ APP.search.control =
 
 function ChuoiTrongChuoi(ChuoiA,ChuoiB, tyLeTuyetDoi)
 {
-	ChuoiA = ChuoiA.toLowerCase();
-	ChuoiB = ChuoiB.toLowerCase();
+	ChuoiA = String(ChuoiA).toLowerCase();
+	ChuoiB = String(ChuoiB).toLowerCase();
 	
 	if (ChuoiA == boDau(ChuoiA))
 	{ChuoiB = boDau(ChuoiB);}	
