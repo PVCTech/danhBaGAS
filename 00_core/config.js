@@ -9,3 +9,4 @@ APP.config =
 };
 
 APP.mode = 'demo';
+APP.mode = 'live';
