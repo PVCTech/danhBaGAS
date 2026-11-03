@@ -128,12 +128,15 @@ const copyToClipboard = (NoiDung)  =>
 
 const chuanHoaNgayThang = (number) =>
 {
+    console.log('chuan hoa: ' + number);
     if (String(number) == '')
     {
         return '';
     }
 
-    if (parseInt(number) < 10) {return '0' + parseInt(number);} else {return parseInt(number);}
+    if (parseInt(number) < 10) 
+    {return '0' + parseInt(number);} 
+    else {return parseInt(number);}
 }
 
 
