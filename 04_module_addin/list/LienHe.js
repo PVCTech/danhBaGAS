@@ -44,7 +44,7 @@
                 this.SDT2Zalo = SDT2Zalo;
                 this.SDT3Zalo = SDT3Zalo;
 
-                this.avatar = avatar;
+                this.avatar = '';
                 
                 this.email =email;
                 this.diaChi = diaChi;
