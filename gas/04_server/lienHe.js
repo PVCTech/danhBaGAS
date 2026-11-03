@@ -14,7 +14,14 @@ const sv_lienHe_addNew = (data, token) =>
                 'donVi2', 'phongBan2',
                 'tinh', 'phuongXa'];
 
-    listField.forEach(f=> sv_listFields_update = (data, f));
+    listField.forEach(f=> function()
+    {
+        sv_listFields_update(data, f);
+    });
+
+    return {
+        status: 'ok'
+    };
 }
 
 
@@ -34,13 +41,24 @@ const sv_lienHe_update = (data, token) =>
                 'donVi2', 'phongBan2',
                 'tinh', 'phuongXa'];
 
-    listField.forEach(f=> sv_listFields_update = (data, f));
+    listField.forEach(f=> function()
+    {        
+        sv_listFields_update(data, f);
+    });
+    return {
+        status: 'ok'
+    };
 }
 
 const sv_listFields_update = (data, fieldName)=>
 {
     let change = false;
     const field = data[fieldName];
+    let f = fieldName;
+    if (f == 'donVi1' || f == 'donVi2') f= 'donVi';
+    if (f == 'phongBan1' || f == 'phongBan2') f= 'phongBan';
+    fieldName = f;
+    
     if (field.id == '')
     {
         field.id = taoId_(fieldName);

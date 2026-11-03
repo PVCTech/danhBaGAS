@@ -237,7 +237,6 @@ APP.form.control = {
                 APP.form.state.lienHe.id = addNewStatus.id;
                 //cập nhật cache, xóa lịch sử nếu có
                 APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
-                console.log('APP.cache.data.danhSachLienHe', APP.cache.data.danhSachLienHe);
                 APP.cache.data.danhSachLichSu.push({
                     ...APP.form.state.lienHe.lichSuTruyCap,
                     lienHeId: APP.form.state.lienHe.id});
