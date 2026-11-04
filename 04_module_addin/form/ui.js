@@ -137,6 +137,8 @@ APP.form.ui =
                 canhBao('Không thể load form: id không tồn tại');
                 return;
             }
+
+            console.log(JSON.stringify(lienHe));
             this.textField.forEach(f => {
                 $(`#form_${f}_input`).value = lienHe[f];
             });
