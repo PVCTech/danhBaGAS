@@ -141,6 +141,9 @@ APP.form.ui =
                 $(`#form_${f}_input`).value = lienHe[f];
             });
 
+            this.changeStar();
+            this.changeStar();
+
             Object.keys(this.listField).forEach(key => {
                 let field = this.listField[key];
                 const id = lienHe[key + 'Id'];
