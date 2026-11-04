@@ -227,67 +227,87 @@ APP.form.control = {
     },
     submit: async function()
     {
-        this.readData();
-        if (APP.form.mode === 'addNew')
-        {
-            toast('Đang thêm mới..');
-            let addNewStatus = await APP.api.addNew();
-            if (addNewStatus.status == 'ok')
+        try{
+            this.readData();
+            if (APP.form.mode === 'addNew')
             {
-                APP.form.state.lienHe.id = addNewStatus.id;
-                //cập nhật cache, xóa lịch sử nếu có
-                APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
-                APP.cache.data.danhSachLichSu.push({
-                    ...APP.form.state.lienHe.lichSuTruyCap,
-                    lienHeId: APP.form.state.lienHe.id});
-               
-                //render lại và showtab lịch sử
-                APP.form.ui.clear();
-                APP.history.ui.render();
-                APP.view.ui.showTab('home');
-            }
-            else
-            {
-                canhBao('Thêm mới không thành công');
-            }            
-        }
-        else
-        {
-            toast('Đang cập nhật..');
-            if (APP.form.state.lienHe.id == '') 
-            {
-                canhBao('Id của liên hệ không đúng!', 'Cập nhật liên hệ');
-                return;
-            }
-
-            let updateStatus = await APP.api.update();
-            if (updateStatus.status == 'ok')
-            {
-                //cập nhật cache, xóa lịch sử nếu có
-                let udIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
-                if (udIndex !==-1) 
+                toast('Đang thêm mới..');
+                let addNewStatus = await APP.api.addNew();
+                if (addNewStatus.status == 'ok')
                 {
-                    APP.cache.data.danhSachLienHe[udIndex] = new LienHe(APP.form.state.lienHe);     
-                }
-
-                let historyIndex = APP.cache.data.danhSachLichSu.findIndex(lh => String(lh.lienHeId) === String(APP.form.state.lienHe.id));
-                if (historyIndex !==-1) 
-                {
-                    APP.cache.data.danhSachLichSu[historyIndex] = {
+                    APP.form.state.lienHe.id = addNewStatus.id;
+                    //cập nhật cache, xóa lịch sử nếu có
+                    APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
+                    APP.cache.data.danhSachLichSu.push({
                         ...APP.form.state.lienHe.lichSuTruyCap,
-                        lienHeId: APP.form.state.lienHe.id
-                    }
-                }
+                        lienHeId: APP.form.state.lienHe.id});
                 
-                //render lại và showtab lịch sử
-                APP.form.ui.clear();
-                APP.history.ui.render();
-                APP.view.ui.showTab('home');
+                    //render lại và showtab lịch sử
+                    APP.form.ui.clear();
+                    APP.history.ui.render();
+                    APP.view.ui.showTab('home');
+                }
+                else
+                {
+                    canhBao('Thêm mới không thành công');
+                }            
             }
             else
             {
-                canhBao('Cập nhật không thành công');
+                toast('Đang cập nhật..');
+                if (APP.form.state.lienHe.id == '') 
+                {
+                    canhBao('Id của liên hệ không đúng!', 'Cập nhật liên hệ');
+                    return;
+                }
+
+                let updateStatus = await APP.api.update();
+                if (updateStatus.status == 'ok')
+                {
+                    //cập nhật cache, xóa lịch sử nếu có
+                    let udIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
+                    if (udIndex !==-1) 
+                    {
+                        APP.cache.data.danhSachLienHe[udIndex] = new LienHe(APP.form.state.lienHe);     
+                    }
+
+                    let historyIndex = APP.cache.data.danhSachLichSu.findIndex(lh => String(lh.lienHeId) === String(APP.form.state.lienHe.id));
+                    if (historyIndex !==-1) 
+                    {
+                        APP.cache.data.danhSachLichSu[historyIndex] = {
+                            ...APP.form.state.lienHe.lichSuTruyCap,
+                            lienHeId: APP.form.state.lienHe.id
+                        }
+                    }
+                    
+                    //render lại và showtab lịch sử
+                    APP.form.ui.clear();
+                    APP.history.ui.render();
+                    APP.view.ui.showTab('home');
+                }
+                else
+                {
+                    canhBao('Cập nhật không thành công');
+                }
             }
         }
+        catch (error)
+        {
+            console.error('LỖI TRONG SUBMIT:', error);
+            console.dir(error);
+
+            try
+            {
+                console.error('Chi tiết lỗi:', JSON.stringify(error, null, 2));
+            }
+            catch (e)
+            {
+                console.error('Không thể chuyển lỗi thành JSON:', e);
+            }
+
+            canhBao(error?.message || 'Có lỗi xảy ra khi xử lý dữ liệu!');
+        }
+    
+        
     }
 }
