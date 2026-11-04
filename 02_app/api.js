@@ -122,11 +122,14 @@ APP.api =
                 phuongXa: APP.form.state.phuongXa
             };
 
-            return new Promise((resolve, reject) =>
+            return new Promise((resolve, error) =>
             {
                 google.script.run
                     .withSuccessHandler(resolve)
-                    .withFailureHandler(reject)
+                    .withFailureHandler(error => {
+                        console.error('GAS Error:', error);
+                        reject(error);
+                    })
                     .sv_lienHe_addNew(data, APP.state.user.token);
             });
         }    
