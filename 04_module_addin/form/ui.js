@@ -230,7 +230,9 @@ APP.form.ui =
     },
     changeStar: function()
     {
+        
         var Star = $("#form_Star_input").value;
+        console.log(Star);
         if (Star == '0')
         {
             $('#form_Star_Image').classList.remove('form_Star_InActive');
