@@ -11,8 +11,9 @@ APP.history.ui =
     {
         $('#home_tab').innerHTML = `<table style="width:100%;" id="history_table">
         </table>`;
-        APP.cache.data.danhSachLichSu.forEach(lichSu =>
+        for (let i = APP.cache.data.danhSachLichSu.length -1; i> -1; i --)
         {
+            let lichSu = APP.cache.data.danhSachLichSu[i];
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) == String(lichSu.lienHeId));
             let avatar = lienHe.avatar =='' || lienHe.avatar === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${lienHe.avatar}" style="width:40px;">`;
             let hoVaTen_textSize = 18;
@@ -45,7 +46,7 @@ APP.history.ui =
                         <img src="https://pvctech.github.io/danhBaGAS/assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
                     </td>
 				</tr>`;
-        });
+        }
         
         APP.state.manHinhHienTai = APP.state.manHinhHienTai || 'home';
         if (APP.state.manHinhHienTai == 'history' || APP.state.manHinhHienTai == 'home')
