@@ -66,7 +66,7 @@ APP.form.ui =
                                 <input type="number" class="inputBox" id="form_thangSinh_input" max-length="2">
                                 <input type="number" class="inputBox" id="form_namSinh_input" max-length="4" placeholder="năm sinh">
                                 <div style="height:35px;position:relative;">
-                                    <img src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg" class="form_Star_InActive" id="form_star_Image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
+                                    <img src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg" class="form_star_inActive" id="form_star_image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
                                 </div>
                             </div>
                         </div>                        
@@ -138,7 +138,7 @@ APP.form.ui =
                 return;
             }
 
-            //console.log(JSON.stringify(lienHe));
+            console.log(JSON.stringify(lienHe));
             this.textField.forEach(f => {
                 $(`#form_${f}_input`).value = lienHe[f];
             });
@@ -233,16 +233,17 @@ APP.form.ui =
     changeStar: function()
     {        
         var star = $("#form_star_input").value;
+        console.log(star);
         if (String(star) === '0')
         {
-            $('#form_star_Image').classList.remove('form_Star_InActive');
-            $('#form_star_Image').classList.add('form_star_Active');
+            $('#form_star_image').classList.remove('form_star_inActive');
+            $('#form_star_image').classList.add('form_star_active');
             $("#form_star_input").value = '1';
         }
         else
         {
-            $('#form_star_Image').classList.remove('form_star_Active');
-            $('#form_star_Image').classList.add('form_Star_InActive');
+            $('#form_star_image').classList.remove('form_star_active');
+            $('#form_star_image').classList.add('form_star_inActive');
             $("#form_star_input").value = '0';
         }
     },
@@ -305,8 +306,8 @@ APP.form.ui =
         });
 
         $('#form_star_input').value = '0';
-        $('#form_star_Image').classList.remove('form_star_Active');
-        $('#form_star_Image').classList.add('form_Star_InActive');
+        $('#form_star_image').classList.remove('form_star_active');
+        $('#form_star_image').classList.add('form_star_inActive');
 
         $('#form_SDT1Zalo_input').value = '1';
         $('#form_SDT2Zalo_input').value = '0';

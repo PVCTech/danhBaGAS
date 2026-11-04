@@ -147,11 +147,11 @@ APP.detail.ui =
         //Favorite:
         if (parseInt(lienHe.star) == 1) 
         {
-            $('#ChiTiet_Star_Image').classList.remove('form_Star_InActive');
+            $('#ChiTiet_Star_Image').classList.remove('form_star_inActive');
         }
         else
         {
-            $('#ChiTiet_Star_Image').classList.add('form_Star_InActive');
+            $('#ChiTiet_Star_Image').classList.add('form_star_inActive');
         }
 
         //avatar:
