@@ -43,7 +43,7 @@ APP.form.ui =
                                 <div id="form_Anh_Show" style="width:90%;">
                                 </div>
                             </label>
-                            <input type="text" id="form_Star_input" value="0" style="display:none;">
+                            <input type="text" id="form_star_input" value="0" style="display:none;">
                             <div id="form_Anh_input" style="display:none;">                                
                             </div>
                             <div id="Preview_Anh"></div>
@@ -66,7 +66,7 @@ APP.form.ui =
                                 <input type="number" class="inputBox" id="form_thangSinh_input" max-length="2">
                                 <input type="number" class="inputBox" id="form_namSinh_input" max-length="4" placeholder="năm sinh">
                                 <div style="height:35px;position:relative;">
-                                    <img src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg" class="form_Star_InActive" id="form_Star_Image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
+                                    <img src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg" class="form_Star_InActive" id="form_star_Image" height="28px" style="position:absolute;left:5px;top:3px;" onclick="APP.form.ui.changeStar();" alt="star">
                                 </div>
                             </div>
                         </div>                        
@@ -138,7 +138,7 @@ APP.form.ui =
                 return;
             }
 
-            console.log(JSON.stringify(lienHe));
+            //console.log(JSON.stringify(lienHe));
             this.textField.forEach(f => {
                 $(`#form_${f}_input`).value = lienHe[f];
             });
@@ -231,21 +231,19 @@ APP.form.ui =
         }
     },
     changeStar: function()
-    {
-        
-        var Star = $("#form_Star_input").value;
-        console.log(Star);
-        if (Star == '0')
+    {        
+        var star = $("#form_star_input").value;
+        if (String(star) === '0')
         {
-            $('#form_Star_Image').classList.remove('form_Star_InActive');
-            $('#form_Star_Image').classList.add('form_Star_Active');
-            $("#form_Star_input").value = '1';
+            $('#form_star_Image').classList.remove('form_Star_InActive');
+            $('#form_star_Image').classList.add('form_star_Active');
+            $("#form_star_input").value = '1';
         }
         else
         {
-            $('#form_Star_Image').classList.remove('form_Star_Active');
-            $('#form_Star_Image').classList.add('form_Star_InActive');
-            $("#form_Star_input").value = '0';
+            $('#form_star_Image').classList.remove('form_star_Active');
+            $('#form_star_Image').classList.add('form_Star_InActive');
+            $("#form_star_input").value = '0';
         }
     },
     changeZalo: function(SDT)
@@ -306,9 +304,9 @@ APP.form.ui =
             $('#' + field.id).classList.add('not-has-value');
         });
 
-        $('#form_Star_input').value = '0';
-        $('#form_Star_Image').classList.remove('form_Star_Active');
-        $('#form_Star_Image').classList.add('form_Star_InActive');
+        $('#form_star_input').value = '0';
+        $('#form_star_Image').classList.remove('form_star_Active');
+        $('#form_star_Image').classList.add('form_Star_InActive');
 
         $('#form_SDT1Zalo_input').value = '1';
         $('#form_SDT2Zalo_input').value = '0';

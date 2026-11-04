@@ -182,7 +182,7 @@ APP.form.control = {
         APP.form.state.lienHe =
         {
             id: id,
-            star: $('#form_Star_input').value,
+            star: $('#form_star_input').value,
             tenHienThi: $('#form_tenHienThi_input').value, 
             xungHoId: $('#form_xungHoId_input').value, 
             ten: $('#form_ten_input').value, 
