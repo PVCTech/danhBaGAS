@@ -120,7 +120,7 @@ APP.api =
                 phongBan2: APP.form.state.phongBan2,
                 tinh: APP.form.state.tinh,
                 phuongXa: APP.form.state.phuongXa
-            };
+            }; 
 
             return new Promise((resolve, error) =>
             {
