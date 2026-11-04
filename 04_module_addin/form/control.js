@@ -306,7 +306,7 @@ APP.form.control = {
             }
 
             canhBao(error?.message || 'Có lỗi xảy ra khi xử lý dữ liệu!');
-        }
+        } 
     
         
     }
