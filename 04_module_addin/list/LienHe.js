@@ -160,6 +160,36 @@
                             </td>
                         </tr>`;
             }
+
+            renderForSinhNhatRow()
+            {
+                let avatar = this.avatar =='' || this.avatar === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${this.avatar}" style="width:40px;">`;
+                
+                this.ngaySinh = this.ngaySinh || 0;
+                let ngaySinh = parseInt(this.ngaySinh) > 0 ? `<br><span style="font-size:10px;color:rgba(0,0,0,0.5);">${this.ngaySinh}</span>` : '';
+
+                this.thangSinh = this.thangSinh || 0;
+                let thangSinh = parseInt(this.thangSinh) > 0 ? `<br><span style="font-size:10px;color:rgba(0,0,0,0.5);">${this.thangSinh}</span>` : '';
+                
+                this.namSinh = this.namSinh || 0;
+                let namSinh = parseInt(this.namSinh) > 0 ? `<br><span style="font-size:10px;color:rgba(0,0,0,0.5);">${this.namSinh}</span>` : '';
+                return `<tr>
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.getArrayId()}])"
+                                style="width:25%;padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
+                                ${avatar}
+                            </td>
+                            <td  onclick="APP.detail.ui.render(APP.cache.data.danhSachLienHe[${this.getArrayId()}])"
+                                style="padding:8px;border-bottom:0.3px solid rgba(0,0,0,0.3);">
+                                <span style="color:var(--color-primary); font-size:14px;font-weight:bold;">${this.tenHienThi}</span>
+                                ${ngaySinh}/${thangSinh}/${namSinh}
+                                <br>
+                                <br><span style="color:rgba(0,0,0,0.5);font-size:12px;">${this.SDT1} - ${this.SDT2}</span>
+                            </td>
+                            <td class="TdData" style="width:15px; cursor:pointer;" onclick="APP.form.ui.show('${this.id}');">
+                                <img src="https://pvctech.github.io/danhBaGAS/assets/img/infor.svg?version=1" style="width:15px;opacity:0.25;" alt="infor">
+                            </td>
+                        </tr>`;
+            }
 		   
 		}
        
