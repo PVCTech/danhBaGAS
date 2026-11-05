@@ -167,12 +167,19 @@ APP.api =
     },
     getAvatar: function(lienHeId)
     {
-        return new Promise((resolve, reject) =>
+        try 
         {
-            google.script.run
-                .withSuccessHandler(resolve)
-                .withFailureHandler(reject)
-                .sv_lienHe_getAvatar(lienHeId, APP.state.user.token);
-        });
+          new Promise((resolve, reject) =>
+            {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    .sv_lienHe_getAvatar(lienHeId, APP.state.user.token);
+            });
+        }
+        catch (e)
+        {
+            console.log(JSON.stringify(e));
+        }
     }
 };
