@@ -1,5 +1,3 @@
-const { Resources } = require("winjs");
-
 APP.detail = APP.detail || {};
 APP.detail.lienHeId = '';
 APP.detail.ui =
@@ -336,7 +334,7 @@ APP.detail.ui =
         {
             const response = await APP.api.getAvatar(lienHeId);
             console.log(JSON.stringify(response));
-            
+
             const avatar = response?.data?.avatar;
             console.log('avatar: ' + avatar);
             console.log('type: ' + typeof avatar);
