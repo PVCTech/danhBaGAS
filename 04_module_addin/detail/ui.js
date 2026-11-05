@@ -330,13 +330,9 @@ APP.detail.ui =
     {
         $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
         let avatar = await APP.api.getAvatar(APP.detail.lienHeId);
-        if (avatar.data == {})
+        if (avatar.data.avatar == '')
         {
-
-        }
-        else if (avatar.data.avatar == '')
-        {
-
+            
         }
         else
         {            
