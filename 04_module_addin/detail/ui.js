@@ -238,7 +238,7 @@ APP.detail.ui =
     
         $('#detail_divChe').style.display = 'block';
         $('#ChiTiet_Div').style.display = 'block';
-        
+        this.renderAvatar();
         APP.history.control.addNew(lienHe.id);
     },
     renderSoDienThoai: function(SDT, stt)
