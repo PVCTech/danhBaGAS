@@ -326,6 +326,23 @@ APP.detail.ui =
             else {$('#ChiTiet_ngaySinh_Input').innerText = '';}
         }
     },
+    renderAvatar: async function()
+    {
+        $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
+        let avatar = await APP.api.getAvatar(APP.detail.lienHeId);
+        if (avatar.data == {})
+        {
+
+        }
+        else if (avatar.data.avatar == '')
+        {
+
+        }
+        else
+        {            
+            $('#ChiTiet_Anh_Show').innerHTML = '<image src="' + avatar.data.avatar + '" style="height:95%;">';
+        }
+    },
     hide: function()
     {
         $('#ChiTiet_Div').style.display = 'none';

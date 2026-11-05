@@ -164,5 +164,15 @@ APP.api =
                     .sv_lienHe_update(data, APP.state.user.token);
             });
         }    
+    },
+    getAvatar: function(lienHeId)
+    {
+        return new Promise((resolve, reject) =>
+        {
+            google.script.run
+                .withSuccessHandler(resolve)
+                .withFailureHandler(reject)
+                .sv_lienHe_getAvatar(lienHeId, APP.state.user.token);
+        });
     }
 };
