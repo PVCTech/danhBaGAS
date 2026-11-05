@@ -328,14 +328,14 @@ APP.detail.ui =
     },
     renderAvatar: async function()
     {
-        console.log('loading avatar');
+        console.log('loading avatar' + APP.detail.lienHeId);
         const lienHeId = APP.detail.lienHeId;
         try
         {
             const response = await APP.api.getAvatar(lienHeId);
             console.log(JSON.stringify(response));
 
-            const avatar = response?.data?.avatar;
+            const avatar = response?.avatar;
             console.log('avatar: ' + avatar);
             console.log('type: ' + typeof avatar);
             if (typeof avatar !== 'string')
