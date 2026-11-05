@@ -328,10 +328,10 @@ APP.detail.ui =
     },
     renderAvatar: async function()
     {
-        console('loading avatar');
+        console.log('loading avatar');
         $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
         let avatar = await APP.api.getAvatar(APP.detail.lienHeId);
-        console('avatar: ' + avatar);
+        console.log('avatar: ' + avatar);
         if (avatar.data.avatar == '')
         {
 
