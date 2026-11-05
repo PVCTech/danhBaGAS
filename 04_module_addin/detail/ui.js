@@ -329,16 +329,24 @@ APP.detail.ui =
     renderAvatar: async function()
     {
         console.log('loading avatar');
-        $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
-        let avatar = await APP.api.getAvatar(APP.detail.lienHeId);
-        console.log('avatar: ' + avatar);
-        if (avatar.data.avatar == '')
+        const lienHeId = APP.detail.lienHeId;
+        try
         {
-
+            const response = await APP.api.getAvatar(lienHeId);
+            const avatar = response?.data?.avatar;
+            if (typeof avatar !== 'string')
+            {
+                throw new Error('Server trả về dữ liệu ảnh đại diện không hợp lệ');
+            }
+            if (avatar === '' || APP.detail.lienHeId !== lienHeId)
+            {
+                return;
+            }
+            $('#ChiTiet_Anh_Show').innerHTML = '<image src="' + avatar + '" style="height:95%;">';
         }
-        else
-        {            
-            $('#ChiTiet_Anh_Show').innerHTML = '<image src="' + avatar.data.avatar + '" style="height:95%;">';
+        catch (error)
+        {
+            console.error(`Không thể tải ảnh đại diện cho liên hệ ${lienHeId}:`, error);
         }
     },
     hide: function()
@@ -403,4 +411,3 @@ APP.detail.ui =
         }
     }
 }
-
