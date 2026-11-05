@@ -22,6 +22,7 @@ APP.form.ui =
     },
     textField: [
         'tenHienThi', 'xungHoId', 'ten', 'timKiem', 
+        'star', 
         'ngaySinh', 'thangSinh', 'namSinh', 
         'SDT1', 'SDT2', 'SDT3',
         'SDT1Zalo', 'SDT2Zalo', 'SDT3Zalo',
@@ -138,7 +139,6 @@ APP.form.ui =
                 return;
             }
 
-            console.log(JSON.stringify(lienHe));
             this.textField.forEach(f => {
                 $(`#form_${f}_input`).value = lienHe[f];
             });
@@ -233,7 +233,6 @@ APP.form.ui =
     changeStar: function()
     {        
         var star = $("#form_star_input").value;
-        console.log(star);
         if (String(star) === '0')
         {
             $('#form_star_image').classList.remove('form_star_inActive');
