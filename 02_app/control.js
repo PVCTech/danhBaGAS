@@ -44,3 +44,9 @@ APP.control =
         APP.localStorage.clear();
     }
 }
+
+
+window.addEventListener('popstate', function(e)
+{
+    APP.view.ui.back();
+});
