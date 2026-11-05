@@ -1,5 +1,5 @@
 APP.sinhNhat = APP.sinhNhat || {};
-APP.sinhNhat.month = (new Date()).getMonth + 1;
+APP.sinhNhat.month = (new Date()).getMonth() + 1;
 APP.sinhNhat.ui = 
 {
     init: function()
