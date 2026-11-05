@@ -48,5 +48,6 @@ APP.control =
 
 window.addEventListener('popstate', function(e)
 {
+    history.pushState({ page: 'home' }, '', location.href);
     APP.view.ui.back();
 });
