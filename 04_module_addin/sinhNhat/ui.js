@@ -14,7 +14,6 @@ APP.sinhNhat.ui =
         </table>`;
 
         const m = APP.sinhNhat.month;
-        console.log(JSON.stringify(m));
         APP.cache.data.danhSachSinhNhat = APP.cache.data.danhSachLienHe
             .filter(lh =>
                 String(lh.thangSinh ?? '').trim() !== '' &&
@@ -28,7 +27,7 @@ APP.sinhNhat.ui =
         $('#sinhNhat_table').innerHTML = '';
         let html = '';
         APP.cache.data.danhSachSinhNhat.forEach(
-            lh => html += lh.renderForListRow()
+            lh => html += lh.renderForSinhNhatRow()
         );
         $('#sinhNhat_table').innerHTML = html;
         
