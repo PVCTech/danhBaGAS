@@ -169,7 +169,7 @@ APP.api =
     {
         try 
         {
-          new Promise((resolve, reject) =>
+            return new Promise((resolve, reject) =>
             {
                 google.script.run
                     .withSuccessHandler(resolve)
