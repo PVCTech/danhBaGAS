@@ -334,14 +334,18 @@ APP.detail.ui =
         {
             const response = await APP.api.getAvatar(lienHeId);
             const avatar = response?.data?.avatar;
+            console.log('avatar: ' + avatar);
+            console.log('type: ' + typeof avatar);
             if (typeof avatar !== 'string')
             {
                 throw new Error('Server trả về dữ liệu ảnh đại diện không hợp lệ');
             }
+
             if (avatar === '' || APP.detail.lienHeId !== lienHeId)
             {
                 return;
             }
+
             $('#ChiTiet_Anh_Show').innerHTML = '<image src="' + avatar + '" style="height:95%;">';
         }
         catch (error)
