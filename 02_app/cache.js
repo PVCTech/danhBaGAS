@@ -3,12 +3,16 @@ APP.cache =
     data: {
         version: '',
         danhSachLienHe: [],
+        danhSachXungHo: [],
+
         danhSachLichSu: [],
+        danhSachSinhNhat: [],
+
         danhSachDonVi: [],
         danhSachPhongBan: [],
+
         danhSachTinh: [],
         danhSachPhuongXa: [],
-        danhSachXungHo: [],
         newCache: false
     },
     init: async function()
@@ -40,12 +44,16 @@ APP.cache =
             this.data = {
                 version: '',
                 danhSachLienHe: [],
+                danhSachXungHo: [],
+
                 danhSachLichSu: [],
+                danhSachSinhNhat: [],
+
                 danhSachDonVi: [],
                 danhSachPhongBan: [],
+
                 danhSachTinh: [],
                 danhSachPhuongXa: [],
-                danhSachXungHo: [],
                 newCache: false
             };
             return false;
@@ -56,6 +64,7 @@ APP.cache =
         const requiredLists = [
             'danhSachLienHe',
             'danhSachLichSu',
+            'danhSachSinhNhat',
             'danhSachDonVi',
             'danhSachPhongBan',
             'danhSachTinh',
@@ -94,6 +103,7 @@ APP.cache =
             }
             console.log('update to new version');
             APP.cache.data = newCacheData.data;
+            APP.cache.data.danhSachSinhNhat = [];
             this.convertCache();
             this.setLocal();
             return true;
@@ -161,12 +171,16 @@ APP.cache =
         APP.cache.data = {
             version: '',
             danhSachLienHe: [],
+            danhSachXungHo: [],
+
             danhSachLichSu: [],
+            danhSachSinhNhat: [],
+
             danhSachDonVi: [],
             danhSachPhongBan: [],
+
             danhSachTinh: [],
             danhSachPhuongXa: [],
-            danhSachXungHo: [],
             newCache: false
         };
     }
