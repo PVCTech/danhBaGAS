@@ -14,6 +14,7 @@ APP.sinhNhat.ui =
         </table>`;
 
         const m = APP.sinhNhat.month;
+        console.log(JSON.stringify(m));
         APP.cache.data.danhSachSinhNhat = APP.cache.data.danhSachLienHe
             .filter(lh =>
                 String(lh.thangSinh ?? '').trim() !== '' &&
