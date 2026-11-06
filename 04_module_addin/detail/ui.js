@@ -154,17 +154,6 @@ APP.detail.ui =
             $('#ChiTiet_Star_Image').classList.add('form_star_inActive');
         }
 
-        //avatar:
-        if (lienHe.avatar =='' || lienHe.avatar === undefined) 
-        {
-            var HTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
-        }
-        else
-        {
-            var HTML = '<image src="' + lienHe.avatar + '" style="height:95%;">';
-        }
-        $('#ChiTiet_Anh_Show').innerHTML = HTML;
-
         //Download vcard:
         var card = APP.detail.control.getVCardLink(lienHe.tenHienThi, lienHe.SDT1, lienHe.SDT2, lienHe.email, lienHe.timKiem);
         $('#ChiTiet_Save_Input').innerHTML = `<a href="${card}" download="${APP.detail.control.creatDateStringForFileName(Date.now()) + lienHe.SDT1}danhba.vcf">
@@ -328,6 +317,7 @@ APP.detail.ui =
     },
     renderAvatar: async function()
     {
+        $('#ChiTiet_Anh_Show').innerHTML = '';
         const lienHeId = APP.detail.lienHeId;
         try
         {
@@ -335,11 +325,13 @@ APP.detail.ui =
             const avatar = response?.avatar;
             if (typeof avatar !== 'string')
             {
+                $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
                 throw new Error('Server trả về dữ liệu ảnh đại diện không hợp lệ');
             }
 
             if (avatar === '' || APP.detail.lienHeId !== lienHeId)
             {
+                $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
                 return;
             }
 
