@@ -2,9 +2,10 @@ APP.sidebar = APP.sidebar || {};
 APP.sidebar.ui = 
 {   
     moduleList: [
-        { module: 'home', ten: 'Lịch sử' },
-        { module: 'list', ten: 'Danh bạ' },
-        { module: 'sinhNhat', ten: 'Sinh nhật' }
+        { module: 'home', ten: 'Lịch sử'},
+        { module: 'list', ten: 'Danh bạ'},
+        { module: 'sinhNhat', ten: 'Sinh nhật'},
+        { module: 'yeuThich', ten: 'Yêu thích'}
     ],
     init: function()
     {

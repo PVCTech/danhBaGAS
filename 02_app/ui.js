@@ -23,6 +23,7 @@ APP.ui =
 
         APP.history.ui.init();
         APP.sinhNhat.ui.init();
+        APP.yeuThich.ui.init();
         APP.list.ui.init();
         APP.detail.control.init();
         APP.form.control.init();
@@ -37,6 +38,7 @@ APP.ui =
         APP.history.ui.render();
         APP.list.ui.render();
         APP.sinhNhat.ui.render();
+        APP.yeuThich.ui.render();
         APP.view.ui.render();
         APP.ui.scrollTop();
     },
