@@ -317,27 +317,28 @@ APP.detail.ui =
     },
     renderAvatar: async function()
     {
-        $('#ChiTiet_Anh_Show').innerHTML = `<div class="loading-screen_02-spinner">
-                <div class="loading-screen_02-house"></div>
-            </div>`;
+        const chiTietAnh_container = $('#ChiTiet_Anh_Show');
+        chiTietAnh_container.appendChild(loadingText({id:'detail_avatar_loading', text:'Đang tìm avatar.', type:'loadingText_01'}));
         const lienHeId = APP.detail.lienHeId;
         try
         {
             const response = await APP.api.getAvatar(lienHeId);
             const avatar = response?.avatar;
+            let loadingChild = $('#detail_avatar_loading');
+            chiTietAnh_container.removeChild(loadingChild);
             if (typeof avatar !== 'string')
             {
-                $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
+                chiTietAnh_container.innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
                 throw new Error('Server trả về dữ liệu ảnh đại diện không hợp lệ');
             }
 
             if (avatar === '' || APP.detail.lienHeId !== lienHeId)
             {
-                $('#ChiTiet_Anh_Show').innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
+                chiTietAnh_container.innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
                 return;
             }
 
-            $('#ChiTiet_Anh_Show').innerHTML = '<image src="' + avatar + '" style="height:95%;">';
+            chiTietAnh_container.innerHTML = '<image src="' + avatar + '" style="height:95%;">';
         }
         catch (error)
         {
