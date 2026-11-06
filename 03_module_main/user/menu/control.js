@@ -1,0 +1,29 @@
+APP.user.menu = APP.user.menu || {};
+APP.user.menu.control = APP.user.menu.control || {};
+APP.user.menu.control =
+{
+    init: function ()
+    {
+        APP.user.menu.ui.init('header');
+        APP.user.menu.control.bindEvents();
+    },
+    bindEvents: function () 
+    {
+        $('#userMenu_hamburger').addEventListener('click', function (e) 
+        {
+            APP.user.menu.ui.toggle();
+        });
+
+        $('#userMenu_changePassword').addEventListener('click', function (e) 
+        {
+            APP.state.manHinhHienTai = 'changePassword';
+            APP.ui.render();
+            APP.user.menu.ui.hide();
+        });
+
+        $('#userMenu_dangXuat').addEventListener('click', function (e) 
+        {
+            APP.user.control.logout();
+        });
+    }
+};

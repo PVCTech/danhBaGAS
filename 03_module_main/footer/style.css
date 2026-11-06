@@ -1,0 +1,9 @@
+.footer__menuMobile
+{
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    padding:12px;
+    gap: 8px;
+    justify-items: center;
+    align-items: center;
+}

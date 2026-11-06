@@ -1,0 +1,136 @@
+:root 
+{
+    /* #67c5b1 và #dfdf47 */
+    --brand: #67c5b1;
+    --brand2: #dfdf47;
+
+    --color-primary: rgb(214, 34, 34);
+    --color-on-primary: #fff;
+    --color-border-on-primary: #fff;
+
+    --color-primary-hover: rgb(255, 150, 150);
+    --color-on-primary-hover: #fff;
+
+    --color-primary-light: rgb(255, 113, 113);
+    --color-on-primary-light: #16313d;
+
+    --color-primary-dark: rgb(200, 0, 0);;    
+    --color-on-primary-dark: #fff;
+
+    --color-primary-gradient: -webkit-linear-gradient(top left, var(--color-primary-light), var(--color-primary-dark));
+    --color-on-primary-gradient: #fff;
+
+    --color-primary-light-gradient: -webkit-linear-gradient(top left, var(--color-primary-light), var(--color-primary-dark));
+    --color-on-primary-light-gradient: #fff;
+
+    --color-secondary: #ffc107;
+    --color-on-secondary: #fff;
+    
+    --color-success: #198754;
+    --color-on-success: #ffffff;
+
+    --color-warning: #ffc107;
+    --color-on-warning: #212529;
+
+    --color-danger: #dc3545;
+    --color-on-danger: #ffffff;
+
+    --color-background: #ffffff;
+    --color-on-background: #212529;
+    --color-on-background-secondary: #6c8793;
+    --color-on-background-mute: #9e9e9e;
+    --color-border-on-background: #9e9e9e;
+
+    --color-background-gradient: -webkit-linear-gradient(top left, white, #dffafb);
+    --color-on-background-gradient: #212529;
+    --color-on-background-gradient-secondary: #6c8793;
+    --color-on-background-gradient-mute: #9e9e9e;
+
+    --color-surface: #ffffff; /*Mặt nổi */
+    --color-on-surface: #212529;
+    --color-on-surface-secondary: #6c8793;
+    --color-on-surface-mute: #9e9e9e;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-xxl: 32px;
+
+    --success-color: #16a673;
+    --error-color: #e55353;
+    --alert-color: #e59a20;
+
+    --border: #dcecf2;
+    
+    --border-radius-sm: 6px;
+    --border-radius-md: 14px;
+    --border-radius-lg: 22px;
+    
+    --shadow: 0 12px 35px rgba(0, 130, 175, 0.10);
+    
+    --mobile-width-on-pc: 400px;
+    --header-height: 56px;
+    --sidebar-width: 220px;
+
+    --padding-sm: 6px;
+    --padding-md: var(--space-2);
+    --padding-lg: var(--space-3);
+    --padding-xl: var(--space-4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.hide 
+{
+    display: none !important;
+}
+
+.hidden 
+{
+    display: none !important;
+}
+
+@media (min-width: 577px) 
+{
+    .hide-on-pc
+    {
+        display: none !important;
+    }
+}
+
+@media (max-width: 576px) 
+{
+    .hide-on-mobile
+    {
+        display: none !important;
+    }
+}
+
+.noScrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.noScrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@font-face 
+{
+    font-family: "MainFont";
+    src: url("../assets/font/JosefinSans-VariableFont_wght.ttf");
+}	

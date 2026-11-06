@@ -1,0 +1,26 @@
+#lienHe_Form .has-value
+{
+    color: var(--color-primary);
+}
+
+#lienHe_Form .not-has-value
+{
+    color: rgba(0,0,0,0.5);
+}
+
+#lienHe_Form input
+{
+    color: var(--color-primary);
+}
+
+
+#lienHe_Form .image-active 
+{
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+#lienHe_Form .image-inactive
+{
+    filter: grayscale(100%);
+    opacity: 0.6;
+}

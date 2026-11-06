@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="100" height="100" viewbox = "0 0 100 100">	<rect x="0" y="0" width="100" height="100" fill="none" />
+	<circle cx="52" cy="52" r="43" stroke="black" stroke-width="5" fill="none" opacity="0.7" />
+	<circle cx="50" cy="50" r="45" stroke="none" fill="#009800" />
+	<circle cx="50" cy="50" r="30" stroke="black" stroke-width="5" opacity="0.3" fill="none" />
+	
+	<path stroke="none" fill="white" d="M36,35 a50,50 0,0,1 10,15 a50,50 0,0,1 18,-29 a50,50 1,0,0 -19,20 a50,50 1,0,0 -11,-11" />
+	
+	<text style="fill:white;font-size:18px;font-weight:bold;" x="28" y="65">SAVE</text>
+	<circle cx="50" cy="50" r="38" stroke="white" stroke-width="10" fill="none" />
+	
+	
+</svg>
