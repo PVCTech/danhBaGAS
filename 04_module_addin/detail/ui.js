@@ -318,6 +318,7 @@ APP.detail.ui =
     renderAvatar: async function()
     {
         const chiTietAnh_container = $('#ChiTiet_Anh_Show');
+        chiTietAnh_container.style.backgroundColor = "var(--color-primary)";
         chiTietAnh_container.appendChild(loadingText({id:'detail_avatar_loading', text:'Đang tìm avatar.', type:'loadingText_01'}));
         const lienHeId = APP.detail.lienHeId;
         try
@@ -326,6 +327,7 @@ APP.detail.ui =
             const avatar = response?.avatar;
             let loadingChild = $('#detail_avatar_loading');
             chiTietAnh_container.removeChild(loadingChild);
+            chiTietAnh_container.style.backgroundColor = "white";
             if (typeof avatar !== 'string')
             {
                 chiTietAnh_container.innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
