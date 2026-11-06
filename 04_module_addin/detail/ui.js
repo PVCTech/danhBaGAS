@@ -317,7 +317,9 @@ APP.detail.ui =
     },
     renderAvatar: async function()
     {
-        $('#ChiTiet_Anh_Show').innerHTML = '';
+        $('#ChiTiet_Anh_Show').innerHTML = `<div class="loading-screen_02-spinner">
+                <div class="loading-screen_02-house"></div>
+            </div>`;
         const lienHeId = APP.detail.lienHeId;
         try
         {
