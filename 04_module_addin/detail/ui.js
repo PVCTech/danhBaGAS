@@ -329,7 +329,7 @@ APP.detail.ui =
             const avatar = response?.avatar;
             let loadingChild = $('#detail_avatar_loading');
             chiTietAnh_container.removeChild(loadingChild);
-            chiTietAnh_container.style.backgroundColor = "white";
+            chiTietAnh_container.style.backgroundColor = "none";
             if (typeof avatar !== 'string')
             {
                 chiTietAnh_container.innerHTML = '<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="height:95%;">';
