@@ -319,7 +319,9 @@ APP.detail.ui =
     {
         const chiTietAnh_container = $('#ChiTiet_Anh_Show');
         chiTietAnh_container.style.backgroundColor = "var(--color-primary)";
+        chiTietAnh_container.innerHTML = '';
         chiTietAnh_container.appendChild(loadingText({id:'detail_avatar_loading', text:'Đang tìm avatar.', type:'loadingText_01'}));
+        
         const lienHeId = APP.detail.lienHeId;
         try
         {
