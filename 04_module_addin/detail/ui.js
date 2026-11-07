@@ -24,14 +24,14 @@ APP.detail.ui =
 
         divct.innerHTML = `        
             <center>
-                <div id="detail_header_container" class="containner" style="border-radius:10px 10px 0px 0px;background:white;height:180px;position:relative;">
-                    <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;z-index: 110;">
+                <div id="detail_header_container" class="containner" style="border-radius:10px 10px 0px 0px;background:white;height:160px;position:relative;">
+                    <div style="width:30px;position:absolute;right:16px;top:16px;padding:3px;z-index: 110;">
                         <img id="ChiTiet_Star_Image" src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg?version=1" style="width:100%;">
                     </div>
 
-                    <div style="width:100%;position:absolute;left:0px;top:40px;z-index: 106;">
+                    <div style="width:100%;position:absolute;left:0px;top:20px;z-index: 106;">
                         <center>
-                            <div id="ChiTiet_Anh_Show" style="height:180px;"></div>
+                            <div id="ChiTiet_Anh_Show" style="height:120px;"></div>
                         </center>
                     </div>
 
