@@ -8,10 +8,7 @@ APP.detail.ui =
         style.textContent = `
             .detail__div {
                 position:fixed;
-                bottom:0px;
-                left:0px;
-                width:100%;
-                min-height:100vh;
+                inset:0;
                 background: var(--color-primary-dark);
                 z-index:105;
                 display:none;
@@ -28,18 +25,21 @@ APP.detail.ui =
             <center>
                 <div style="height:40px;color:white;">.</div>
                 <div id="detail_header_container" class="containner" style="border-radius:10px 10px 0px 0px;background:white;height:220px;position:relative;">
-                    <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;">
+                    <div style="width:30px;position:absolute;right:20px;top:20px;padding:3px;z-index: 110;">
                         <img id="ChiTiet_Star_Image" src="https://pvctech.github.io/danhBaGAS/assets/img/star.svg?version=1" style="width:100%;">
                     </div>
-                    <div style="width:100%;position:absolute;left:0px;top:40px;">
+
+                    <div style="width:100%;position:absolute;left:0px;top:40px;z-index: 106;">
                         <center>
-                            <div id="ChiTiet_Anh_Show" style="height:180px;">Ảnh</div>
+                            <div id="ChiTiet_Anh_Show" style="height:180px;"></div>
                         </center>
                     </div>
-                    <div style="position:absolute;left:15px;bottom:-12px;padding:3px;" id="ChiTiet_Save_Input">
+
+                    <div style="position:absolute;left:15px;bottom:-12px;padding:3px;z-index: 110;" id="ChiTiet_Save_Input">
 
                     </div>
-                    <div style="position:absolute;right:15px;bottom:-12px;padding:3px;display:flex;gap:8px; align-items: flex-end;" id="ChiTiet_Copy_Input">
+
+                    <div style="position:absolute;right:15px;bottom:-12px;padding:3px;display:flex;gap:8px; align-items: flex-end;z-index: 110;" id="ChiTiet_Copy_Input">
                         <div class="image-button" style="height:20px; width:18px;" 
                             onclick="APP.detail.control.copyChiTiet2();">
                             ${APP.detail.ui.assets.img.copy(18,20)}
