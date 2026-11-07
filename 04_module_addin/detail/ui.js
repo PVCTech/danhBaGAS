@@ -121,12 +121,6 @@ APP.detail.ui =
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <div id="chiTiet_Zalo_container" style="display:grid; gap:10px; margin-top:10px; grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
                                 <center>
                                     <div style="position:fixed;bottom:10px;left:0px;width:100%;z-index:101;" onclick="APP.detail.ui.hide();">
                                         <center>
@@ -216,12 +210,7 @@ APP.detail.ui =
         this.renderSoDienThoai(lienHe.SDT1, 1);
         this.renderSoDienThoai(lienHe.SDT2, 2);
         this.renderSoDienThoai(lienHe.SDT3, 3); 
-        
-        $('#chiTiet_Zalo_container').innerHTML = '';
-        this.renderZalo(lienHe.SDT1, lienHe.SDT1Zalo);
-        this.renderZalo(lienHe.SDT2, lienHe.SDT2Zalo);
-        this.renderZalo(lienHe.SDT3, lienHe.SDT3Zalo);
-            
+                    
         ////Ngày tháng năm sinh:
         this.renderNgayThangnamSinh(lienHe.ngaySinh, lienHe.thangSinh, lienHe.namSinh);
     
@@ -252,23 +241,6 @@ APP.detail.ui =
             divContainer.style.display = 'block';
         }
         else 
-        {
-            divContainer.style.display = 'none';
-        }
-    },
-    renderZalo: function(SDT, zalo)
-    {
-        let divContainer = $('#chiTiet_Zalo_container');
-        if (SDT !== '' && zalo == '1')
-        {
-            var HtmlZalo = `<a href="https://zalo.me/${SDT}" target="_blank">
-                        <img src="https://pvctech.github.io/danhBaGAS/assets/img/zalo.png" style="height:28px;">
-                    </a>`;
-            divContainer.innerHTML += HtmlZalo;
-            divContainer.style.display = 'block';
-        }
-
-        if (divContainer.innerHTML === '')
         {
             divContainer.style.display = 'none';
         }
