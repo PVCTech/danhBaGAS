@@ -1,54 +1,64 @@
-class DonVi
-{
-   constructor({id,ten,timKiem})
-   {
-	   this.id = id;
-	   this.ten = ten;
-	   this.timKiem = timKiem;
-   }
-}
+/*
+ * Nạp CSS và JS của 04_module_addin.
+ * Dùng trong HTML: <script src="04_module_addin/main.js?v=dev1"></script>
+ * Chờ window.addinModulesReady trước khi khởi tạo ứng dụng.
+ */
+(function loadAddinModules() {
+    if (window.addinModulesReady) return;
 
-class PhongBan
-{
-   constructor({id,ten,timKiem})
-   {
-	   this.id = id;
-	   this.ten = ten;
-	   this.timKiem = timKiem;
-   }
-}
+    const VERSION = 'dev1';
+    const baseUrl = document.currentScript.src;
+    const styles = [
+        'form/style.css',
+        'form/goiY/style.css'
+    ];
+    const scripts = [
+        'models.js',
+        'LienHe.js',
+        'list/ui.js',
+        'list/control.js',
+        'history/ui.js',
+        'history/control.js',
+        'sinhNhat/ui.js',
+        'yeuThich/ui.js',
+        'detail/ui.js',
+        'detail/control.js',
+        'form/ui.js',
+        'form/control.js',
+        'form/goiY/ui.js',
+        'form/goiY/control.js',
+        'search/ui.js',
+        'search/control.js'
+    ];
 
-class Tinh
-{
-   constructor({id,ten,timKiem})
-   {
-	   this.id = id;
-	   this.ten = ten;
-	   this.timKiem = timKiem;
-   }
-}
+    const versionedUrl = path => {
+        const url = new URL(path, baseUrl);
+        url.searchParams.set('v', VERSION);
+        return url.href;
+    };
 
+    const loadStyle = path => new Promise((resolve, reject) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = versionedUrl(path);
+        link.onload = resolve;
+        link.onerror = () => reject(new Error(`Không tải được stylesheet: ${path}`));
+        document.head.appendChild(link);
+    });
 
-class PhuongXa
-{
-   constructor({id,ten,timKiem})
-   {
-	   this.id = id;
-	   this.ten = ten;
-	   this.timKiem = timKiem;
-   }
-}
+    const loadScript = path => new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = versionedUrl(path);
+        script.onload = resolve;
+        script.onerror = () => reject(new Error(`Không tải được script: ${path}`));
+        document.head.appendChild(script);
+    });
 
-
-
-
-
-class XungHo
-{
-   constructor({id,ten,timKiem})
-   {
-	   this.id = id;
-	   this.ten = ten;
-	   this.timKiem = timKiem;
-   }
-}
+    window.addinModulesReady = (async () => {
+        await window.mainModulesReady;
+        await Promise.all(styles.map(loadStyle));
+        for (const path of scripts) {
+            await loadScript(path);
+        }
+    })();
+})();
