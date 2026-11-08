@@ -1,7 +1,3 @@
-export {
-    chat_line
-};
-
 function chat_line(chatData=[], divId ='',speed = 2000)
 {
     for (let i=0; i< chatData.length; i++)

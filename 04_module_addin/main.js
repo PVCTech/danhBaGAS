@@ -1,12 +1,9 @@
 /*
- * Nạp CSS và JS của 04_module_addin.
- * Dùng trong HTML: <script src="04_module_addin/main.js?v=dev1"></script>
- * Chờ window.addinModulesReady trước khi khởi tạo ứng dụng.
+ * Nạp CSS và JS của 04_module_addin theo thứ tự phụ thuộc.
+ * Dùng trong HTML: <script src="04_module_addin/main.js?v=dev3"></script>
  */
 (function loadAddinModules() {
-    if (window.addinModulesReady) return;
-
-    const VERSION = 'dev1';
+    const VERSION = 'dev3';
     const baseUrl = document.currentScript.src;
     const styles = [
         'form/style.css',
@@ -31,34 +28,15 @@
         'search/control.js'
     ];
 
-    const versionedUrl = path => {
+    for (const path of styles) {
         const url = new URL(path, baseUrl);
         url.searchParams.set('v', VERSION);
-        return url.href;
-    };
+        document.write(`<link rel="stylesheet" href="${url.href}">`);
+    }
 
-    const loadStyle = path => new Promise((resolve, reject) => {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = versionedUrl(path);
-        link.onload = resolve;
-        link.onerror = () => reject(new Error(`Không tải được stylesheet: ${path}`));
-        document.head.appendChild(link);
-    });
-
-    const loadScript = path => new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = versionedUrl(path);
-        script.onload = resolve;
-        script.onerror = () => reject(new Error(`Không tải được script: ${path}`));
-        document.head.appendChild(script);
-    });
-
-    window.addinModulesReady = (async () => {
-        await window.mainModulesReady;
-        await Promise.all(styles.map(loadStyle));
-        for (const path of scripts) {
-            await loadScript(path);
-        }
-    })();
+    for (const path of scripts) {
+        const url = new URL(path, baseUrl);
+        url.searchParams.set('v', VERSION);
+        document.write(`<script src="${url.href}"><\/script>`);
+    }
 })();
