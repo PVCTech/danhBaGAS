@@ -38,18 +38,16 @@ APP.form.ui =
                 <div id="form_tab_container" style="display: flex; flex-direction: column; gap:8px; width: 96%;padding-bottom:200px;">
                     <div style="display: grid; grid-template-columns: 3fr 7fr;">
                         <div style="display: flex; flex-direction: column; gap:4px;background:red;">
-                            <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
-                            <input type="text" id="form_Anh_Updated" value="0" style="display:none;">
-                            <label for="FileAnh">
+                            <label>
+                                <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
                                 <div id="form_Anh_Show" style="width:90%; height:90%; background: green;">&nbsp;
                                 </div>
                             </label>
+
                             <input type="text" id="form_star_input" value="0" style="display:none;">
-                            <div id="form_Anh_input" style="display:none;">                                
-                            </div>
-                            <div id="Preview_Anh"></div>
-                            <div id="form_Anh_Preview"></div>
+                            <input type="text" id="form_Anh_Updated" value="0" style="display:none;">
                         </div>
+                        
                         <div style="display: flex; flex-direction: column; gap:4px;">
                             <div style="height:35px;width:100%;">
                                 <input type="text" class="inputBox" id="form_tenHienThi_input" placeholder="họ và tên" autocomplete="nope">
