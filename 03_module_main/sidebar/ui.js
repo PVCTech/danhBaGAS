@@ -72,16 +72,16 @@ APP.sidebar.ui =
     show: function()
     {
         APP.sidebar.ui.showing = true;
-        show('sidebar_divChe');
-        show('sidebar');
+        PVCComponent.show('sidebar_divChe');
+        PVCComponent.show('sidebar');
         
         APP.user.menu.ui.hide();
     },
     hide: function()
     {
         APP.sidebar.ui.showing = false;
-        hide('sidebar');
-        hide('sidebar_divChe');
+        PVCComponent.hide('sidebar');
+        PVCComponent.hide('sidebar_divChe');
     },
     hideIfMobile: function()
     {

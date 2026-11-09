@@ -13,12 +13,12 @@ APP.form.goiY.ui =
         show: function()
         {
             $('#form__input__goiY__header__container').style.display = 'block';
-            hide('header');
+            PVCComponent.hide('header');
         },
         hide: function()
         {
             $('#form__input__goiY__header__container').style.display = 'none';
-            show('header');
+            PVCComponent.show('header');
         }
     },
     init: function()

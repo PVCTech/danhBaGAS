@@ -43,14 +43,14 @@ APP.user.menu.ui =
     },
     showing: false,
     show: function () {
-        show('userMenu', 'flex');
-        show('userMenu_divChe');
+        PVCComponent.show('userMenu', 'flex');
+        PVCComponent.show('userMenu_divChe');
         APP.user.menu.ui.showing = true;
         if (APP.config.mobileMode) APP.sidebar.ui.hide();
     },
     hide: function () {
-        hide('userMenu_divChe');
-        hide('userMenu');
+        PVCComponent.hide('userMenu_divChe');
+        PVCComponent.hide('userMenu');
         APP.user.menu.ui.showing = false;
     },
     toggle: function () {

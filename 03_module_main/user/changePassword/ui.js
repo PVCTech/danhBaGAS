@@ -118,13 +118,13 @@ APP.user.changePassword.ui =
     },
     show: function()
     {
-        show('user_changePassword_divChe');
+        PVCComponent.show('user_changePassword_divChe');
         $('#changePassword_container').style.display = 'flex';        
     },
     hide: function()
     {
-        hide('user_changePassword_divChe');
-        hide('changePassword_container');
+        PVCComponent.hide('user_changePassword_divChe');
+        PVCComponent.hide('changePassword_container');
     },
     assets:
     {

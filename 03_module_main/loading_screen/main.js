@@ -2,15 +2,17 @@ APP.loadingScreen =
 {
     init: function()
     {
-        loadingScreen_init();        
+        let id= 'app_loadingScreen';
+        document.body.appendChild(PVCComponent.loadingScreen('Đang kiểm tra dữ liệu khởi động',id));
+        PVCComponent.hide(id);
     },
     show: function(noiDung = 'Dữ liệu của bạn đang được tải')
     {
         $('#loading-screen_message').innerText = noiDung;
-        show('app_loadingScreen');
+        PVCComponent.show('app_loadingScreen');
     },
     hide: function()
     {
-        hide('app_loadingScreen');
+        PVCComponent.hide('app_loadingScreen');
     }
 };

@@ -114,7 +114,7 @@ APP.user.login.ui =
     },
     hide: function()
     {
-        hide('loginContainer');
+        PVCComponent.hide('loginContainer');
         this.reset();
     }    
 };
