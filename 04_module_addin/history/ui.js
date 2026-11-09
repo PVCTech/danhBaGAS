@@ -47,6 +47,8 @@ APP.history.ui =
                     </td>
 				</tr>`;
         }
+
+        $('#home_tab').scrollTop = 0;
         
         APP.state.manHinhHienTai = APP.state.manHinhHienTai || 'home';
         if (APP.state.manHinhHienTai == 'history' || APP.state.manHinhHienTai == 'home')
