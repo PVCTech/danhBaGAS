@@ -8,7 +8,7 @@ APP.form.goiY.ui =
     {
         init: function()
         {
-            div({id: 'form__input__goiY__header__container', className: 'form__input__goiY__header__container', parent: document.body});
+            PVCComponent.div({id: 'form__input__goiY__header__container', className: 'form__input__goiY__header__container', parent: document.body});
         },
         show: function()
         {

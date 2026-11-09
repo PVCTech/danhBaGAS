@@ -3,7 +3,7 @@ APP.user.menu.ui = APP.user.menu.ui || {};
 APP.user.menu.ui =
 {
     init: function (parentId = '') {
-        div({
+        PVCComponent.div({
             id: 'userMenu_divChe',
             className: 'user__menu__divChe',
             parent: document.body,
@@ -12,26 +12,26 @@ APP.user.menu.ui =
             }
         });
 
-        div({
+        PVCComponent.div({
             id: 'userMenu_hamburger',
             html: `<img class="image-button" src="https://pvctech.github.io/danhBaGAS/assets/img/user.svg" style="height: 25px;cursor: pointer;">`,
             parentId: parentId
         });
 
-        div({ id: 'userMenu', className: 'user__menu', parentId: parentId });
+        PVCComponent.div({ id: 'userMenu', className: 'user__menu', parentId: parentId });
 
-        div({
+        PVCComponent.div({
             id: 'user_hoVaTen', className: 'sidebar__button user__menu__button',
             html: '--', style: 'font-weight:bold; margin-top:10px;',
             parentId: 'userMenu'
         });
 
-        div({
+        PVCComponent.div({
             id: 'userMenu_changePassword', className: 'sidebar__button user__menu__button', text: 'Đổi mật khẩu',
             parentId: 'userMenu'
         });
 
-        div({
+        PVCComponent.div({
             id: 'userMenu_dangXuat', className: 'sidebar__button user__menu__button', text: 'Đăng xuất',
             parentId: 'userMenu'
         });

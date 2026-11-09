@@ -4,12 +4,12 @@ APP.user.changePassword.ui =
 {
     init: function()
     {
-        div({id: 'user_changePassword_divChe', 
+        PVCComponent.div({id: 'user_changePassword_divChe', 
             className: 'user_changePassword_divChe', 
             parent: document.body
         });
         
-        div({id: 'changePassword_container', 
+        PVCComponent.div({id: 'changePassword_container', 
             className: 'login__container',
             parent: document.body});
 

@@ -114,7 +114,7 @@ const div = ({id = '', className = '', text = '', html = '', parent = null, pare
     return el;
 
     /* Example:
-        div({
+        PVCComponent.div({
             id: 'input_123',
             onkeydown: (event, el) => {
                 if (event.key === 'Enter') xuLy(el.id);

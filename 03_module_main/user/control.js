@@ -79,7 +79,7 @@ APP.user.control =
             console.error('Không thể khởi động từ server:', error);
             APP.loadingScreen.hide();
             APP.user.login.ui.show();
-            canhBao(error.message || 'Không thể kiểm tra phiên đăng nhập.', 'Đăng nhập ứng dụng');
+            PVCComponent.canhBao(error.message || 'Không thể kiểm tra phiên đăng nhập.', 'Đăng nhập ứng dụng');
         }
     },
     checkUserInBackground: async function(token, localVersion)

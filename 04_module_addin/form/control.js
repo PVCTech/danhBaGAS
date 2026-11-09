@@ -137,11 +137,11 @@ APP.form.control = {
     },
     delete: async function()
     {
-        const xacMinh = await canhBao('Bạn có chắc chắn muốn xóa!', 'Cảnh báo', 'okCancel');
+        const xacMinh = await PVCComponent.canhBao('Bạn có chắc chắn muốn xóa!', 'Cảnh báo', 'okCancel');
         if (!xacMinh) return;
         if (APP.form.state.lienHe.id == '') 
         {
-            canhBao('Id của liên hệ không đúng!', 'Xóa liên hệ');
+            PVCComponent.canhBao('Id của liên hệ không đúng!', 'Xóa liên hệ');
             return;
         }
 
@@ -165,7 +165,7 @@ APP.form.control = {
         }
         else
         {
-            canhBao('Xóa không thành công');
+            PVCComponent.canhBao('Xóa không thành công');
         }
     },
     readData: function()
@@ -231,7 +231,7 @@ APP.form.control = {
             this.readData();
             if (APP.form.mode === 'addNew')
             {
-                toast('Đang thêm mới..');
+                PVCComponent.toast('Đang thêm mới..');
                 let addNewStatus = await APP.api.addNew();
                 if (addNewStatus.status == 'ok')
                 {
@@ -249,15 +249,15 @@ APP.form.control = {
                 }
                 else
                 {
-                    canhBao('Thêm mới không thành công');
+                    PVCComponent.canhBao('Thêm mới không thành công');
                 }            
             }
             else
             {
-                toast('Đang cập nhật..');
+                PVCComponent.toast('Đang cập nhật..');
                 if (APP.form.state.lienHe.id == '') 
                 {
-                    canhBao('Id của liên hệ không đúng!', 'Cập nhật liên hệ');
+                    PVCComponent.canhBao('Id của liên hệ không đúng!', 'Cập nhật liên hệ');
                     return;
                 }
 
@@ -287,7 +287,7 @@ APP.form.control = {
                 }
                 else
                 {
-                    canhBao('Cập nhật không thành công');
+                    PVCComponent.canhBao('Cập nhật không thành công');
                 }
             }
         }
@@ -305,7 +305,7 @@ APP.form.control = {
                 console.error('Không thể chuyển lỗi thành JSON:', e);
             }
 
-            canhBao(error?.message || 'Có lỗi xảy ra khi xử lý dữ liệu!');
+            PVCComponent.canhBao(error?.message || 'Có lỗi xảy ra khi xử lý dữ liệu!');
         } 
     
         

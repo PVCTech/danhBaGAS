@@ -8,7 +8,7 @@ APP.actionbar.ui =
 {
     init: function()
     {
-        div({
+        PVCComponent.div({
             id: 'header_actionbar', 
             className: 'header__actionbar',
             parentId: 'header'

@@ -135,7 +135,7 @@ APP.form.ui =
             let lienHe = APP.cache.data.danhSachLienHe.find(lh=> String(lh.id) === String(APP.form.state.lienHe.id));
             if (!lienHe)
             {
-                canhBao('Không thể load form: id không tồn tại');
+                PVCComponent.canhBao('Không thể load form: id không tồn tại');
                 return;
             }
 

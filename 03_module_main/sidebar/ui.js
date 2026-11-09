@@ -9,13 +9,13 @@ APP.sidebar.ui =
     ],
     init: function()
     {
-        div({
+        PVCComponent.div({
             id: 'main',
             className: 'main',
             parent: document.body
         });
 
-        div({
+        PVCComponent.div({
             id: 'sidebar_hamburger', 
             parentId: 'sidebar_hamburger_container',
             onclick: el => {
@@ -25,7 +25,7 @@ APP.sidebar.ui =
 
         $('#sidebar_hamburger').innerHTML = '<span class="sidebar__hamburger image-button" style="width:26px;">☰</span>';
         
-        div({
+        PVCComponent.div({
             id: 'sidebar_divChe',
             className: 'sidebar__divChe',
             parent: document.body,
@@ -34,13 +34,13 @@ APP.sidebar.ui =
             }
         });
 
-        div({
+        PVCComponent.div({
             id: 'sidebar', 
             className: 'sidebar', 
             parentId: 'main'
         });
 
-        div({
+        PVCComponent.div({
             id: 'sidebarGrid', 
             className: 'sidebar__grid', 
             parentId: 'sidebar'

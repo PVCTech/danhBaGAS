@@ -4,7 +4,7 @@ APP.header.control =
 {
     init: function()
     {
-        div({
+        PVCComponent.div({
             id: 'header', 
             className: 'header',
             parent: document.body

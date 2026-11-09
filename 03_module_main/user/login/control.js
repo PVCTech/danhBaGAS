@@ -29,7 +29,7 @@ APP.user.login.control =
         let pass = document.getElementById("login_password").value;
         if (userName.length < 3)
         {
-            cb = await canhBao('Vui lòng kiểm tra tên đăng nhập!','Đăng nhập ứng dụng');
+            cb = await PVCComponent.canhBao('Vui lòng kiểm tra tên đăng nhập!','Đăng nhập ứng dụng');
             $('#login_submitButton').innerText = 'Đăng nhập';
             $('#loginError').innerHTML = 'Vui lòng đăng nhập để vào trang này';
             activeButton('login_submitButton');
@@ -37,7 +37,7 @@ APP.user.login.control =
         }
         else if (pass.length < 3)
         {
-            cb = await canhBao('Vui lòng kiểm tra lại mật khẩu!','Đăng nhập ứng dụng');
+            cb = await PVCComponent.canhBao('Vui lòng kiểm tra lại mật khẩu!','Đăng nhập ứng dụng');
             $('#login_submitButton').innerText = 'Đăng nhập';
             $('#loginError').innerHTML = 'Vui lòng đăng nhập để vào trang này';
             activeButton('login_submitButton');
@@ -67,14 +67,14 @@ APP.user.login.control =
                 }
                 else
                 {
-                    canhBao(loginStatus.message || 'đăng nhập không thành công', 'Đăng nhập ứng dụng');
+                    PVCComponent.canhBao(loginStatus.message || 'đăng nhập không thành công', 'Đăng nhập ứng dụng');
                     APP.user.login.ui.reset();
                 }
             }
             catch (error)
             {
                 console.error('Đăng nhập không thành công:', error);
-                canhBao(error.message || 'Không thể đăng nhập. Vui lòng thử lại.', 'Đăng nhập ứng dụng');
+                PVCComponent.canhBao(error.message || 'Không thể đăng nhập. Vui lòng thử lại.', 'Đăng nhập ứng dụng');
                 APP.user.login.ui.reset();
             }
         }

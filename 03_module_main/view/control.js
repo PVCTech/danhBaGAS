@@ -14,13 +14,13 @@ APP.view.control =
             //render header: caption + actionbar
             //render content: table/form/.... 
             let tab_HeaderId = moduleName + '_' + type + '_tab_header';
-            div({
+            PVCComponent.div({
                 id: tab_HeaderId, 
                 className: 'view__header',
                 parent: tab
             });
 
-                div({
+                PVCComponent.div({
                     id: moduleName + '_' + type + '_tab_header_caption', 
                     className: 'view__header__caption',
                     text: header.caption,
@@ -29,7 +29,7 @@ APP.view.control =
 
                 if (header.actionbar)
                 {
-                    div({
+                    PVCComponent.div({
                         id: moduleName + '_' + type + '_tab_header_actionbar', 
                         className: 'view__header__actionbar',
                         text: 'actionbar',

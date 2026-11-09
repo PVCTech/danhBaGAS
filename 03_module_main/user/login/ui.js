@@ -37,7 +37,7 @@ APP.user.login.ui =
     },
     init: function()
     {
-        const loginContainer = div({id: 'loginContainer', className: 'login__container'});
+        const loginContainer = PVCComponent.div( {id: 'loginContainer', className: 'login__container'});
         loginContainer.innerHTML = `
             <div class="login__div">
                 <table class="login__header">

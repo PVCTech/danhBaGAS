@@ -8,13 +8,13 @@ APP.footer.ui =
 {
     init: function()
     {
-        div({
+        PVCComponent.div({
             id: 'footer', 
             className: 'footer',
             parent: document.body
         });
 
-        div({
+        PVCComponent.div({
             id: 'footer_menuMobile', 
             className: 'footer__menuMobile',
             parentId: 'footer'

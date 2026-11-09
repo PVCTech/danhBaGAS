@@ -32,12 +32,12 @@ APP.user.changePassword.control =
         let pass2 = document.getElementById("changePass_newPassword2").value;
         if (pass1.length < 6)
         {
-            cb = await canhBao('Mật khẩu tối thiểu phải có từ 6 ký tự trở lên!');
+            cb = await PVCComponent.canhBao('Mật khẩu tối thiểu phải có từ 6 ký tự trở lên!');
             return;
         }
         else if (pass1 !== pass2)
         {
-            cb = await canhBao('Hai mật khẩu chưa trùng khớp!');
+            cb = await PVCComponent.canhBao('Hai mật khẩu chưa trùng khớp!');
             return;
         }
         else
@@ -46,7 +46,7 @@ APP.user.changePassword.control =
             {
                 $('#user_changePassword_submitButton').innerText = 'Đang đổi mật khẩu..';
                 inactiveButton('user_changePassword_submitButton');
-                //toast('Đang đổi mật khẩu..');
+                //PVCComponent.toast('Đang đổi mật khẩu..');
 
                 const sendData = {userName: APP.state.user.userName, password: pass1, token: APP.state.user.token};
                 let changePasswordResult = await APP.user.api.changePassword(sendData);
@@ -54,19 +54,19 @@ APP.user.changePassword.control =
                 changePasswordResult  = typeof changePasswordResult === 'string' ? JSON.parse(changePasswordResult) : changePasswordResult;                
                 if (changePasswordResult.status == 'ok')
                 {
-                    toast('Đổi mật khẩu thành công!');
+                    PVCComponent.toast('Đổi mật khẩu thành công!');
                     APP.user.control.logout();                
                 }
                 else
                 {
-                    canhBao(changePasswordResult.message || 'đổi mật khẩu không thành công', 'Đổi mật khẩu');
+                    PVCComponent.canhBao(changePasswordResult.message || 'đổi mật khẩu không thành công', 'Đổi mật khẩu');
                     APP.user.changePassword.ui.reset();
                 }
             }
             catch (error)
             {
                 console.error('Đổi mật khẩu không thành công:', error);
-                canhBao(error.message || 'Không thể đổi mật khẩu. Vui lòng thử lại.', 'Đổi mật khẩu');
+                PVCComponent.canhBao(error.message || 'Không thể đổi mật khẩu. Vui lòng thử lại.', 'Đổi mật khẩu');
                 APP.user.changePassword.ui.reset();
             }          
            

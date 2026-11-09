@@ -4,7 +4,7 @@ APP.view.ui =
     tabHistory: [],
     init: function()
     {
-        div({
+        PVCComponent.div({
             id: 'view',
             className: 'view',
             parentId: 'main'
@@ -77,7 +77,7 @@ APP.view.ui =
         if (!tab)
         {
             console.log('APP.view.ui: Màn hình này chưa có hoặc chưa sẵn sàng: ' + tabId);
-            toast('APP.view.ui: Màn hình này chưa có hoặc chưa sẵn sàng');
+            PVCComponent.toast('APP.view.ui: Màn hình này chưa có hoặc chưa sẵn sàng');
             return;
         }
         tab.style.display = '';
