@@ -19,8 +19,7 @@ APP.form.control =
         this.bindEvents();
     },
     bindEvents: function()
-    {
-       
+    {       
         //Preview anh:
         document.getElementById('FileAnh').addEventListener('change', function(e) 
         {
@@ -34,7 +33,7 @@ APP.form.control =
                 var maxSize = 200;
                 var width = img.width;
                 var height = img.height;
-                if (width > height) 
+                if (width > height)
                 {
                     if (width > maxSize) 
                     {
@@ -70,23 +69,14 @@ APP.form.control =
     {
         var data = base64Image;
         var ajax = null;
-        if (window.XMLHttpRequest) {
+        if (window.XMLHttpRequest) 
+        {
             ajax = new XMLHttpRequest();
-        } else if (window.ActiveXObject) {
+        }
+        else if (window.ActiveXObject) 
+        {
             ajax = new ActiveXObject("Microsoft.XMLHTTP");
         }
-    
-        ajax.open('POST', 'index_files/avatar_upload_server.php', true);
-        ajax.setRequestHeader('Content-Type', 'application/octet-stream');
-        ajax.onreadystatechange = function() {
-            if (ajax.readyState === XMLHttpRequest.DONE) {
-                if (ajax.status === 200) {
-                    //window.location.reload();
-                    //alert(this.responseText);
-                } else {
-                }
-            }
-        };
     
         data = 'cuongpvwww;www' + $('#form_Id').value + 'www;www' + data;
         ajax.send(data);
