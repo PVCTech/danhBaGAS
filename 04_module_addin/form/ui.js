@@ -37,11 +37,11 @@ APP.form.ui =
             <form id="lienHe_Form" autocomplete="nope"  enctype="multipart/form-data">
                 <div id="form_tab_container" style="display: flex; flex-direction: column; gap:8px; width: 96%;padding-bottom:200px;">
                     <div style="display: grid; grid-template-columns: 3fr 7fr;">
-                        <div style="display: flex; flex-direction: column; gap:4px;">
+                        <div style="display: flex; flex-direction: column; gap:4px;background:red;">
                             <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
                             <input type="text" id="form_Anh_Updated" value="0" style="display:none;">
                             <label for="FileAnh">
-                                <div id="form_Anh_Show" style="width:90%;">
+                                <div id="form_Anh_Show" style="width:90%;background: green;">
                                 </div>
                             </label>
                             <input type="text" id="form_star_input" value="0" style="display:none;">
