@@ -3,8 +3,6 @@ APP.ui =
     init: function()
     {    
         //render modal dialogs
-        toast_init();
-        canhBao_init();
         datePicker_init();
         divChe_init();
         
