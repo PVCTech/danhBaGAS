@@ -20,7 +20,7 @@ APP.form.control = {
     bindEvents: function()
     {
 
-        /*
+        
         //Preview anh:
         document.getElementById('FileAnh').addEventListener('change', function(e) 
         {
@@ -70,7 +70,7 @@ APP.form.control = {
                 } 
             img.src = URL.createObjectURL(e.target.files[0]);
         });
-*/
+
 
 
 
