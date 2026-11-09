@@ -41,7 +41,7 @@ APP.form.ui =
                             <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
                             <input type="text" id="form_Anh_Updated" value="0" style="display:none;">
                             <label for="FileAnh">
-                                <div id="form_Anh_Show" style="width:90%;background: green;">
+                                <div id="form_Anh_Show" style="width:90%; height:90%; background: green;">&nbsp;
                                 </div>
                             </label>
                             <input type="text" id="form_star_input" value="0" style="display:none;">
