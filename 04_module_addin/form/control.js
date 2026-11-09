@@ -11,7 +11,8 @@ APP.form.state =
     phuongXa: {}
 };
 
-APP.form.control = {
+APP.form.control = 
+{
     init: function()
     {
         APP.form.ui.init();
@@ -19,8 +20,7 @@ APP.form.control = {
     },
     bindEvents: function()
     {
-
-        
+       
         //Preview anh:
         document.getElementById('FileAnh').addEventListener('change', function(e) 
         {
@@ -28,52 +28,43 @@ APP.form.control = {
             var canvasContext = canvas.getContext('2d');
             var base64Image = '';       
             
-            var img = new Image;
-            
-            //var Style= 'opacity:0;position:absolute;z-index:-1;top: -100000000;left:-1000000000;width:' + width + 'px;height:' + height + 'px;';
-            //var Style= 'opacity:0;position:absolute;z-index:-1;top: -100000000;left:-1000000000;width:500px;height:500px;';
-            
-            
-            
-            img.onload = function() {
-                    var maxSize = 200;
-                    var width = img.width;
-                    //alert(width);
-                    var height = img.height;
-                    if (width > height) {
-                        if (width > maxSize) {
-                            height *= maxSize / width;
-                            width = maxSize;
-                        }
-                    } else {
-                        if (height > maxSize) {
-                            width *= maxSize / height;
-                            height = maxSize;
-                        }
+            var img = new Image;            
+            img.onload = function() 
+            {
+                var maxSize = 200;
+                var width = img.width;
+                var height = img.height;
+                if (width > height) 
+                {
+                    if (width > maxSize) 
+                    {
+                        height *= maxSize / width;
+                        width = maxSize;
                     }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    //var Style= 'opacity:0;position:absolute;z-index:-1;top: -100000000;left:-1000000000;width:' + width + 'px;height:' + height + 'px;';
-                    canvas.setAttribute("style", 'opacity:1;width:60px;');
-                    $('#form_Anh_Show').innerHTML = '';
-                    document.getElementById('form_Anh_Show').appendChild(canvas);
-                    
-                    //alert ( width +','+ height);
-                    canvasContext.drawImage(img, 0, 0, width, height);
-                    base64Image = canvas.toDataURL('image/jpeg');
-                    form_Anh  = base64Image;
-                    sendImage(base64Image);
-                    
-                    //document.body.removeChild(canvas)
-                    URL.revokeObjectURL(img.src);
                 } 
+                else 
+                {
+                    if (height > maxSize) 
+                    {
+                        width *= maxSize / height;
+                        height = maxSize;
+                    }
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                canvas.setAttribute("style", `opacity:1;width:${width}px;`);
+                $('#form_Anh_Show').innerHTML = '';
+                document.getElementById('form_Anh_Show').appendChild(canvas);
+                
+                canvasContext.drawImage(img, 0, 0, width, height);
+                base64Image = canvas.toDataURL('image/jpeg');
+                form_Anh  = base64Image;
+                //sendImage(base64Image);                
+                URL.revokeObjectURL(img.src);
+            }
             img.src = URL.createObjectURL(e.target.files[0]);
         });
-
-
-
-
     },
     sendImage: function(base64Image) 
     {
@@ -100,40 +91,6 @@ APP.form.control = {
         data = 'cuongpvwww;www' + $('#form_Id').value + 'www;www' + data;
         ajax.send(data);
         $('#form_Anh_Updated').value = '1';
-        //alert(data);
-    },
-    previewFiles: function(PreviewId,FileId)
-    {
-        var preview2 = document.querySelector('#'+PreviewId);
-        var files2   = document.querySelector('#'+FileId).files;
-        $('.ThongTinXe_Image').hide();
-    
-        function readAndPreview2(file2) 
-        {
-            if ( /\.(jpe?g|png|gif)$/i.test(file2.name) ) {
-                var reader2 = new FileReader();
-        
-                reader2.addEventListener("load", function () {
-                var image2 = new Image();
-                image2.height = 300;
-                image2.title = file2.name;
-                image2.src = this.result;
-                $('#'+PreviewId).html('');
-                preview2.appendChild(image2);
-                }, false);
-        
-                //reader2.readAsDataURL(file2);
-            }
-    
-        }
-        
-        
-        if (files2) 
-        {
-            [].forEach.call(files2, readAndPreview2);
-            //[].forEach.call(files2, resizeImage);
-        
-        }
     },
     delete: async function()
     {
