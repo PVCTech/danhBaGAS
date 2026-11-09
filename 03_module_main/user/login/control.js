@@ -21,7 +21,7 @@ APP.user.login.control =
     {
         let cb;
         $('#loginError').innerHTML = '';
-        $('#loginError').appendChild(loadingText());
+        $('#loginError').appendChild(PVCComponent.loadingText());
         $('#login_submitButton').innerText = 'Đang đăng nhập..';
         
         inactiveButton('login_submitButton');
