@@ -56,7 +56,7 @@ APP.form.control = {
                     canvas.height = height;
                     //var Style= 'opacity:0;position:absolute;z-index:-1;top: -100000000;left:-1000000000;width:' + width + 'px;height:' + height + 'px;';
                     canvas.setAttribute("style", 'opacity:1;width:60px;');
-                    $('#form_Anh_Show').html('');
+                    $('#form_Anh_Show').innerHTML = '';
                     document.getElementById('form_Anh_Show').appendChild(canvas);
                     
                     //alert ( width +','+ height);
