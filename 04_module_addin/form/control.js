@@ -52,7 +52,7 @@ APP.form.control =
                 
                 canvas.width = width;
                 canvas.height = height;
-                canvas.setAttribute("style", `opacity:1;width:${width}px;`);
+                canvas.setAttribute("style", `opacity:1;width:${parseInt(width * 0.9)}px;`);
                 $('#form_Anh_Show').innerHTML = '';
                 document.getElementById('form_Anh_Show').appendChild(canvas);
                 
