@@ -104,23 +104,6 @@ APP.form.control =
             });
         });
     },
-    sendImage: function(base64Image) 
-    {
-        var data = base64Image;
-        var ajax = null;
-        if (window.XMLHttpRequest) 
-        {
-            ajax = new XMLHttpRequest();
-        }
-        else if (window.ActiveXObject) 
-        {
-            ajax = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-    
-        data = 'cuongpvwww;www' + $('#form_Id').value + 'www;www' + data;
-        ajax.send(data);
-        $('#form_Anh_Updated').value = '1';
-    },
     delete: async function()
     {
         const xacMinh = await PVCComponent.canhBao('Bạn có chắc chắn muốn xóa!', 'Cảnh báo', 'okCancel');

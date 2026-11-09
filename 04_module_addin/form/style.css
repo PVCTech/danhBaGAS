@@ -21,7 +21,8 @@
     align-items: flex-start;
 }
 
-#lienHe_Form .form__avatar-preview canvas
+#lienHe_Form .form__avatar-preview canvas,
+#lienHe_Form .form__avatar-preview img
 {
     display: block;
     max-width: 90%;

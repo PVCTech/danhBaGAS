@@ -42,7 +42,7 @@ APP.form.ui =
                                 <input  style="width:0px;" type="file"  id="FileAnh" accept=".jpg,.jpeg" name="FileAnh[]" multiple>
                                 <div id="form_Anh_Show" class="form__avatar-preview">&nbsp;
                                 </div>
-                                
+
                                 <input type="text" id="form_star_input" value="0" style="display:none;">
                                 <input type="text" id="form_Anh_Updated" value="0" style="display:none;">
                             </div>
@@ -169,6 +169,44 @@ APP.form.ui =
             this.renderZalo('SDT1');
             this.renderZalo('SDT2');
             this.renderZalo('SDT3');
+            this.loadAvatar(lienHe.id);
+        }
+    },
+    loadAvatar: async function(lienHeId)
+    {
+        const requestId = APP.form.state.avatarRequestId;
+        try
+        {
+            const response = await APP.api.getAvatar(lienHeId);
+            if (requestId !== APP.form.state.avatarRequestId
+                || APP.form.mode !== 'update'
+                || String(APP.form.state.lienHe.id) !== String(lienHeId)) return;
+
+            const avatar = response?.avatar;
+            if (typeof avatar !== 'string')
+            {
+                if (response !== 'ko tim thay row avatar')
+                {
+                    throw new Error('Server trả về dữ liệu ảnh đại diện không hợp lệ');
+                }
+                return;
+            }
+            if (!avatar) return;
+
+            const image = document.createElement('img');
+            image.alt = 'Avatar';
+            image.src = avatar;
+            image.onerror = function()
+            {
+                console.error(`Không thể hiển thị ảnh đại diện cho liên hệ ${lienHeId}`);
+            };
+            const preview = $('#form_Anh_Show');
+            preview.innerHTML = '';
+            preview.appendChild(image);
+        }
+        catch (error)
+        {
+            console.error(`Không thể tải ảnh đại diện cho liên hệ ${lienHeId}:`, error);
         }
     },
     renderZalo: function(SDT)
