@@ -1,11 +1,7 @@
 APP.ui = 
 {
     init: function()
-    {    
-        //render modal dialogs
-        datePicker_init();
-        divChe_init();
-        
+    {            
         //Render layout: header, sidebar, view, footer
         APP.loadingScreen.init();
         APP.form.goiY.ui.header.init();

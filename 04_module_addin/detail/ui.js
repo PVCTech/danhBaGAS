@@ -17,7 +17,7 @@ APP.detail.ui =
             }
         `;
         document.head.appendChild(style);
-        divChe({id: 'detail_divChe'});
+         PVCComponent.divChe( {id: 'detail_divChe'});
         let divct = document.createElement('div');
         divct.id = 'ChiTiet_Div';
         divct.className = 'detail__div';        
