@@ -214,6 +214,11 @@ APP.form.ui =
     },
     show: function(lienHeId)
     {
+        APP.form.state.avatarImage = '';
+        APP.form.state.avatarError = null;
+        APP.form.state.avatarRequestId++;
+        APP.form.state.avatarProcessing = Promise.resolve('');
+        $('#form_Anh_Show').innerHTML = '&nbsp;';
         APP.form.mode = lienHeId == '' ? 'addNew' : 'update';        
         APP.form.state.lienHe.id = lienHeId;
         this.render();
@@ -294,6 +299,11 @@ APP.form.ui =
     clear: function()
     {
         $('#lienHe_Form').reset();
+        APP.form.state.avatarImage = '';
+        APP.form.state.avatarError = null;
+        APP.form.state.avatarRequestId++;
+        APP.form.state.avatarProcessing = Promise.resolve('');
+        $('#form_Anh_Show').innerHTML = '&nbsp;';
         APP.form.lienHeId = '';
         Object.keys(this.listField).forEach(key => {
             let field = this.listField[key];

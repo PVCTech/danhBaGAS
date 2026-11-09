@@ -97,7 +97,7 @@ APP.api =
             });
         }    
     },
-    addNew: function()
+    addNew: function(avatarImage)
     {
         if (APP.mode == 'demo')
         {
@@ -114,6 +114,7 @@ APP.api =
         {
             const data = {
                 lienHe: APP.form.state.lienHe,
+                avatarImage,
                 donVi1: APP.form.state.donVi1,
                 donVi2: APP.form.state.donVi2,
                 phongBan1: APP.form.state.phongBan1,
@@ -122,7 +123,7 @@ APP.api =
                 phuongXa: APP.form.state.phuongXa
             }; 
 
-            return new Promise((resolve, error) =>
+            return new Promise((resolve, reject) =>
             {
                 google.script.run
                     .withSuccessHandler(resolve)
@@ -134,7 +135,7 @@ APP.api =
             });
         }    
     },
-    update: function()
+    update: function(avatarImage)
     {
         if (APP.mode == 'demo')
         {
@@ -148,6 +149,7 @@ APP.api =
         {
             const data = {
                 lienHe: APP.form.state.lienHe,
+                avatarImage,
                 donVi1: APP.form.state.donVi1,
                 donVi2: APP.form.state.donVi2,
                 phongBan1: APP.form.state.phongBan1,

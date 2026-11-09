@@ -8,7 +8,11 @@ APP.form.state =
     phongBan1: {},
     phongBan2: {},
     tinh: {},
-    phuongXa: {}
+    phuongXa: {},
+    avatarImage: '',
+    avatarProcessing: Promise.resolve(''),
+    avatarError: null,
+    avatarRequestId: 0
 };
 
 APP.form.control = 
@@ -20,49 +24,84 @@ APP.form.control =
     },
     bindEvents: function()
     {       
-        //Preview anh:
-        document.getElementById('FileAnh').addEventListener('change', function(e) 
+        document.getElementById('FileAnh').addEventListener('change', function(event)
         {
-            var canvas = document.createElement('canvas');
-            var canvasContext = canvas.getContext('2d');
-            var base64Image = '';       
-            
-            var img = new Image;            
-            img.onload = function() 
+            const file = event.target.files?.[0];
+            if (!file) return;
+
+            const requestId = ++APP.form.state.avatarRequestId;
+            const objectUrl = URL.createObjectURL(file);
+            const img = new Image();
+            APP.form.state.avatarImage = '';
+            APP.form.state.avatarError = null;
+            APP.form.state.avatarProcessing = new Promise((resolve, reject) =>
             {
-                var maxSize = 200;
-                var width = img.width;
-                var height = img.height;
-                if (width > height)
+                img.onload = function()
                 {
-                    if (width > maxSize) 
+                    try
                     {
-                        height *= maxSize / width;
-                        width = maxSize;
+                        if (requestId !== APP.form.state.avatarRequestId) return resolve('');
+
+                        const canvas = document.createElement('canvas');
+                        const canvasContext = canvas.getContext('2d');
+                        if (!canvasContext) throw new Error('Không thể xử lý ảnh đại diện');
+
+                        const maxSize = 200;
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > height)
+                        {
+                            if (width > maxSize)
+                            {
+                                height *= maxSize / width;
+                                width = maxSize;
+                            }
+                        }
+                        else if (height > maxSize)
+                        {
+                            width *= maxSize / height;
+                            height = maxSize;
+                        }
+
+                        canvas.width = width;
+                        canvas.height = height;
+                        canvas.setAttribute('style', `opacity:1;width:${parseInt(width * 0.9)}px;`);
+                        canvasContext.drawImage(img, 0, 0, width, height);
+
+                        const avatarImage = canvas.toDataURL('image/jpeg');
+                        if (requestId === APP.form.state.avatarRequestId)
+                        {
+                            $('#form_Anh_Show').innerHTML = '';
+                            $('#form_Anh_Show').appendChild(canvas);
+                            APP.form.state.avatarImage = avatarImage;
+                        }
+                        resolve(avatarImage);
                     }
-                } 
-                else 
+                    catch (error)
+                    {
+                        reject(error);
+                    }
+                    finally
+                    {
+                        URL.revokeObjectURL(objectUrl);
+                    }
+                };
+
+                img.onerror = function()
                 {
-                    if (height > maxSize) 
-                    {
-                        width *= maxSize / height;
-                        height = maxSize;
-                    }
+                    URL.revokeObjectURL(objectUrl);
+                    reject(new Error('Không thể tải ảnh đại diện đã chọn'));
+                };
+                img.src = objectUrl;
+            }).catch(error =>
+            {
+                if (requestId === APP.form.state.avatarRequestId)
+                {
+                    APP.form.state.avatarError = error;
+                    console.error('Không thể xử lý ảnh đại diện:', error);
                 }
-                
-                canvas.width = width;
-                canvas.height = height;
-                canvas.setAttribute("style", `opacity:1;width:${parseInt(width * 0.9)}px;`);
-                $('#form_Anh_Show').innerHTML = '';
-                document.getElementById('form_Anh_Show').appendChild(canvas);
-                
-                canvasContext.drawImage(img, 0, 0, width, height);
-                base64Image = canvas.toDataURL('image/jpeg');
-                form_Anh  = base64Image;
-                //sendImage(base64Image);                
-                URL.revokeObjectURL(img.src);
-            }
-            img.src = URL.createObjectURL(e.target.files[0]);
+                return '';
+            });
         });
     },
     sendImage: function(base64Image) 
@@ -175,11 +214,14 @@ APP.form.control =
     submit: async function()
     {
         try{
+            await APP.form.state.avatarProcessing;
+            if (APP.form.state.avatarError) throw APP.form.state.avatarError;
+            const avatarImage = APP.form.state.avatarImage;
             this.readData();
             if (APP.form.mode === 'addNew')
             {
                 PVCComponent.toast('Đang thêm mới..');
-                let addNewStatus = await APP.api.addNew();
+                let addNewStatus = await APP.api.addNew(avatarImage);
                 if (addNewStatus.status == 'ok')
                 {
                     APP.form.state.lienHe.id = addNewStatus.id;
@@ -208,7 +250,7 @@ APP.form.control =
                     return;
                 }
 
-                let updateStatus = await APP.api.update();
+                let updateStatus = await APP.api.update(avatarImage);
                 if (updateStatus.status == 'ok')
                 {
                     //cập nhật cache, xóa lịch sử nếu có
