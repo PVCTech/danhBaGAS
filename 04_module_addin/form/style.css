@@ -13,6 +13,20 @@
     color: var(--color-primary);
 }
 
+#lienHe_Form .form__avatar-preview
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#lienHe_Form .form__avatar-preview canvas
+{
+    display: block;
+    max-width: 90%;
+    height: auto;
+}
 
 #lienHe_Form .image-active 
 {
