@@ -20,6 +20,7 @@ APP.cache =
         console.log('Cache init');
         const hasLocalCache = this.loadLocal();
         await this.update(hasLocalCache ? this.data.version : '');
+        console.log(JSON.stringify(APP.cache.data.danhSachLichSu));
         return hasLocalCache;
     },
     loadLocal: function()
