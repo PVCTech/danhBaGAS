@@ -15,7 +15,9 @@ APP.history.ui =
         {
             let lichSu = APP.cache.data.danhSachLichSu[i];
             let lienHe = APP.cache.data.danhSachLienHe.find(lh => String(lh.id) == String(lichSu.lienHeId));
-            let avatar = lienHe.avatar =='' || lienHe.avatar === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${lienHe.avatar}" style="width:40px;">`;
+            if (!lienHe) continue;
+            let avatarImage = lichSu.avatar || lienHe.avatar;
+            let avatar = avatarImage == '' || avatarImage === undefined ? `<image src="https://pvctech.github.io/danhBaGAS/assets/img/avatar_star.svg" style="width:40px;">` : `<image src="${avatarImage}" style="width:40px;">`;
             let hoVaTen_textSize = 18;
             if (lienHe.tenHienThi.length > 15 && lienHe.tenHienThi.indexOf(' ') == -1)
             {
@@ -57,5 +59,4 @@ APP.history.ui =
         }
     }
 };
-
 

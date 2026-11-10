@@ -212,7 +212,9 @@ APP.form.control =
                     APP.cache.data.danhSachLienHe.push(new LienHe(APP.form.state.lienHe));
                     APP.cache.data.danhSachLichSu.push({
                         ...APP.form.state.lienHe.lichSuTruyCap,
-                        lienHeId: APP.form.state.lienHe.id});
+                        lienHeId: APP.form.state.lienHe.id,
+                        avatar: avatarImage || ''});
+                    APP.cache.setLocal();
                 
                     //render lại và showtab lịch sử
                     APP.form.ui.clear();
@@ -249,13 +251,17 @@ APP.form.control =
                         APP.cache.data.danhSachLienHe[lienHeIndex] = lienHe;
                     }
 
-                    const history = {
-                        ...APP.form.state.lienHe.lichSuTruyCap,
-                        lienHeId: lienHe.id
-                    };
-                    const historyIndex = APP.cache.data.danhSachLichSu.findIndex(
+                    const existingHistory = APP.cache.data.danhSachLichSu.find(
                         item => String(item.lienHeId) === String(lienHe.id)
                     );
+                    const history = {
+                        ...APP.form.state.lienHe.lichSuTruyCap,
+                        lienHeId: lienHe.id,
+                        avatar: avatarImage || (existingHistory && existingHistory.avatar) || ''
+                    };
+                    const historyIndex = existingHistory
+                        ? APP.cache.data.danhSachLichSu.indexOf(existingHistory)
+                        : -1;
                     if (historyIndex === -1) APP.cache.data.danhSachLichSu.push(history);
                     else APP.cache.data.danhSachLichSu[historyIndex] = history;
 

@@ -25,8 +25,8 @@ APP.api =
                             {id: '16', Star: '0', tenHienThi: 'Anh Mạnh Chợ LX', xungHoId: '10', ten: 'kwManh', ngaySinh: '0', thangSinh: '0', namSinh: '0', donVi1Id: '0', phongBan1Id: '0', donVi2Id: '0', phongBan2Id: '0', tinhId: '0', phuongXaId: '0', timKiem: 'kwManh aManhcho', SDT1: '382666277', SDT2: '916429388', SDT3: '', SDT1Zalo: '1', SDT2Zalo: '0', SDT3Zalo: '0',  avatar: '',  email: '', diaChi: '', ghiChu: ''}
                         ],
                         danhSachLichSu: [
-                            {ngay:1, thang:1, nam:2026, gio:8, phut:0, giay:0, lienHeId: 14},
-                            {ngay:2, thang:5, nam:2027, gio:9, phut:1, giay:2, lienHeId: 15}
+                            {ngay:1, thang:1, nam:2026, gio:8, phut:0, giay:0, lienHeId: 14, avatar: ''},
+                            {ngay:2, thang:5, nam:2027, gio:9, phut:1, giay:2, lienHeId: 15, avatar: ''}
                         ],
                         danhSachDonVi: [
                             {id: '-5', ten: 'Bạn bè', timKiem: 'bbe ban'},

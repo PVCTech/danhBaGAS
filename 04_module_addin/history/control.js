@@ -5,6 +5,12 @@ APP.history.control =
     addNew: function(lienHeId)
     {
         let d = new Date();
+        const existingHistory = APP.cache.data.danhSachLichSu.find(
+            item => String(item.lienHeId) === String(lienHeId)
+        );
+        const lienHe = APP.cache.data.danhSachLienHe.find(
+            item => String(item.id) === String(lienHeId)
+        );
         const newHistory = 
         {
             ngay: d.getDate(),
@@ -13,11 +19,21 @@ APP.history.control =
             gio: d.getHours(),
             phut: d.getMinutes(),
             giay: d.getSeconds(),
-            lienHeId: lienHeId
+            lienHeId: lienHeId,
+            avatar: (existingHistory && existingHistory.avatar) || (lienHe && lienHe.avatar) || ''
         };
 
         this.addToCache(newHistory);
-        APP.history.api.addNew(newHistory);        
+        APP.history.api.addNew(newHistory)
+            .then(savedHistory =>
+            {
+                if (savedHistory && typeof savedHistory.avatar === 'string'
+                    && savedHistory.avatar !== newHistory.avatar)
+                {
+                    this.addToCache({...newHistory, avatar: savedHistory.avatar});
+                }
+            })
+            .catch(error => console.error('Không thể cập nhật lịch sử truy cập:', error));
     },
     addToCache: function(history)
     {
