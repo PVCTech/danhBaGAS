@@ -91,11 +91,14 @@ APP.view.ui =
         this.removeTabHistory(module);
         APP.view.ui.tabHistory.push(module);
         if (APP.view.ui.tabHistory.length > 1) APP.footer.ui.backButton.enable();
+        if (APP.view.ui.tabHistory.length == 1)
+        {
+            if  (APP.view.ui.tabHistory[0] !== 'home') APP.footer.ui.backButton.enable();
+        }
     },
     removeTabHistory: function(module)
     {
-        APP.view.ui.tabHistory = APP.view.ui.tabHistory.filter(x => x !== module);
-        if (APP.view.ui.tabHistory.length <= 1) APP.footer.ui.backButton.disable();
+        APP.view.ui.tabHistory = APP.view.ui.tabHistory.filter(x => x !== module);        
     },
     clearTab: function(module)
     {
@@ -137,6 +140,18 @@ APP.view.ui =
             return;
         }
 
+        if (APP.view.ui.tabHistory.length == 1)
+        {
+            if (APP.state.manHinhHienTai !== 'home')
+            {
+                this.removeTabHistory(APP.state.manHinhHienTai);
+                APP.footer.ui.backButton.disable();
+                this.showTab('home');
+            }
+            return;
+        }
+
+        APP.footer.ui.backButton.disable();
         this.showTab('home');
     }
 };

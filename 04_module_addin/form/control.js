@@ -236,24 +236,33 @@ APP.form.control =
                 let updateStatus = await APP.api.update(avatarImage);
                 if (updateStatus.status == 'ok')
                 {
-                    //cập nhật cache, xóa lịch sử nếu có
-                    let udIndex = APP.cache.data.danhSachLienHe.findIndex(lh => String(lh.id) === String(APP.form.state.lienHe.id));
-                    if (udIndex !==-1) 
+                    const lienHe = new LienHe(APP.form.state.lienHe);
+                    const lienHeIndex = APP.cache.data.danhSachLienHe.findIndex(
+                        item => String(item.id) === String(lienHe.id)
+                    );
+                    if (lienHeIndex === -1)
                     {
-                        APP.cache.data.danhSachLienHe[udIndex] = new LienHe(APP.form.state.lienHe);     
+                        APP.cache.data.danhSachLienHe.push(lienHe);
+                    }
+                    else
+                    {
+                        APP.cache.data.danhSachLienHe[lienHeIndex] = lienHe;
                     }
 
-                    let historyIndex = APP.cache.data.danhSachLichSu.findIndex(lh => String(lh.lienHeId) === String(APP.form.state.lienHe.id));
-                    if (historyIndex !==-1) 
-                    {
-                        APP.cache.data.danhSachLichSu[historyIndex] = {
-                            ...APP.form.state.lienHe.lichSuTruyCap,
-                            lienHeId: APP.form.state.lienHe.id
-                        }
-                    }
+                    const history = {
+                        ...APP.form.state.lienHe.lichSuTruyCap,
+                        lienHeId: lienHe.id
+                    };
+                    const historyIndex = APP.cache.data.danhSachLichSu.findIndex(
+                        item => String(item.lienHeId) === String(lienHe.id)
+                    );
+                    if (historyIndex === -1) APP.cache.data.danhSachLichSu.push(history);
+                    else APP.cache.data.danhSachLichSu[historyIndex] = history;
+
+                    APP.cache.setLocal();
                     
-                    //render lại và showtab lịch sử
                     APP.form.ui.clear();
+                    APP.list.ui.render();
                     APP.history.ui.render();
                     APP.view.ui.showTab('home');
                 }
